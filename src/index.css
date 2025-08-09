@@ -1,0 +1,331 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./styles/fonts.css";
+
+
+/* Badge scroll animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 15s linear infinite;
+}
+
+/* Tab content fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Global Smooth Scrolling Configuration */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+  /* Additional smooth scrolling properties for enhanced experience */
+  scroll-snap-type: none; /* Disable snap to allow free smooth scrolling */
+}
+
+/* Enhanced smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Body smooth scrolling with custom momentum and slowed behavior */
+body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+  overscroll-behavior: contain; /* Prevent bounce effect */
+  /* Additional properties for smoother, slower scrolling */
+  scroll-padding: 0;
+}
+
+/* Custom smooth scrolling for scrollable containers */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Additional CSS for very smooth scrolling experience */
+::-webkit-scrollbar {
+  width: 0px; /* Hide scrollbar for cleaner look while maintaining functionality */
+  background: transparent;
+}
+
+/* Ensure smooth scrolling works on main content areas */
+.page-content-fade {
+  scroll-behavior: smooth;
+}
+
+@custom-variant dark (&:is(.dark *));
+@tailwind base;
+@tailwind utilities;
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Absans', 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Navigation Half-Circle Hover Effect */
+.nav-hover-circle {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px; /* Space for the half-circle */
+  transition: all 0.3s ease;
+}
+
+.nav-hover-circle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 14px;
+  height: 7px;
+  background-color: #131313;
+  border-radius: 8px 8px 0 0;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s ease;
+}
+
+.nav-hover-circle:hover::after {
+  transform: translateX(-50%) scaleY(1);
+}
+
+/* Hamburger Menu Animation */
+.hamburger-line {
+  width: 32px;
+  height: 1px;
+  background-color: #131313;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.hamburger-line.open:first-child {
+  transform: rotate(45deg) translate(4.5px, 5.5px);
+}
+
+.hamburger-line.open:last-child {
+  transform: rotate(-45deg) translate(5.5px, -4.5px);
+}
+
+/* Header Animations */
+/* Fixed header section - appears immediately and stays on top */
+.header-fixed {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+  z-index: 30;
+}
+
+/* Navigation drawer - slides down from under fixed section like a real drawer */
+.header-nav-drawer {
+  animation: slideDrawerDown 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+  transform: translateY(-100%);
+  opacity: 1; /* Always fully visible, no fade effect */
+  position: relative;
+  z-index: 10; /* Lower z-index to stay behind fixed section */
+  margin-top: -1px; /* Eliminate any gap between fixed section and navigation */
+}
+
+@keyframes slideDrawerDown {
+  from {
+    transform: translateY(-100%); /* Start completely hidden behind the fixed section */
+  }
+  to {
+    transform: translateY(0); /* Slide to normal position */
+  }
+}
+
+/* Page Content Fade-in Animation - synchronized with navigation drawer */
+.page-content-fade {
+  animation: fadeInContent 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Expandable section slide-down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s ease-out forwards;
+  overflow: hidden;
+}
+
+/* Spinning star icon animation */
+.star-icon {
+  transition: transform 0.8s ease-in-out;
+}
+
+.section-header:hover .star-icon {
+  animation: continuousSpin 3s linear infinite;
+}
+
+/* Spin star icon when section is expanded */
+.star-icon.expanded {
+  animation: continuousSpin 3s linear infinite;
+}
+
+/* Spin star icon on hover when section is expanded */
+.section-expanded:hover .star-icon {
+  animation: continuousSpin 3s linear infinite;
+}
+
+@keyframes continuousSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

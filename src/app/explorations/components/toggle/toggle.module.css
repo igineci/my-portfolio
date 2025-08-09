@@ -1,0 +1,143 @@
+/* Container for the toggle component */
+.container {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font: 80px/1.5 sans-serif;
+	display: grid;
+	place-items: center;
+}
+
+.container input[type=checkbox] {
+	--off: #f2f0ea;
+	--mid: #e3d5ca;
+	--on: #d5bdaf;
+	--transDur: 0.5s;
+	--timing: cubic-bezier(0.6,0,0.4,1);
+	animation: bgOff var(--transDur) var(--timing);
+	background-color: var(--off);
+	border-radius: 0.67em / 0.5em;
+	box-shadow:
+		0 0.05em 0.1em #00000007 inset,
+		0 -0.25em 0.25em #0001 inset,
+		0 -0.5em 0 #0001 inset,
+		0 0.1em 0.1em #0001;
+	cursor: pointer;
+	position: relative;
+	width: 2.25em;
+	height: 1.5em;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+}
+.container input[type=checkbox]:before {
+	animation: handleOff var(--transDur) var(--timing);
+	background-color: #dddbd4;
+	border-radius: 0.5em / 0.375em;
+	box-shadow:
+		0 0.175em 0.175em 0 #0001 inset,
+		0 0.375em 0 #0002 inset,
+		0 0.375em 0 var(--off) inset,
+		0 0.475em 0.1em #0001 inset;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0.125em;
+	left: 0.125em;
+	width: 1em;
+	height: 0.75em;
+}
+.container input[type=checkbox]:checked {
+	animation: bgOn var(--transDur) var(--timing) forwards;
+}
+.container input[type=checkbox]:checked:before {
+	animation: handleOn var(--transDur) var(--timing) forwards;
+}
+.container input[type=checkbox]:focus {
+	outline: none;
+}
+.pristine, .pristine:before {
+	animation: none !important;
+}
+
+/* Animations */
+@keyframes bgOff {
+	from {
+		background-color: var(--on);
+	}
+	50% {
+		background-color: var(--mid);
+	}
+	to {
+		background-color: var(--off);
+	}
+}
+@keyframes bgOn {
+	from {
+		background-color: var(--off);
+	}
+	50% {
+		background-color: var(--mid);
+	}
+	to {
+		background-color: var(--on);
+	}
+}
+@keyframes handleOff {
+	from {
+		box-shadow:
+			0 0.175em 0.175em 0 #0001 inset,
+			0 0.375em 0 #0002 inset,
+			0 0.375em 0 var(--on) inset,
+			0 0.475em 0.1em #0001 inset;
+		left: 1.125em;
+		width: 1em;
+	}
+	50% {
+		box-shadow:
+			0 0.175em 0.175em 0 #0001 inset,
+			0 0.375em 0 #0002 inset,
+			0 0.375em 0 var(--mid) inset,
+			0 0.475em 0.1em #0001 inset;
+		left: 0.125em;
+		width: 2em;
+	}
+	to {
+		box-shadow:
+			0 0.175em 0.175em 0 #0001 inset,
+			0 0.375em 0 #0002 inset,
+			0 0.375em 0 var(--off) inset,
+			0 0.475em 0.1em #0001 inset;
+		left: 0.125em;
+		width: 1em;
+	}
+}
+@keyframes handleOn {
+	from {
+		box-shadow:
+			0 0.175em 0.175em 0 #0001 inset,
+			0 0.375em 0 #0002 inset,
+			0 0.375em 0 var(--off) inset,
+			0 0.475em 0.1em #0001 inset;
+		left: 0.125em;
+		width: 1em;
+	}
+	50% {
+		box-shadow:
+			0 0.175em 0.175em 0 #0001 inset,
+			0 0.375em 0 #0002 inset,
+			0 0.375em 0 var(--mid) inset,
+			0 0.475em 0.1em #0001 inset;
+		left: 0.125em;
+		width: 2em;
+	}
+	to {
+		box-shadow:
+			0 0.175em 0.175em 0 #0001 inset,
+			0 0.375em 0 #0002 inset,
+			0 0.375em 0 var(--on) inset,
+			0 0.475em 0.1em #0001 inset;
+		left: 1.125em;
+		width: 1em;
+	}
+}

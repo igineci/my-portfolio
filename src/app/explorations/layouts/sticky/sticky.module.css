@@ -1,0 +1,87 @@
+/* Container for sticky slides - optimized for gallery card */
+.container {
+  position: relative;
+  height: 300px; 
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Base slide styles - each slide needs full container height to create scroll effect */
+.slideFirst,
+.slideSecond,
+.slideThird,
+.slideFourth {
+  position: sticky;
+  top: 0;
+  height: 300px; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* First slide - Green to Blue gradient */
+.slideFirst {
+  background: linear-gradient(to bottom, #f9c6c9, #f2c6de); /* from-green-200 to-blue-200 */
+  color: #131313;
+}
+
+/* Second slide - Indigo to Purple gradient */
+.slideSecond {
+  background: linear-gradient(to bottom, #dbcdf0, #c6def1); /* from-indigo-800 to-purple-800 */
+  color: #f2f0ea;
+}
+
+/* Third slide - Purple to Pink gradient */
+.slideThird {
+  background: linear-gradient(to bottom, #c8e1e8, #c9e4de); /* from-purple-800 to-pink-800 */
+  color: #f2f0ea;
+}
+
+/* Fourth slide - Blue to Indigo gradient */
+.slideFourth {
+  background: linear-gradient(to bottom, #e2e9d5, #faedcb); /* from-blue-200 to-indigo-100 */
+  color: #131313;
+}
+
+/* Typography styles - optimized for gallery card */
+.title {
+  font-size: 1.5rem; /* Smaller font size for better fit */
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 0.875rem; /* Slightly smaller subtitle */
+  opacity: 0.9;
+  line-height: 1.3;
+}
+
+/* Responsive adjustments - optimized for gallery card */
+@media (max-width: 768px) {
+  .container {
+    height: 250px; 
+  }
+  
+  .slideFirst,
+  .slideSecond,
+  .slideThird,
+  .slideFourth {
+    height: 250px; 
+    padding: 1rem; 
+  }
+  
+  .title {
+    font-size: 1.25rem; 
+  }
+  
+  .subtitle {
+    font-size: 0.75rem; 
+  }
+}

@@ -1,0 +1,139 @@
+/* Container - Scoped to component only */
+.container {
+  display: flex;
+  height: 300px; /* Fixed height instead of 100vh for gallery card */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Pane States */
+.halfWidth {
+  width: 50%;
+  transition: width 1s ease-in-out;
+}
+
+.fullWidth {
+  width: 100%;
+  transition: width 1s ease-in-out;
+}
+
+.hidden {
+  width: 0%;
+  transition: width 1s ease-in-out;
+}
+
+/* Left Pane */
+.leftPane {
+  background-color: #b2a1a1;
+  color: #dddbd4;
+  text-align: center;
+  position: relative;
+}
+
+.leftButtonContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  right: 0;
+  width: 8rem;
+}
+
+.leftPaneButton {
+  width: 100%;
+  height: 8rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  background-color: #d3cac5;
+  color: #131313;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.leftPaneButton:hover {
+  background-color: #dddbd4; 
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; 
+  height: 100%;
+  font-size: 1.25rem;
+}
+
+/* Right Pane */
+.rightPane {
+  background-color: #d3cac5;
+  color: #131313;
+  text-align: center;
+  position: relative;
+}
+
+.rightButtonContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%; /* Use 100% of container height instead of 100vh */
+  left: 0;
+  width: 8rem; /* Smaller for gallery card - w-32 equivalent */
+}
+
+.rightPaneButton {
+  width: 100%;
+  height: 8rem; /* Smaller for gallery card - h-32 equivalent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  background-color: #b2a1a1;
+  color: #f2f0ea;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.rightPaneButton:hover {
+  background-color: #a39091; /* gray-700 equivalent */
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; /* Reduced padding for gallery card */
+  height: 100%; /* Use 100% of container height */
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for gallery card */
+@media (max-width: 768px) {
+  .container {
+    height: 300px; /* Smaller height on mobile */
+  }
+  
+  .leftButtonContainer,
+  .rightButtonContainer {
+    width: 4rem; /* Even smaller buttons on mobile */
+  }
+  
+  .leftPaneButton,
+  .rightPaneButton {
+    height: 4rem;
+    font-size: 0.75rem;
+  }
+  
+  .leftContent,
+  .rightContent {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
