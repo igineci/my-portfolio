@@ -1,6 +1,6 @@
 // Explorations Page Component
 import Header from "../../components/header";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer";
 import LayoutsContent from "./layouts/content";
 import { useState } from "react";
 import ExperimentsContent from "./experiments/content";

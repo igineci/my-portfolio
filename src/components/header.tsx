@@ -122,7 +122,7 @@ export default function Header() {
 
           {/* Mobile Layout */}
           <div className="md:hidden">
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-2 pb-6 border-b border-[#131313]">
               {/* Hamburger Menu - Left */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -138,7 +138,7 @@ export default function Header() {
               </button>
 
               {/* Site Name - Center */}
-              <h1 className="text-2xl font-thin tracking-wider text-[#131313] ">
+              <h1 className="text-3xl font-thin tracking-wider text-[#131313] ">
                 Andjela Djekic
               </h1>
 

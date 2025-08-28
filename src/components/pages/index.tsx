@@ -1,9 +1,10 @@
 "use client";
 
 import Header from "../header";
-import HeroSection from "../../app/home/Hero";
-import FeaturedWork from "../../app/home/FeaturedWork";
-import Footer from "../Footer";
+import HeroSection from "../../app/home/hero";
+import Projects from "../../app/home/projects";
+import Footer from "../footer";
+import InteractiveContact from "../ui/contact-form";
 
 export default function HomePage() {
   return (
@@ -13,7 +14,9 @@ export default function HomePage() {
         <Header />
         <div className="page-content-fade">
           <HeroSection />
-          <FeaturedWork />
+          <Projects />
+          <InteractiveContact />
+          <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
         </div>
       </div>
 

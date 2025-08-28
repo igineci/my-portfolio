@@ -13,6 +13,7 @@
     "update-interface": "npm run downloadEn && npm run interface && rm -rf ./src/@types/locales"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.7",
     "class-variance-authority": "^0.7.1",
