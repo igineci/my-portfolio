@@ -4,12 +4,12 @@ import type React from "react";
 
 import { GrLinkedin } from "react-icons/gr";
 import { FaInstagramSquare } from "react-icons/fa";
-import { IoSend } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa6";
 import { Button } from "./button";
 import { Input } from "./input";
 import { Textarea } from "./textarea";
 import emailjs from "@emailjs/browser";
+import { GiLoveLetter } from "react-icons/gi";
 
 interface InteractiveContactProps {
   name?: string;
@@ -33,6 +33,9 @@ export default function InteractiveContact({
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const [isMailSuccess, setIsMailSuccess] = useState(false);
+  const [isMailError, setIsMailError] = useState(false);
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -46,21 +49,24 @@ export default function InteractiveContact({
     e.preventDefault();
     setIsLoading(true);
 
+    setIsMailError(false);
+
     try {
-      // Replace with your EmailJS credentials
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         formData,
-        "YOUR_PUBLIC_KEY"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
       setIsSuccess(true);
       setFormData({ from_name: "", from_email: "", subject: "", message: "" });
 
-      setTimeout(() => setIsSuccess(false), 3000);
+      setTimeout(() => setIsMailSuccess(false), 3000);
     } catch (error) {
       console.error("Email send failed:", error);
+      setIsMailError(true);
+      setTimeout(() => setIsMailError(false), 5000);
     } finally {
       setIsLoading(false);
     }
@@ -216,25 +222,43 @@ export default function InteractiveContact({
                   >
                     {isLoading ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <div className="w-10 h-10 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                         Sending...
                       </div>
                     ) : isSuccess ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                           <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                         </div>
                         Message Sent!
                       </div>
                     ) : (
                       <div className="flex items-center gap-3">
-                        <IoSend className="w-6 h-6" />
+                        <GiLoveLetter className="w-10 h-10" />
                         Send Message
                       </div>
                     )}
                   </Button>
                 </div>
               </form>
+
+              {isMailSuccess && (
+                <div className="text-center p-6 bg-green-100 rounded-2xl border border-green-300 shadow-md">
+                  <p className="text-green-800 font-semibold text-lg">
+                    ✅ Thanks for reaching out! Your message was sent
+                    successfully. I’ll get back to you as soon as possible.
+                  </p>
+                </div>
+              )}
+
+              {isMailError && (
+                <div className="text-center p-6 bg-red-100 rounded-2xl border border-red-300 shadow-md">
+                  <p className="text-red-800 font-semibold text-lg">
+                    ❌ Oops, something went wrong. Your message couldn’t be
+                    sent. Please try again a bit later.
+                  </p>
+                </div>
+              )}
 
               {isSuccess && (
                 <div className="text-center p-6 bg-primary/10 rounded-2xl border border-primary/20">

@@ -1,0 +1,33 @@
+.letterI {
+  width: 40vh;
+  height: 40vh;
+  display: block;
+  margin: auto;
+}
+
+.cls1 {
+  fill: none;
+  stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-dasharray: 1500;
+  animation: lines 4s infinite;
+  stroke: var(--color);
+  animation-delay: calc(var(--item) * 1s);
+}
+
+.dot {
+  stroke-dasharray: 500;
+  stroke: var(--color);
+}
+
+.stem {
+  stroke: var(--color);
+}
+
+@keyframes lines {
+  to {
+    stroke-dashoffset: 3000;
+  }
+}
+

@@ -30,6 +30,7 @@
   width: 40px;
   border-radius: 50%;
   background-color: #131313;
+  opacity: 80%;
   position: relative;
   transform-origin: 50% -300%;
 }
