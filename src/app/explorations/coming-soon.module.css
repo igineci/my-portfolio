@@ -1,0 +1,13 @@
+.card {
+  margin: 70px 160px 0px 160px;
+  padding: 1rem;
+  background: #604652;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #f2f0ea;
+}

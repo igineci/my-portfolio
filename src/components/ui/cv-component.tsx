@@ -4,8 +4,10 @@ import { useState } from "react";
 import { LiaFileAlt } from "react-icons/lia";
 import { TfiDownload } from "react-icons/tfi";
 import { HiArrowRight } from "react-icons/hi2";
+import { useTranslation } from "react-i18next";
 
 export default function CvComponent() {
+  const { t } = useTranslation();
   const [isDownloading, setIsDownloading] = useState(false);
 
   const handleDownload = async () => {
@@ -34,7 +36,7 @@ export default function CvComponent() {
           </div>
           <div>
             <p className="text-[30px] ml-2 text-[#131313] uppercase tracking-widest">
-              CURRICULUM VITAE
+              {t("CV", "Curriculum vitae")}
             </p>
           </div>
         </div>
@@ -43,13 +45,15 @@ export default function CvComponent() {
 
         <div className="mb-8">
           <p className="text-foreground font-medium leading-relaxed">
-            Complete profile including experience, education, and technical
-            competencies.
+            {t(
+              "cvDesc",
+              "Complete profile including experience, education, and technical competencies."
+            )}
           </p>
           <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
             <div className="w-2 h-2 border-[#131313] border-1"></div>
             <span className="font-medium text-[#131313]/40 uppercase tracking-wide">
-              PDF FORMAT
+              {t("cvFormat", "PDF Format")}
             </span>
           </div>
         </div>
@@ -63,13 +67,13 @@ export default function CvComponent() {
             {isDownloading ? (
               <>
                 <div className="w-6 h-6 border-2 border-primary-foreground border-t-transparent animate-spin"></div>
-                <span>PROCESSING</span>
+                <span>{t("processing", "Processing...")}</span>
               </>
             ) : (
               <>
                 <TfiDownload className="w-6 h-6 text-[#f2f0ea]" />
                 <span className="font-normal text-[#f2f0ea]  group:hover:text-[#f2fe0a]">
-                  DOWNLOAD CV
+                  {t("cvDownload", "Download CV")}
                 </span>
                 <HiArrowRight className="w-5 h-5 text-[#f2f0ea] " />
               </>

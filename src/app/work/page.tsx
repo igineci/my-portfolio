@@ -75,7 +75,7 @@ export default function WorkPage() {
                       }`}
                     />
                     <span className="text-[#131313] text-2xl font-light">
-                      {t("fp", "Featured Projects")}
+                      {t("fpTitle", "What I'm working on?")}
                     </span>
                   </div>
                   <span className="text-[#131313] text-[40px] font-light transition-transform duration-300">
@@ -87,58 +87,41 @@ export default function WorkPage() {
                 {expandedSection === "featured" && (
                   <div className="px-6 mb-10 animate-slideDown">
                     <div className="space-y-6">
-                      <h3 className="text-[#131313] text-2xl font-semibold">
-                        {t("fpTitle", "Featured Projects")}
-                      </h3>
-                      <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 my-8 px-4">
-                        <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex-shrink-0">
-                          <img
-                            src="/react-logo-modern-tech-icon.png"
-                            alt="React Development"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
-                          />
+                      {/* Two-row layout: SVG left, paragraph right */}
+                      <div className="flex flex-col gap-8 my-8 px-4">
+                        {/* Row 1: fp1.svg and first paragraph */}
+                        <div className="flex items-center gap-8">
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/fp/fp1.svg"
+                              alt="Performance"
+                              className="w-full h-full object-contain hover:scale-110 hover:brightness-110 transition-transform duration-300"
+                            />
+                          </div>
+                          <p className="text-[#131313] text-xl leading-relaxed max-w-3xl">
+                            {t(
+                              "fpText1",
+                              "Since early 2025, I've been working as a leading frontend developer in a product team, where I'm responsible for implementing responsive UI, building reusable components, and collaborating closely with design and backend teams. A curated selection of my most impactful architectural and design projects, showcasing innovative solutions and creative excellence."
+                            )}
+                          </p>
                         </div>
-                        <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex-shrink-0">
-                          <img
-                            src="/typescript-logo-programming-language.png"
-                            alt="TypeScript"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
-                          />
-                        </div>
-                        <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex-shrink-0">
-                          <img
-                            src="/ui-ux-design-interface-icon.png"
-                            alt="UI/UX Design"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
-                          />
-                        </div>
-                        <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex-shrink-0">
-                          <img
-                            src="/ai-artificial-intelligence-brain-icon.png"
-                            alt="AI Integration"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
-                          />
-                        </div>
-                        <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 flex-shrink-0">
-                          <img
-                            src="/performance-optimization-speed-icon.png"
-                            alt="Performance"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
-                          />
+                        {/* Row 2: fp2.svg and second paragraph */}
+                        <div className="flex items-center gap-8">
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/fp/fp2.svg"
+                              alt="AI Integration"
+                              className="w-full h-full object-contain hover:scale-110 hover:brightness-110 transition-transform duration-300"
+                            />
+                          </div>
+                          <p className="text-[#131313] text-xl leading-relaxed max-w-3xl">
+                            {t(
+                              "fpText2",
+                              "The product is currently under development and not yet publicly disclosed, but it involves integrating technology with AI-driven analysis."
+                            )}
+                          </p>
                         </div>
                       </div>
-                      <p className="text-[#131313] text-xl leading-relaxed mb-4 max-w-4xl">
-                        {t(
-                          "fpText1",
-                          "Since early 2025, I've been working as a leading frontend developer in a product team, where I'm responsible for implementing responsive UI, building reusable components, and collaborating closely with design and backend teams. A curated selection of my most impactful architectural and design projects, showcasing innovative solutions and creative excellence."
-                        )}
-                      </p>
-                      <p className="text-[#131313] text-xl leading-relaxed max-w-4xl mb-10">
-                        {t(
-                          "fpText2",
-                          "The product is currently under development and not yet publicly disclosed, but it involves integrating technology with AI-driven analysis."
-                        )}
-                      </p>
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
                         <div className="border border-[#dddbd4] p-6 rounded-lg">
                           <h2 className="text-[#131313] font-semibold text-center mb-5">

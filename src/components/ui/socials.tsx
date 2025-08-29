@@ -3,24 +3,32 @@ import { GrLinkedin } from "react-icons/gr";
 import { FaInstagramSquare } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 interface SocialsProps {
   name?: string;
-  title?: string;
   linkedinUrl?: string;
+  mailUrl?: string;
+  instagramUrl?: string;
+  githubUrl?: string;
   profileImage?: string;
 }
 
 export default function Socials({
   name = "Andjela Djekic",
-  title = "Junior Software Engineer",
-  linkedinUrl = "https://linkedin.com/in/yourprofile",
+  linkedinUrl = "https://www.linkedin.com/in/andjeladjekic1111/",
+  instagramUrl = "https://www.instagram.com/iginecci/",
+  githubUrl = "https://github.com/igineci",
+  mailUrl = "mailto:djekicandjela@outlook.com",
   profileImage = "images/social.jpeg",
 }: SocialsProps) {
+  const { t } = useTranslation();
   return (
     <section className="w-full py-7 px-18">
       <div className="">
-        <h2 className="text-[70px] pb-6 font-light ">Let's connect</h2>
+        <h2 className="text-[70px] pb-6 font-light ">
+          {t("socialsTitle", "Let's connect")}
+        </h2>
 
         <div className="border-1 border-[#131313]">
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
@@ -38,7 +46,9 @@ export default function Socials({
                 <h3 className="text-2xl lg:text-3xl text-[#131313] tracking-tight">
                   {name}
                 </h3>
-                <p className="text-lg text-[#131313] font-medium">{title}</p>
+                <p className="text-lg text-[#131313] font-medium">
+                  {t("juniorSoftwareEngineer", "Junior Software Engineer")}
+                </p>
               </div>
             </div>
 
@@ -46,17 +56,19 @@ export default function Socials({
             <div className="flex flex-col justify-center p-8 lg:p-12 space-y-8 bg-[#dddbd4] border-l border-[#131313]">
               <div className="space-y-4">
                 <h3 className="text-2xl lg:text-3xl text-[#131313] uppercase tracking-wider">
-                  Let's build meaningful connections
+                  {t("socialsSubtitle", "Let's build meaningful connections")}
                 </h3>
                 <p className="text-[#131313] text-lg leading-relaxed">
-                  Follow me on social media for industry insights and
-                  collaboration opportunities.
+                  {t(
+                    "socialsDesc",
+                    "Follow me on social media for insights and collaboration opportunities."
+                  )}
                 </p>
               </div>
 
               <div className="grid grid-cols-4 gap-8">
                 <a
-                  href="#"
+                  href={mailUrl}
                   className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
                 >
                   <IoMailSharp className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
@@ -74,7 +86,7 @@ export default function Socials({
                 </a>
 
                 <a
-                  href="#"
+                  href={instagramUrl}
                   className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
                 >
                   <FaInstagramSquare className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
@@ -82,7 +94,7 @@ export default function Socials({
                 </a>
 
                 <a
-                  href="#"
+                  href={githubUrl}
                   className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
                 >
                   <FaGithub className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />

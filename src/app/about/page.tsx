@@ -6,8 +6,7 @@ import ProjectGallery from "../../components/project-gallery";
 import CvComponent from "../../components/ui/cv-component";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import Socials from "../../components/ui/socials";
-import InteractiveContact from "../../components/ui/contact-form";
-
+import { useTranslation } from "react-i18next";
 type TimelineItem = {
   year: number;
   image: string;
@@ -36,6 +35,7 @@ const timelineData: TimelineItem[] = [
 ];
 
 export default function AboutPage() {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -112,7 +112,7 @@ export default function AboutPage() {
         {/* Large Title Section with Background - Height 400px */}
         <div className="relative w-full h-[400px] flex items-center justify-center mb-17">
           <h1 className="text-center uppercase z-20 text-[80px] text-[#333333] leading-none">
-            {"My story"}
+            {t("myStoryTitle", "My story")}
           </h1>
         </div>
 
@@ -209,7 +209,7 @@ export default function AboutPage() {
               className="group absolute -left-3 sm:-left-8 top-[40%] -translate-y-1/2 z-30 rounded-full p-2 text-[#333333] hover:text-[#131313] transition-colors"
             >
               <SlArrowLeft className="h-7 w-7 sm:h-8 sm:w-8 hover:scale-120 transition-transform" />
-              <span className="sr-only">Previous</span>
+              <span className="sr-only">{t("prev", "Previous")}</span>
             </button>
             <button
               aria-label="Next year"
@@ -217,7 +217,7 @@ export default function AboutPage() {
               className="group absolute -right-3 sm:-right-8 top-[40%] -translate-y-1/2 z-30 rounded-full p-2 text-[#333333] hover:text-[#131313] transition-colors"
             >
               <SlArrowRight className="h-7 w-7 sm:h-8 sm:w-8 hover:scale-120 transition-transform" />
-              <span className="sr-only">Next</span>
+              <span className="sr-only">{t("next", "Next")}</span>
             </button>
           </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaGithub } from "react-icons/fa6";
 import { VscLinkExternal } from "react-icons/vsc";
 
@@ -15,6 +16,7 @@ interface Project {
 }
 
 export default function EnhancedProjectGallery() {
+  const { t } = useTranslation();
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   const projects: Project[] = [
@@ -92,7 +94,7 @@ export default function EnhancedProjectGallery() {
                   <div className="flex items-center gap-3 px-6 py-3 bg-[#131313] border-[0.5px] border-[#f2f0ea]">
                     <FaGithub className="w-5 h-5 text-[#f2f0ea]" />
                     <span className="text-[#f2f0ea] font-medium">
-                      View Code
+                      {t("viewCode", "View Code")}
                     </span>
                     <VscLinkExternal className="w-4 h-4 text-[#f2f0ea]" />
                   </div>
@@ -131,7 +133,7 @@ export default function EnhancedProjectGallery() {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span>Explore Project</span>
+                  <span>{t("exploreProject", "Explore Project")}</span>
                   <VscLinkExternal className="w-4 h-4" />
                 </motion.div>
               </div>
@@ -156,7 +158,7 @@ export default function EnhancedProjectGallery() {
             }
           >
             <FaGithub className="w-5 h-5" />
-            View All Projects
+            {t("viewAllProjects", "View All Projects")}
             <VscLinkExternal className="w-4 h-4" />
           </motion.button>
         </motion.div>

@@ -22,11 +22,8 @@ export default function LayoutsContent() {
         </GalleryCard>
 
         <GalleryCard
-          title={t("stickySkroll", "Sticky Scroll")}
-          description={t(
-            "stickySkrollDesc",
-            "A sticky scroll effect that keeps elements in view"
-          )}
+          title={t("stickyScroll", "Sticky Scroll")}
+          description={t("stickyScrollDesc", "Scroll to see the effect!")}
         >
           <Sticky />
         </GalleryCard>

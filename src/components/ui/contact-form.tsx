@@ -9,21 +9,27 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { Textarea } from "./textarea";
 import emailjs from "@emailjs/browser";
-import { GiLoveLetter } from "react-icons/gi";
+
+import { AiOutlineSend } from "react-icons/ai";
+import { useTranslation } from "react-i18next";
 
 interface InteractiveContactProps {
   name?: string;
-  title?: string;
   linkedinUrl?: string;
+  instagramUrl?: string;
+  githubUrl?: string;
   profileImage?: string;
 }
 
 export default function InteractiveContact({
   name = "Andjela Djekic",
-  title = "Junior Software Engineer",
-  linkedinUrl = "https://linkedin.com/in/yourprofile",
+  linkedinUrl = "https://www.linkedin.com/in/andjeladjekic1111/",
+  instagramUrl = "https://www.instagram.com/iginecci/",
+  githubUrl = "https://github.com/igineci",
   profileImage = "images/social.jpeg",
 }: InteractiveContactProps) {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     from_name: "",
     from_email: "",
@@ -77,7 +83,7 @@ export default function InteractiveContact({
       <div className="max-w-7xl mx-auto">
         <div className="text-left mb-16">
           <h2 className="text-5xl md:text-7xl text-[#131313] bg-clip-text mb-4">
-            Let's Connect
+            {t("socialsTitle", "Let's connect")}
           </h2>
           <div className="border-b border-[#131313] mt-7 mb-24"> </div>
         </div>
@@ -108,7 +114,9 @@ export default function InteractiveContact({
               <h3 className="text-3xl lg:text-4xl font-bold text-[#131313] tracking-tight">
                 {name}
               </h3>
-              <p className="text-xl text-[#131313]/50 font-medium">{title}</p>
+              <p className="text-xl text-[#131313]/50 font-medium">
+                {t("juniorSoftwareEngineer", "Junior Software Engineer")}
+              </p>
             </div>
 
             <div className="flex gap-4">
@@ -123,7 +131,9 @@ export default function InteractiveContact({
               </a>
 
               <a
-                href="#"
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative overflow-hidden bg-[#f2f0ea] p-4  flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
               >
                 <FaInstagramSquare className="w-8 h-8 text-foreground group-hover:text-white transition-colors duration-300 z-10 relative" />
@@ -131,7 +141,9 @@ export default function InteractiveContact({
               </a>
 
               <a
-                href="#"
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative overflow-hidden bg-[#f2f0ea] p-4  flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
               >
                 <FaGithub className="w-8 h-8 text-foreground group-hover:text-white transition-colors duration-300 z-10 relative" />
@@ -144,11 +156,13 @@ export default function InteractiveContact({
             <div className="space-y-8">
               <div className="text-center space-y-4">
                 <h3 className="text-3xl lg:text-4xl font-black text-foreground">
-                  Ready to Start Something Amazing?
+                  {t("contactFormTitle", "Ready to start something amazing?")}
                 </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                  Drop me a line and let's discuss your next project. I'm always
-                  excited to collaborate on innovative solutions!
+                  {t(
+                    "contactFormSubtitle",
+                    "Reach out. I’d love to collaborate."
+                  )}
                 </p>
               </div>
 
@@ -156,7 +170,7 @@ export default function InteractiveContact({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm text-[#131313] uppercase tracking-wider">
-                      Your Name
+                      {t("nameTitle", "Your name")}
                     </label>
                     <Input
                       type="text"
@@ -170,7 +184,7 @@ export default function InteractiveContact({
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm text-[#131313] uppercase tracking-wider">
-                      Email Address
+                      {t("emailTitle", "Email address")}
                     </label>
                     <Input
                       type="email"
@@ -186,14 +200,17 @@ export default function InteractiveContact({
 
                 <div className="space-y-2">
                   <label className="text-sm text-[#131313] uppercase tracking-wider">
-                    Subject
+                    {t("subjectTitle", "Subject")}
                   </label>
                   <Input
                     type="text"
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="Let's work together!"
+                    placeholder={t(
+                      "subjectPlaceholder",
+                      "Let's work together!"
+                    )}
                     required
                     className="py-8 text-xl transition-all duration-300 shadow-none rounded-none border-0 bg-[#f2f0ea]"
                   />
@@ -201,13 +218,16 @@ export default function InteractiveContact({
 
                 <div className="space-y-2">
                   <label className="text-sm text-[#131313] uppercase tracking-wider">
-                    Your Message
+                    {t("messageTitle", "Your message")}
                   </label>
                   <Textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Tell me about your project, ideas, or just say hello! I'd love to hear from you..."
+                    placeholder={t(
+                      "messagePlaceholder",
+                      "Tell me about your ideas or just say hello!"
+                    )}
                     required
                     rows={6}
                     className="text-lg transition-all duration-300 shadow-none rounded-none border-0 bg-[#f2f0ea] resize-none"
@@ -234,8 +254,8 @@ export default function InteractiveContact({
                       </div>
                     ) : (
                       <div className="flex items-center gap-3">
-                        <GiLoveLetter className="w-10 h-10" />
-                        Send Message
+                        <AiOutlineSend className="w-10 h-10" />
+                        {t("messageButton", "Send Message")}
                       </div>
                     )}
                   </Button>

@@ -7,6 +7,7 @@ import ExperimentsContent from "./experiments/content";
 import ComponentsContent from "./components/content";
 import TabDiagram from "../../components/tab-diagram";
 import { useTranslation } from "react-i18next";
+import ComingSoonCard from "./coming-soon";
 
 export default function ExplorationsPage() {
   const [activeTab, setActiveTab] = useState<
@@ -49,8 +50,10 @@ export default function ExplorationsPage() {
             </div>
           </div>
         </div>
-      </div>
 
+        <ComingSoonCard />
+        <div className="border-b border-[#131313] mx-18 mt-7 mb-8"> </div>
+      </div>
       {/* Footer */}
       <Footer />
     </div>

@@ -17,19 +17,22 @@ export default function ExperimentsContent() {
           <Tube />
         </GalleryCard>
         <GalleryCard
-          title={t("animatedLetter", "Animated letter")}
-          description={t(
-            "animatedLetterDesc",
-            "Interactive letter animation with smooth lines"
-          )}
+          title={t("letterTitle", "Mysterious letter")}
+          description={t("letterDesc", "Smooth letter with smooth lines")}
         >
           <LetterI />
         </GalleryCard>
-        <GalleryCard title="Newton's cradle">
+        <GalleryCard
+          title={t("newtonsCradle", "Newton's cradle")}
+          description={t("newtonsCradleDesc", "Experiment ^ 2")}
+        >
           <NewtonCradle />
         </GalleryCard>
 
-        <GalleryCard title="Mail Button" description="Animated mail button">
+        <GalleryCard
+          title={t("mailTitle", "Big mail")}
+          description={t("mailDesc", "Hover to see whats inside")}
+        >
           <MailButton />
         </GalleryCard>
       </div>
