@@ -2,7 +2,7 @@
 
 // Work Page Component
 import Header from "../../components/header";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import { useState } from "react";
 import { GiStarShuriken } from "react-icons/gi";
 import { BadgeGroup } from "../../components/ui/badge";

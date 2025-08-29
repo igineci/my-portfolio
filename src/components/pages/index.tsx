@@ -1,9 +1,9 @@
 "use client";
 
 import Header from "../header";
-import HeroSection from "../../app/home/hero";
+import HeroSection from "../../app/home/Hero";
 import Projects from "../../app/home/projects";
-import Footer from "../footer";
+import Footer from "../Footer";
 import InteractiveContact from "../ui/contact-form";
 
 export default function HomePage() {

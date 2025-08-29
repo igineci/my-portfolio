@@ -1,6 +1,6 @@
 // Contact Page Component
 import Header from "../../components/header";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import { useTranslation } from "react-i18next";
 import Socials from "../../components/ui/socials";
 export default function ContactPage() {

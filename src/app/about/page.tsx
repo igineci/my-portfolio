@@ -1,7 +1,7 @@
 "use client";
 import { useState, useMemo, useEffect } from "react";
 import Header from "../../components/header";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import ProjectGallery from "../../components/project-gallery";
 import CvComponent from "../../components/ui/cv-component";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
