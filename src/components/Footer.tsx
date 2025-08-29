@@ -29,25 +29,25 @@ export default function Footer() {
               <nav className="flex flex-wrap justify-center space-x-6">
                 <button
                   onClick={() => navigate("/")}
-                  className="text-[#131313] text-sm hover:opacity-70 transition-opacity duration-200 bg-transparent border-none p-0"
+                  className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 bg-transparent border-none p-0"
                 >
                   {t("home", "Home")}
                 </button>
                 <button
                   onClick={() => navigate("/work")}
-                  className="text-[#131313] text-sm hover:opacity-70 transition-opacity duration-200 bg-transparent border-none p-0"
+                  className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 bg-transparent border-none p-0"
                 >
                   {t("work", "Work")}
                 </button>
                 <button
                   onClick={() => navigate("/explorations")}
-                  className="text-[#131313] text-sm hover:opacity-70 transition-opacity duration-200 bg-transparent border-none p-0"
+                  className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 bg-transparent border-none p-0"
                 >
                   {t("explorations", "Explorations")}
                 </button>
                 <a
                   href="#about"
-                  className="text-[#131313] text-sm hover:opacity-70 transition-opacity duration-200"
+                  className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200"
                 >
                   {t("about", "About")}
                 </a>

@@ -8,7 +8,7 @@ import { VscLinkExternal } from "react-icons/vsc";
 
 interface Project {
   title: string;
-  description: string;
+  descriptionKey: string;
   year: string;
   backgroundImage: string;
   githubUrl: string;
@@ -22,8 +22,7 @@ export default function EnhancedProjectGallery() {
   const projects: Project[] = [
     {
       title: "REPORTIFY",
-      description:
-        "A backend-driven solution for automating business reports. Fetches, processes, and transforms relational data into JSON reports, then delivers them seamlessly to external APIs for real-time insights.",
+      descriptionKey: "reportifyPGDesc",
       year: "2024",
       backgroundImage: "/images/reportify.png",
       githubUrl: "https://github.com/igineci/reportify",
@@ -31,8 +30,7 @@ export default function EnhancedProjectGallery() {
     },
     {
       title: "CER",
-      description:
-        "A scheduling-based system that retrieves and processes daily exchange rates from the National Bank of Serbia. Ensures accurate data synchronization, storage, and accessibility for downstream services.",
+      descriptionKey: "cerPGDesc",
       year: "2023",
       backgroundImage: "/images/nbs.png",
       githubUrl: "https://github.com/igineci/cer",
@@ -122,7 +120,7 @@ export default function EnhancedProjectGallery() {
 
                 {/* Description */}
                 <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
+                  {t(project.descriptionKey as "home")}
                 </p>
 
                 {/* Action Link */}

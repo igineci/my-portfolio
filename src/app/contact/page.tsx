@@ -2,6 +2,7 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import { useTranslation } from "react-i18next";
+import Socials from "../../components/ui/socials";
 export default function ContactPage() {
   const { t } = useTranslation();
   // Handler to download CV and underline text
@@ -27,7 +28,7 @@ export default function ContactPage() {
         {/* Main content area with proper spacing for fixed header */}
         <div className="pt-50 px-10 page-content-fade">
           <div className="relative flex justify-center items-center mb-8 h-[300px]">
-            <div className="absolute inset-0 flex justify-center items-center">
+            <div className="absolute inset-0 flex justify-center items-center hover:brightness-110">
               <img
                 src="images/contact.svg"
                 alt="Contact background"
@@ -38,14 +39,14 @@ export default function ContactPage() {
               {t("contact", "Contact")}
             </h1>
           </div>{" "}
-          <p className="text-[#131313] px-7 text-3xl mb-4 text-left">
-            {t("makeProjectReality", "Let’s make your project a reality")}
+          <p className="text-[#131313] px-7 text-3xl mb-4 text-center">
+            {t("contactTitle", "Let’s make your project a reality")}
           </p>
-          <p className="text-[#131313] px-7 text-lg mb-12 text-left w-[700px]">
-            Whether you are an architect, designer, contractor or an individual,
-            send us all the documents relating to your project and we will take
-            great care to examine your request in order to send you a fair and
-            detailed quote.
+          <p className="text-[#131313] px-7 text-lg mb-12 text-center mx-auto max-w-[700px]">
+            {t(
+              "contactDesc",
+              "Whether you’re working on a project as an architect, designer, contractor, or simply on your own, share your project details with me and I’ll carefully review them to provide you with a clear and fair solution offer."
+            )}
           </p>
           {/* Contact Information Rows */}
           <div className="mt-16 px-7">
@@ -95,7 +96,8 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-
+      <Socials />
+      <div className="border-b border-[#131313] mx-18 mt-7"></div>
       {/* Footer */}
       <Footer />
     </div>

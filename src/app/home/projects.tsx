@@ -2,31 +2,30 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { VscLinkExternal } from "react-icons/vsc";
 
 export default function Projects() {
+  const { t } = useTranslation();
   const projects = [
     {
       title: "UI LAB",
-      subtitle: "Interactive Components Gallery",
-      description:
-        "A living showcase of experimental layouts, components, and UI concepts. Designed as a creative playground where motion, interaction, and design meet.",
+      subtitleKey: "project1Subtitle",
+      descriptionKey: "project1Desc",
       year: "2025",
       image: "images/fp3.jpg",
     },
     {
       title: "REPORTIFY",
-      subtitle: "Automated Reporting System",
-      description:
-        "A backend-driven solution for automating business reports. Fetches, processes, and transforms relational data into JSON reports, then delivers them seamlessly to external APIs for real-time insights.",
+      subtitleKey: "project2Subtitle",
+      descriptionKey: "project2Desc",
       year: "2024",
       image: "images/fp2.jpg",
     },
     {
-      title: "CER",
-      subtitle: "Exchange Rate Automation",
-      description:
-        "A scheduling-based system that retrieves and processes daily exchange rates from the National Bank of Serbia. Ensures accurate data synchronization, storage, and accessibility for downstream services.",
+      titleKey: "CER",
+      subtitleKey: "project3Subtitle",
+      descriptionKey: "project3Desc",
       year: "2023",
       image: "images/fp1.jpg",
     },
@@ -72,9 +71,11 @@ export default function Projects() {
 
   return (
     <div className="w-full px-18 relative mb-10">
-      <h2 className="text-[70px] tracking-wider pb-6 font-light">PROJECTS</h2>
+      <h2 className="text-[70px] uppercase tracking-wider pb-6 font-light">
+        {t("projectsTitle", "Projects")}
+      </h2>
 
-      <div className="relative border border-[#131313] p-4">
+      <div className="relative border border-[#131313]  p-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -99,7 +100,7 @@ export default function Projects() {
                 <div className="absolute inset-0 flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                   {/* External link icon is now clickable and context-aware */}
                   <motion.button
-                    className="w-20 h-20 border border-[#f2f0ea]  flex items-center justify-center backdrop-blur-sm"
+                    className="w-25 h-25 border border-[#f2f0ea] rounded-full flex items-center justify-center backdrop-blur-sm"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                     aria-label="Go to project link"
@@ -149,10 +150,10 @@ export default function Projects() {
                   {/* Next Text */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span
-                      className="text-[#131313] mr-4 text-sm tracking-[0.2em] "
+                      className="text-[#131313] mr-4 text-sm tracking-[0.2em] uppercase "
                       style={{ transform: "rotate(270deg)" }}
                     >
-                      NEXT
+                      {t("next", "NEXT")}
                     </span>
                   </div>
 
@@ -194,7 +195,7 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  {currentProject.subtitle}
+                  {t(currentProject.subtitleKey as "home")}
                 </motion.p>
               </div>
 
@@ -204,7 +205,7 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                {currentProject.description}
+                {t(currentProject.descriptionKey as "home")}
               </motion.p>
             </div>
           </motion.div>

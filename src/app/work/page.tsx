@@ -7,6 +7,7 @@ import { useState } from "react";
 import { GiStarShuriken } from "react-icons/gi";
 import { BadgeGroup } from "../../components/ui/badge";
 import { useTranslation } from "react-i18next";
+import ReportifyCard from "../../components/ui/reportify-card";
 
 export default function WorkPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -31,7 +32,7 @@ export default function WorkPage() {
           <div className="relative flex justify-center items-center mb-8 h-[300px]">
             {/* Custom background element with vignette effect */}
             <div className="absolute inset-0 flex justify-center items-center">
-              <div className="relative w-[300px] h-[300px]">
+              <div className="relative w-[300px] h-[300px] hover:brightness-110">
                 <img
                   src="images/w3.png"
                   alt="Work background"
@@ -197,67 +198,44 @@ export default function WorkPage() {
                         and stock data into structured JSON reports and sends
                         them to external services for further use.
                       </p>
-                      <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 my-12 px-4">
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/reportify/1.svg"
-                            alt="Database Management"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
+                      {/* Symmetric 2-Text-2 layout for SVGs and text */}
+                      <div className="flex items-center justify-center gap-8 my-12 px-4">
+                        {/* Left column: 2 SVGs stacked vertically */}
+                        <div className="flex flex-col gap-8">
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/reportify/1.svg"
+                              alt="Database Management"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/reportify/2.svg"
+                              alt="Automation"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
                         </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/reportify/2.svg"
-                            alt="Automation"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
+                        {/* Center column: text */}
+                        <ReportifyCard />
+                        {/* Right column: 2 SVGs stacked vertically */}
+                        <div className="flex flex-col gap-8">
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/reportify/4.svg"
+                              alt="API Integration"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/reportify/5.svg"
+                              alt="JSON Processing"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
                         </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/reportify/3.svg"
-                            alt="Report Generation"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
-                        </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/reportify/4.svg"
-                            alt="API Integration"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
-                        </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/reportify/5.svg"
-                            alt="JSON Processing"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
-                        </div>
-                      </div>
-                      <p className="text-[#131313] text-xl leading-relaxed max-w-4xl">
-                        The application connects to a PostgreSQL database,
-                        processes key business data, and automatically generates
-                        five different types of reports: Customers, Products,
-                        Sales and Stock. With built-in scheduling and API
-                        integration, Reportify ensures that critical business
-                        insights are always up-to-date and delivered on time —
-                        reducing manual work and enabling data-driven decision
-                        making.
-                      </p>
-                      <div className="mt-8 p-6 border border-[#dddbd4] rounded-lg max-w-2xl mx-auto">
-                        <h4 className="text-[#131313] font-semibold text-center mb-4">
-                          Technologies Used
-                        </h4>
-                        <BadgeGroup
-                          items={[
-                            "PostgreSQL",
-                            "Node.js",
-                            "JSON",
-                            "REST API",
-                            "Automation",
-                            "Data Processing",
-                          ]}
-                        />
                       </div>
                     </div>
                   </div>

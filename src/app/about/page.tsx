@@ -10,27 +10,24 @@ import { useTranslation } from "react-i18next";
 type TimelineItem = {
   year: number;
   image: string;
-  description: string;
+  descriptionKey: string;
 };
 
 const timelineData: TimelineItem[] = [
   {
     year: 2023,
     image: "/images/2023.jpeg",
-    description:
-      "Started my journey in web development and design. Focused on learning React and modern frontend technologies.",
+    descriptionKey: "timeline2023",
   },
   {
     year: 2024,
     image: "/images/2024.jpeg",
-    description:
-      "Expanded my skills in full-stack development. Worked on several portfolio projects and client work.",
+    descriptionKey: "timeline2024",
   },
   {
     year: 2025,
     image: "/images/2025.jpeg",
-    description:
-      "Currently developing advanced web applications and exploring new technologies in the field.",
+    descriptionKey: "timeline2025",
   },
 ];
 
@@ -128,7 +125,7 @@ export default function AboutPage() {
                   src={`/images/${current.year}.jpeg`}
                   alt={`Year ${current.year}`}
                   className={`
-                    object-cover w-full h-full transition-transform duration-[1200ms] ease-in-out
+                    object-cover w-full h-full transition-transform duration-[1200ms] ease-in-out hover:brightness-110
                     ${
                       isTransitioning && slideDirection === "right"
                         ? "transform translate-x-full"
@@ -222,9 +219,10 @@ export default function AboutPage() {
           </div>
 
           {/* Description - Under title section */}
-          <div className="max-w-3xl mx-auto mt-[min(18vw,120px)] sm:mt-28 px-2 sm:px-4 mb-35">
-            <p className="text-[#333333] text-base sm:text-lg leading-relaxed text-center">
-              {current.description}
+          <div className=" mx-auto mt-[min(18vw,120px)] sm:mt-28 px-2 sm:px-4 mb-20">
+            <p className="text-[#333333] text-[40px] leading-relaxed text-center">
+              {/* Translate the timeline description using the string key */}
+              {t(current.descriptionKey as "home")}
             </p>
           </div>
         </div>
@@ -236,7 +234,6 @@ export default function AboutPage() {
       <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
       <Socials />
       <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
-
       <Footer />
     </div>
   );
