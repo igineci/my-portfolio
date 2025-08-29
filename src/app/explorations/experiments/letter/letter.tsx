@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styles from "./letter.module.css";
 
 export default function LetterI() {

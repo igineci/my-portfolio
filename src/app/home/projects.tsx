@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { VscLinkExternal } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
 
 export default function Projects() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const projects = [
     {
       title: "UI LAB",
@@ -59,7 +61,7 @@ export default function Projects() {
   const handleExternalLinkClick = () => {
     if (currentProject.title === "UI LAB") {
       // Open /explorations in a new tab
-      window.open("/explorations", "_blank");
+      navigate("/explorations");
     } else if (currentProject.title === "REPORTIFY") {
       // Open REPORTIFY GitHub in a new tab
       window.open("https://github.com/igineci/reportify", "_blank");

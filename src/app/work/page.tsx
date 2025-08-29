@@ -8,6 +8,8 @@ import { GiStarShuriken } from "react-icons/gi";
 import { BadgeGroup } from "../../components/ui/badge";
 import { useTranslation } from "react-i18next";
 import ReportifyCard from "../../components/ui/reportify-card";
+import { Button } from "../../components/ui/button";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 export default function WorkPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -16,6 +18,11 @@ export default function WorkPage() {
   const toggleSection = (sectionName: string) => {
     setExpandedSection(expandedSection === sectionName ? null : sectionName);
   };
+
+  const handleGitHubClick = () => {
+    window.open("https://github.com/igineci/cer", "_blank");
+  };
+
   return (
     <div
       className="min-h-screen text-[#131313] overflow-hidden relative flex flex-col"
@@ -192,11 +199,10 @@ export default function WorkPage() {
                   <div className="px-6 mb-20 animate-slideDown">
                     <div className="space-y-6">
                       <p className="text-[#131313] text-xl leading-relaxed max-w-4xl">
-                        Reportify is an automation tool that generates and
-                        delivers business reports directly from a relational
-                        database. It transforms raw customer, product, sales,
-                        and stock data into structured JSON reports and sends
-                        them to external services for further use.
+                        {t(
+                          "reportifyDesc",
+                          "Reportify is an automation tool that generates and delivers business reports directly from a relational database. It transforms raw customer, product, sales, and stock data into structured JSON reports and sends them to external services for further use."
+                        )}
                       </p>
                       {/* Symmetric 2-Text-2 layout for SVGs and text */}
                       <div className="flex items-center justify-center gap-8 my-12 px-4">
@@ -270,84 +276,73 @@ export default function WorkPage() {
                 {expandedSection === "design" && (
                   <div className="border-b border-[#131313] px-6 py-8 animate-slideDown">
                     <div className="space-y-6">
-                      <p className="text-[#131313] text-xl leading-relaxed max-w-4xl mb-6">
-                        CER (Customer Experience Research) is a comprehensive
-                        platform designed to analyze and improve customer
-                        interactions across multiple touchpoints. This project
-                        focused on creating intuitive data visualization and
-                        user-friendly interfaces for complex analytics.
-                      </p>
-                      <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 my-12 px-4">
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/cer/1.svg"
-                            alt="Customer Research"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
+                      {/* CER section with hover-reveal GitHub/button card */}
+                      <div className="relative group flex items-center justify-center gap-8 my-12 px-4">
+                        {/* Left column: 2 images stacked vertically */}
+                        <div className="flex flex-col gap-8">
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/cer/1.svg"
+                              alt="Customer Research"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/cer/2.svg"
+                              alt="Data Visualization"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
                         </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/cer/2.svg"
-                            alt="Data Visualization"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
+                        {/* Center column: text, with hover overlay */}
+                        <div className="relative flex flex-col items-center justify-center max-w-xl text-center mx-8">
+                          <p className="text-[#131313] text-xl leading-relaxed bg-[#f2f0ea]/80 rounded-xl px-6 py-4 shadow-lg">
+                            {t(
+                              "cerDesc",
+                              "CER (Customer Experience Research) is a comprehensive platform designed to analyze and improve customer interactions across multiple touchpoints. This project focused on creating intuitive data visualization and user-friendly interfaces for complex analytics."
+                            )}
+                          </p>
+                          {/* Overlay: appears on group hover, blurs and covers text */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                            <div className="bg-[#f2f0ea]/90 backdrop-blur-md py-8 px-6 shadow-2xl rounded-xl text-center space-y-4 border border-[#e5e3dc] w-full h-full flex flex-col items-center justify-center">
+                              <FiGithub className="h-10 w-10 mx-auto text-foreground" />
+                              <h3 className="text-lg font-semibold text-foreground">
+                                {t("viewGithubTitle", "View on GitHub")}
+                              </h3>
+                              <p className="text-muted-foreground text-sm max-w-xs mx-auto">
+                                {t(
+                                  "viewGithubSubtitle",
+                                  "Check out the source code and documentation for this project"
+                                )}
+                              </p>
+                              <Button
+                                onClick={handleGitHubClick}
+                                className="gap-2 bg-primary rounded hover:bg-primary/90 text-primary-foreground"
+                              >
+                                <FiGithub className="h-4 w-4" />
+                                {t("viewGithubButton", "Open Repository")}
+                                <FiExternalLink className="h-3 w-3" />
+                              </Button>
+                            </div>
+                          </div>
                         </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/cer/3.svg"
-                            alt="Interface Design"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
-                        </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/cer/4.svg"
-                            alt="Touchpoint Analysis"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
-                        </div>
-                        <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
-                          <img
-                            src="images/cer/5.svg"
-                            alt="Platform Integration"
-                            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
-                          />
-                        </div>
-                      </div>
-                      <p className="text-[#131313] text-xl leading-relaxed max-w-4xl">
-                        The platform provides real-time insights into customer
-                        behavior patterns, satisfaction metrics, and engagement
-                        levels. Through advanced analytics and intuitive
-                        dashboards, businesses can make data-driven decisions to
-                        enhance their customer experience strategy.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                        <div className="p-6 border border-[#dddbd4] rounded-lg">
-                          <h4 className="text-[#131313] font-semibold text-center mb-4">
-                            Key Features
-                          </h4>
-                          <BadgeGroup
-                            items={[
-                              "Real-time Analytics",
-                              "Customer Journey Mapping",
-                              "Satisfaction Tracking",
-                              "Interactive Dashboards",
-                            ]}
-                          />
-                        </div>
-                        <div className="p-6 border border-[#dddbd4] rounded-lg">
-                          <h4 className="text-[#131313] font-semibold text-center mb-4">
-                            Technologies
-                          </h4>
-                          <BadgeGroup
-                            items={[
-                              "React",
-                              "D3.js",
-                              "Chart.js",
-                              "Material-UI",
-                              "Node.js",
-                            ]}
-                          />
+                        {/* Right column: 2 images stacked vertically */}
+                        <div className="flex flex-col gap-8">
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/cer/4.svg"
+                              alt="Touchpoint Analysis"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
+                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                            <img
+                              src="images/cer/5.svg"
+                              alt="Platform Integration"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>

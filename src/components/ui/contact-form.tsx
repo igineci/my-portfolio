@@ -59,10 +59,10 @@ export default function InteractiveContact({
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setIsSuccess(true);
@@ -263,8 +263,8 @@ export default function InteractiveContact({
               </form>
 
               {isMailSuccess && (
-                <div className="text-center p-6 bg-green-100 rounded-2xl border border-green-300 shadow-md">
-                  <p className="text-green-800 font-semibold text-lg">
+                <div className="text-center p-6 bg-[#f2f0ea] border border-[#dddbd4]/70 ">
+                  <p className="text-[#131313] text-lg">
                     ✅ Thanks for reaching out! Your message was sent
                     successfully. I’ll get back to you as soon as possible.
                   </p>
@@ -272,8 +272,8 @@ export default function InteractiveContact({
               )}
 
               {isMailError && (
-                <div className="text-center p-6 bg-red-100 rounded-2xl border border-red-300 shadow-md">
-                  <p className="text-red-800 font-semibold text-lg">
+                <div className="text-center p-6 bg-red-100 border border-red-300">
+                  <p className="text-red-800 text-lg">
                     ❌ Oops, something went wrong. Your message couldn’t be
                     sent. Please try again a bit later.
                   </p>

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styles from "./mail.module.css";
 
 export default function MailButton() {

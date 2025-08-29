@@ -10,13 +10,15 @@ import { MdScheduleSend, MdInsights } from "react-icons/md";
 import { GrServices } from "react-icons/gr";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { Button } from "./button";
+import { useTranslation } from "react-i18next";
 
 export default function ReportifyCard() {
+  const { t } = useTranslation();
+
   const [isHovered, setIsHovered] = useState(false);
 
   const handleGitHubClick = () => {
-    // Replace with your actual GitHub repository URL
-    window.open("https://github.com/yourusername/your-repo", "_blank");
+    window.open("https://github.com/igineci/reportify", "_blank");
   };
 
   return (
@@ -38,27 +40,27 @@ export default function ReportifyCard() {
             <ul className="mt-6 space-y-4 text-lg text-[#131313]">
               <li className="flex items-center justify-center">
                 <BiLogoPostgresql className="inline-block mr-2 h-7 w-7" />
-                Connects directly to the PostgreSQL database
+                {t("rep1", "Connects directly to the PostgreSQL database")}
                 <FaDatabase className="inline-block ml-2 h-5 w-5 mb-1" />
               </li>
               <li className="flex items-center justify-center">
                 <BsClipboard2DataFill className="inline-block mr-2 h-6 w-6 mb-1" />
-                Processes raw business data
+                {t("rep2", "Processes raw business data")}
                 <FaBusinessTime className="inline-block ml-2 h-7 w-7" />
               </li>
               <li className="flex items-center justify-center">
                 <GiAutomaticSas className="inline-block mr-2 h-7 w-7 mb-1" />
-                Automatically generates sales reports
+                {t("rep3", "Automatically generates sales reports")}
                 <RiAiGenerateText className="inline-block ml-2 h-7 w-7 mb-1" />
               </li>
               <li className="flex items-center justify-center">
                 <BsFillCalendar2HeartFill className="inline-block mr-2 h-6 w-6 mb-1" />
-                Schedules delivery right on time
+                {t("rep4", "Schedules delivery right on time")}
                 <MdScheduleSend className="inline-block ml-2 h-7 w-7 mb-1" />
               </li>
               <li className="flex items-center justify-center">
                 <MdInsights className="inline-block mr-2 h-7 w-7" />
-                Sends insights via API to external services
+                {t("rep5", "Sends insights via API to external services")}
                 <GrServices className="inline-block ml-2 h-7 w-7 mb-1" />
               </li>
             </ul>
@@ -77,21 +79,24 @@ export default function ReportifyCard() {
           }
         `}
         >
-          <div className="bg-[#f2f0ea] backdrop-blur-sm py-10 px-23 shadow-2xl">
+          <div className="bg-[#f2f0ea] backdrop-blur-sm py-10 px-30 shadow-2xl">
             <div className="text-center space-y-4">
               <FiGithub className="h-12 w-12 mx-auto text-foreground" />
               <h3 className="text-xl font-semibold text-foreground">
-                View on GitHub
+                {t("viewGithubTitle", "View on GitHub")}
               </h3>
               <p className="text-muted-foreground text-sm max-w-xs">
-                Check out the source code and documentation for this project
+                {t(
+                  "viewGithubSubtitle",
+                  "Check out the source code and documentation for this project"
+                )}
               </p>
               <Button
                 onClick={handleGitHubClick}
                 className="gap-2 bg-primary rounded-none hover:bg-primary/90 text-primary-foreground"
               >
                 <FiGithub className="h-4 w-4" />
-                Open Repository
+                {t("viewGithubButton", "Open Repository")}
                 <FiExternalLink className="h-3 w-3" />
               </Button>
             </div>
