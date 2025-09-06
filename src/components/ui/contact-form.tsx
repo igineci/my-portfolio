@@ -31,8 +31,8 @@ export default function InteractiveContact({
   const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
-    from_name: "",
-    from_email: "",
+    name: "",
+    email: "",
     subject: "",
     message: "",
   });
@@ -66,7 +66,8 @@ export default function InteractiveContact({
       );
 
       setIsSuccess(true);
-      setFormData({ from_name: "", from_email: "", subject: "", message: "" });
+      setIsMailSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
 
       setTimeout(() => setIsMailSuccess(false), 3000);
     } catch (error) {
@@ -174,8 +175,8 @@ export default function InteractiveContact({
                     </label>
                     <Input
                       type="text"
-                      name="from_name"
-                      value={formData.from_name}
+                      name="name"
+                      value={formData.name}
                       onChange={handleInputChange}
                       placeholder="John Doe"
                       required
@@ -188,8 +189,8 @@ export default function InteractiveContact({
                     </label>
                     <Input
                       type="email"
-                      name="from_email"
-                      value={formData.from_email}
+                      name="email"
+                      value={formData.email}
                       onChange={handleInputChange}
                       placeholder="john@example.com"
                       required
