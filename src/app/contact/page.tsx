@@ -28,7 +28,7 @@ export default function ContactPage() {
         {/* Main content area with proper spacing for fixed header */}
         <div className="pt-50 px-10 page-content-fade">
           <div className="relative flex justify-center items-center mb-8 h-[300px]">
-            <div className="absolute inset-0 flex justify-center items-center hover:brightness-110">
+            <div className="absolute inset-0 flex justify-center items-center brightness-110">
               <img
                 src="images/contact.svg"
                 alt="Contact background"

@@ -39,7 +39,7 @@ export default function WorkPage() {
           <div className="relative flex justify-center items-center mb-8 h-[300px]">
             {/* Custom background element with vignette effect */}
             <div className="absolute inset-0 flex justify-center items-center">
-              <div className="relative w-[300px] h-[300px] hover:brightness-110">
+              <div className="relative w-[300px] h-[300px] brightness-110">
                 <img
                   src="images/w3.png"
                   alt="Work background"

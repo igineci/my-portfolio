@@ -70,6 +70,7 @@ export default function InteractiveContact({
       setFormData({ name: "", email: "", subject: "", message: "" });
 
       setTimeout(() => setIsMailSuccess(false), 3000);
+      setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Email send failed:", error);
       setIsMailError(true);
