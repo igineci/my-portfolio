@@ -39,11 +39,15 @@ export default function CallToAction() {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
+          // Keep original keys to satisfy template if needed
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          // Outlook-safe Reply-To pattern
           from_name: formData.name,
           reply_to: formData.email,
-          message: formData.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       );
       if (import.meta.env.MODE !== "production") {
         console.log("EmailJS send result:", res.status, res.text);

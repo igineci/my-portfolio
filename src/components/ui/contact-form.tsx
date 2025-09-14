@@ -61,13 +61,18 @@ export default function InteractiveContact({
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.name,
-          reply_to: formData.email,
+          // Keep original keys in case template expects them
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
+          // Outlook-safe Reply-To pattern
+          from_name: formData.name,
+          reply_to: formData.email,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       );
+
       if (import.meta.env.MODE !== "production") {
         console.log("EmailJS send result:", res.status, res.text);
       }
