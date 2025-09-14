@@ -1,10 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "../../src/components/pages/index.tsx";
-import ContactPage from "../app/contact/page.tsx";
-import WorkPage from "../app/work/page.tsx";
-import ExplorationsPage from "../app/explorations/page.tsx";
-import AboutPage from "../app/about/page.tsx";
+// Route-level code splitting
+const HomePage = lazy(() => import("../../src/components/pages/index.tsx"));
+const ContactPage = lazy(() => import("../app/contact/page.tsx"));
+const WorkPage = lazy(() => import("../app/work/page.tsx"));
+const ExplorationsPage = lazy(() => import("../app/explorations/page.tsx"));
+const AboutPage = lazy(() => import("../app/about/page.tsx"));
 
 export class AppRoutes extends React.Component {
   render() {
