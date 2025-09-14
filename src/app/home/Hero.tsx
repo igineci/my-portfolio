@@ -53,7 +53,7 @@ export default function HeroSection() {
               <div className="w-px h-30 bg-[#131313] absolute left-0 top-20"></div>
 
               {/* Horizontal line */}
-              <div className="w-180 h-px bg-[#131313] absolute top-50 left-1/2 transform -translate-x-1/2"></div>
+              <div className="w-151 h-px bg-[#131313] absolute top-50 left-1/2 transform -translate-x-1/2"></div>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function HeroSection() {
           <div className="relative w-151 h-[260px] sm:h-[300px] md:h-[340px] sm:-mt-[60px] md:-mt-[72px] overflow-hidden">
             {/* Centered uptime text between lines (visible until hover) */}
             <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none transition-opacity duration-200 ease-out group-hover:opacity-0">
-              <span className="text-center text-[40px] md:text-[50px] font-medium text-[#131313]">
+              <span className="text-center text-[40px] md:text-[50px] font-medium text-[#131313] mt-25">
                 {t("uptime", "Uptime since 2021")}
               </span>
             </div>
