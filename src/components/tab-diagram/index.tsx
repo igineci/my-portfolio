@@ -48,7 +48,7 @@ export default function TabDiagram({
                 activeTab === key ? "text-[#131313]" : "text-[#131313]/40"
               }`}
             >
-              {t(key as any, key.charAt(0).toUpperCase() + key.slice(1))}
+              {t(key as string, key.charAt(0).toUpperCase() + key.slice(1))}
             </button>
           </div>
         ))}

@@ -8,6 +8,7 @@ import ComponentsContent from "./components/content";
 import TabDiagram from "../../components/tab-diagram";
 import { useTranslation } from "react-i18next";
 import ComingSoonCard from "./coming-soon";
+ 
 
 export default function ExplorationsPage() {
   const [activeTab, setActiveTab] = useState<

@@ -1,13 +1,37 @@
-.card {
-  margin: 70px 160px 0px 160px;
-  padding: 1rem;
-  background: #604652;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
+.wrap {
+  margin: 110px 160px 60px 160px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hr {
+  height: 1px;
+  flex: 1;
+  background: #131313;
 }
 
 .title {
-  font-size: 1.8rem;
-  color: #f2f0ea;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #131313;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.captionRow {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.caption {
+  color: #333333;
+  font-size: 1rem;
+  line-height: 1.6;
 }

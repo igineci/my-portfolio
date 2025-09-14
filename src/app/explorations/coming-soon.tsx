@@ -5,11 +5,24 @@ import styles from "./coming-soon.module.css";
 export default function ComingSoonCard() {
   const { t } = useTranslation();
   return (
-    <div className="gap-0">
-      <div className={styles.card}>
-        <h2 className={styles.title}>{t("moreTitle", "More coming soon")}</h2>
+    <section className={styles.wrap} aria-labelledby="coming-soon-heading">
+      <div className={styles.row}>
+        <div className={styles.hr} />
+        <h2 id="coming-soon-heading" className={styles.title}>
+          {t("moreTitle", "More coming soon")}
+        </h2>
+        <div className={styles.hr} />
       </div>
-      <CallToAction />
-    </div>
+
+      <div className={styles.captionRow}>
+        <p className={styles.caption}>
+          {t(
+            "moreDesc",
+            "Quietly building. If you want early access or to collaborate, reach out."
+          )}
+        </p>
+        <CallToAction />
+      </div>
+    </section>
   );
 }

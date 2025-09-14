@@ -22,7 +22,6 @@ interface InteractiveContactProps {
 }
 
 export default function InteractiveContact({
-  name = "Andjela Djekic",
   linkedinUrl = "https://www.linkedin.com/in/andjeladjekic1111/",
   instagramUrl = "https://www.instagram.com/iginecci/",
   githubUrl = "https://github.com/igineci",
@@ -101,7 +100,6 @@ export default function InteractiveContact({
               {/* Main image with enhanced effects */}
               <img
                 src={profileImage || "/placeholder.svg"}
-                alt={name}
                 className="relative w-48 h-48 lg:w-56 lg:h-56 object-cover transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[#f2f0ea]/30 "
               />
 
@@ -114,7 +112,7 @@ export default function InteractiveContact({
 
             <div className="text-center space-y-4">
               <h3 className="text-3xl lg:text-4xl font-bold text-[#131313] tracking-tight">
-                {name}
+                Andjela Djekic
               </h3>
               <p className="text-xl text-[#131313]/50 font-medium">
                 {t("juniorSoftwareEngineer", "Junior Software Engineer")}

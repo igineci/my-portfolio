@@ -5,6 +5,7 @@ import HeroSection from "../../app/home/Hero";
 import Projects from "../../app/home/projects";
 import Footer from "../Footer";
 import InteractiveContact from "../ui/contact-form";
+import UiLabCta from "../ui/ui-lab-cta";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
         <div className="page-content-fade">
           <HeroSection />
           <Projects />
+          <UiLabCta />
           <InteractiveContact />
           <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
         </div>

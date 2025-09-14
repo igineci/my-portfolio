@@ -220,6 +220,30 @@ body {
   transform: translateX(-50%) scaleY(1);
 }
 
+/* Light variant for dark backgrounds (e.g., black dome) */
+.nav-hover-circle-light {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px; /* space for the half-circle */
+  transition: all 0.3s ease;
+}
+.nav-hover-circle-light::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 14px;
+  height: 7px;
+  background-color: #f2f0ea; /* light circle for dark bg */
+  border-radius: 8px 8px 0 0;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s ease;
+}
+.nav-hover-circle-light:hover::after {
+  transform: translateX(-50%) scaleY(1);
+}
+
 /* Hamburger Menu Animation */
 .hamburger-line {
   width: 32px;
@@ -329,3 +353,16 @@ body {
   }
 }
 
+/* Hero half-circle image clip (ensures no square corners) */
+.hero-half-clip {
+  /* Basic rounded top as fallback */
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  /* True half-ellipse clip anchored to bottom center */
+  clip-path: ellipse(50% 100% at 50% 100%);
+  /* Extra safety for browsers with mask support */
+  -webkit-mask-image: radial-gradient(100% 100% at 50% 100%, #000 99.5%, transparent 100%);
+  mask-image: radial-gradient(100% 100% at 50% 100%, #000 99.5%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}

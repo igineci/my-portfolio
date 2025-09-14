@@ -151,9 +151,7 @@ export default function EnhancedProjectGallery() {
             className="inline-flex items-center gap-2 px-8 py-3 bg-[#dddbd4] border-[0.5px] border-[#131313] text-[#131313] font-medium "
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() =>
-              window.open("https://github.com/yourusername", "_blank")
-            }
+            onClick={() => window.open("https://github.com/igineci", "_blank")}
           >
             <FaGithub className="w-5 h-5" />
             {t("viewAllProjects", "View All Projects")}
