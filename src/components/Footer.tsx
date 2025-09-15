@@ -45,12 +45,12 @@ export default function Footer() {
                 >
                   {t("explorations", "Explorations")}
                 </button>
-                <a
-                  href="#about"
+                <button
+                  onClick={() => navigate("/about")}
                   className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200"
                 >
                   {t("about", "About")}
-                </a>
+                </button>
               </nav>
 
               {/* Right - Contact Info */}
