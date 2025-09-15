@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import styles from "./scroll-spinner.module.css";
 
 export default function ScrollSpinner() {
@@ -20,7 +19,10 @@ export default function ScrollSpinner() {
   ];
 
   return (
-    <section className={styles.container} aria-label="Scroll-controlled rotating prompts">
+    <section
+      className={styles.container}
+      aria-label="Scroll-controlled rotating prompts"
+    >
       <div className={styles.scroller}>
         <div className={styles.buffer} />
         {/* 8 snap points to align with CSS variables */}
@@ -46,7 +48,19 @@ export default function ScrollSpinner() {
         <input type="checkbox" defaultChecked />
         <div />
         <p>
-          Demo of CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/scroll#browser_compatibility">scroll()</a> function in concert with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type">scroll-snap</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline">animation-timeline</a>.
+          Demo of CSS{" "}
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/scroll#browser_compatibility">
+            scroll()
+          </a>{" "}
+          function in concert with{" "}
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type">
+            scroll-snap
+          </a>{" "}
+          and{" "}
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline">
+            animation-timeline
+          </a>
+          .
         </p>
         <p>Works in Chrome 117+. Does not support Safari / iOS (yet).</p>
         <p>
@@ -56,4 +70,3 @@ export default function ScrollSpinner() {
     </section>
   );
 }
-
