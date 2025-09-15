@@ -103,7 +103,7 @@ export default function WorkPage() {
                             <img
                               src="images/fp/fp1.svg"
                               alt="Performance"
-                              className="w-full h-full object-contain hover:scale-110 hover:brightness-110 transition-transform duration-300"
+                              className="w-full h-full object-contain hover:scale-110 brightness-110 transition-transform duration-300"
                             />
                           </div>
                           <p className="text-[#131313] text-xl leading-relaxed max-w-3xl">
@@ -119,7 +119,7 @@ export default function WorkPage() {
                             <img
                               src="images/fp/fp2.svg"
                               alt="AI Integration"
-                              className="w-full h-full object-contain hover:scale-110 hover:brightness-110 transition-transform duration-300"
+                              className="w-full h-full object-contain hover:scale-110 brightness-110 transition-transform duration-300"
                             />
                           </div>
                           <p className="text-[#131313] text-xl leading-relaxed max-w-3xl">
@@ -212,14 +212,14 @@ export default function WorkPage() {
                             <img
                               src="images/reportify/1.svg"
                               alt="Database Management"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                           <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/reportify/2.svg"
                               alt="Automation"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                         </div>
@@ -231,14 +231,14 @@ export default function WorkPage() {
                             <img
                               src="images/reportify/4.svg"
                               alt="API Integration"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                           <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/reportify/5.svg"
                               alt="JSON Processing"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                         </div>
@@ -284,14 +284,14 @@ export default function WorkPage() {
                             <img
                               src="images/cer/1.svg"
                               alt="Customer Research"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                           <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/cer/2.svg"
                               alt="Data Visualization"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                         </div>
@@ -333,14 +333,14 @@ export default function WorkPage() {
                             <img
                               src="images/cer/4.svg"
                               alt="Touchpoint Analysis"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                           <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/cer/5.svg"
                               alt="Platform Integration"
-                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter hover:brightness-110"
+                              className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
                         </div>

@@ -47,3 +47,8 @@
   margin-top: 8px;
   color: #131313;
 }
+
+.error {
+  margin-top: 8px;
+  color: #b91c1c; /* red-700 */
+}

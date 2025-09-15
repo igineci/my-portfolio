@@ -43,7 +43,21 @@ export function useSmoothScroll(options?: { ease?: number; multiplier?: number }
       requestTick();
     };
 
+    const isEditableTarget = (t: EventTarget | null) => {
+      if (!(t instanceof HTMLElement)) return false;
+      const tag = t.tagName;
+      if (t.isContentEditable) return true;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+      // Also treat elements with role textbox as editable
+      if (t.getAttribute("role") === "textbox") return true;
+      return false;
+    };
+
     const onKeyDown = (e: KeyboardEvent) => {
+      // Do not hijack keys while typing or when modifiers are used
+      if (e.metaKey || e.ctrlKey || e.altKey || isEditableTarget(e.target)) {
+        return;
+      }
       const line = 40; // typical line height
       const page = window.innerHeight * 0.9;
       let used = false;

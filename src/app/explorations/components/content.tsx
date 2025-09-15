@@ -16,17 +16,13 @@ export default function ComponentsContent() {
         "3dTilesDesc",
         "Interactive tiles with 3D skew effects and hover animations"
       ),
-      tags: ["component", "3d", "hover"],
-      notes:
-        "Great for feature grids or dashboards. Keep tile count modest to maintain performance with heavy effects.",
+      
       node: <ThreeDTiles />,
     },
     {
       title: t("secretCode", "Secret Code"),
       description: t("secretCodeDesc", "Glide to reveal secret code"),
-      tags: ["fun", "reveal", "mask"],
-      notes:
-        "Use as a playful reveal. Works well for onboarding hints or easter eggs.",
+      
       node: <SecretCode />,
     },
     {
@@ -35,17 +31,13 @@ export default function ComponentsContent() {
         "glitchButtonsDesc",
         "3D buttons with glitch effects and color-dodge blend modes"
       ),
-      tags: ["button", "glitch", "cta"],
-      notes:
-        "Use sparingly for emphasis (e.g., hero CTA). Ensure accessible contrast and provide a plain fallback.",
+      
       node: <GlitchButtons />,
     },
     {
       title: t("toggle", "Animated Toggle"),
       description: t("toggleDesc", "Interactive 3D toggle switch"),
-      tags: ["toggle", "switch", "interactive"],
-      notes:
-        "Suitable for settings panels. Respect reduced-motion preferences for users sensitive to animation.",
+      
       node: <Toggle />,
     },
   ];
@@ -58,8 +50,6 @@ export default function ComponentsContent() {
             key={`${it.title}-${idx}`}
             title={it.title}
             description={it.description}
-            notes={it.notes}
-            tags={it.tags}
           >
             {it.node}
           </GalleryCard>

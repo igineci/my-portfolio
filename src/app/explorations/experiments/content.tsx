@@ -13,33 +13,25 @@ export default function ExperimentsContent() {
     {
       title: t("strip", "Strip"),
       description: t("stripDesc", "A pure CSS loading strip"),
-      tags: ["experiment", "css-only", "loader"],
-      notes:
-        "Lightweight loader experiment. Use as a background accent or between content fetches.",
+      
       node: <Tube />,
     },
     {
       title: t("letterTitle", "Mysterious letter"),
       description: t("letterDesc", "Smooth letter with smooth lines"),
-      tags: ["svg", "animation", "shape"],
-      notes:
-        "SVG path animation exploration. Pair with scroll triggers for delightful reveals.",
+      
       node: <LetterI />,
     },
     {
       title: t("newtonsCradle", "Newton's cradle"),
       description: t("newtonsCradleDesc", "Experiment ^ 2"),
-      tags: ["physics", "animation", "motion"],
-      notes:
-        "Timing-based motion demo. Useful for experimenting with easing and chaining.",
+      
       node: <NewtonCradle />,
     },
     {
       title: t("mailTitle", "Big mail"),
       description: t("mailDesc", "Hover to see whats inside"),
-      tags: ["hover", "3d", "transform"],
-      notes:
-        "Hover interaction experiment. Consider reduced-motion preferences for accessibility.",
+      
       node: <MailButton />,
     },
   ];
@@ -52,8 +44,6 @@ export default function ExperimentsContent() {
             key={`${it.title}-${idx}`}
             title={it.title}
             description={it.description}
-            notes={it.notes}
-            tags={it.tags}
           >
             {it.node}
           </GalleryCard>

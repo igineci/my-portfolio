@@ -17,7 +17,7 @@ export default function ComingSoonCard() {
       <div className={styles.captionRow}>
         <p className={styles.caption}>
           {t(
-            "moreDesc",
+            "moreSoonNew",
             "Quietly building. If you want early access or to collaborate, reach out."
           )}
         </p>

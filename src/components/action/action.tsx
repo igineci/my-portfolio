@@ -19,6 +19,7 @@ export default function CallToAction() {
   });
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [isMailError, setIsMailError] = useState(false);
 
   const handleClick = () => {
     setShowForm((prev) => !prev);
@@ -34,8 +35,9 @@ export default function CallToAction() {
     e.preventDefault();
     setIsSending(true);
     setIsSent(false);
+    setIsMailError(false);
     try {
-      const res = await emailjs.send(
+      const send = emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
@@ -49,13 +51,27 @@ export default function CallToAction() {
         },
         { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       );
+
+      // Enforce a timeout so the UI doesn't hang forever
+      const timeoutMs = Number(import.meta.env.VITE_EMAIL_TIMEOUT_MS) || 12000;
+      const res = await Promise.race([
+        send,
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error("email-timeout")), timeoutMs)
+        ),
+      ]);
       if (import.meta.env.MODE !== "production") {
         console.log("EmailJS send result:", res.status, res.text);
       }
       setFormData({ name: "", email: "", message: "" });
       setIsSent(true);
+      // Auto-hide success after a short delay
+      setTimeout(() => setIsSent(false), 4000);
     } catch (err) {
       console.error("Email send failed", err);
+      setIsMailError(true);
+      // Auto-hide error after a short delay
+      setTimeout(() => setIsMailError(false), 5000);
     } finally {
       setIsSending(false);
     }
@@ -101,7 +117,6 @@ export default function CallToAction() {
             onChange={handleChange}
             placeholder={t("message", "Your message")}
             className="bg-[#f2f0ea] border-[#131313] text-[#131313] rounded-none"
-            rows={4}
             required
           />
           <Button
@@ -114,6 +129,14 @@ export default function CallToAction() {
           {isSent && (
             <p className={styles.success}>
               {t("sentMsg", "Thanks! I'll be in touch soon.")}
+            </p>
+          )}
+          {isMailError && (
+            <p className={styles.error}>
+              {t(
+                "sendError",
+                "Oops, something went wrong. Please try again later."
+              )}
             </p>
           )}
         </form>
