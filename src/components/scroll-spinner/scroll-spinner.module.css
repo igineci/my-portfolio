@@ -1,0 +1,284 @@
+:root {
+  --radius: 10vw;
+  --invis-radius: 50vw;
+  --invis-offset: -50vw;
+  --offset: 15vw;
+  --c-bg: #F4F3F0;
+  --c-accent: #FF5E2B;
+  --c-text: #222;
+  --item-opacity-default: 0.2;
+  --snap-height: 40vh;
+  --snap-count: 8;
+}
+
+.container {
+  position: relative;
+  background: var(--c-bg);
+  width: 100%;
+  min-width: 320px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroller {
+  scroll-snap-type: y mandatory;
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 1;
+  scroll-timeline-name: --scrollTimeline;
+}
+
+.buffer {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+.snap {
+  height: var(--snap-height);
+  scroll-snap-align: end;
+}
+
+.spinner {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: var(--invis-offset);
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  margin: auto;
+  animation-duration: 1ms; /* Firefox fix */
+  animation-direction: alternate;
+  animation-timeline: --scrollTimeline;
+  animation-timing-function: linear;
+  animation-name: scrolly;
+  transform-origin: 50% 50%;
+}
+
+.spinner-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-duration: 1ms; /* Firefox fix */
+  animation-direction: alternate;
+  animation-timeline: --scrollTimeline;
+  animation-timing-function: linear;
+  animation-name: vertical;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: calc(50vw - var(--invis-radius) + 3.5vw);
+  bottom: 0;
+  margin: auto;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background-color: var(--c-accent);
+  animation-duration: 1ms; /* Firefox fix */
+  animation-direction: alternate;
+  animation-timeline: --scrollTimeline;
+  animation-timing-function: linear;
+  animation-name: dotAnimation;
+}
+
+.item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  font-size: min(7vw, 96px);
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  font-family: 'LibreCaslonCondensed', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  transform-origin: 0 50%;
+  opacity: var(--item-opacity-default);
+  animation-duration: 1ms; /* Firefox fix */
+  animation-direction: alternate;
+  animation-timeline: --scrollTimeline;
+  animation-timing-function: linear;
+}
+
+.itemWrap {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* Item transforms and per-item animation names */
+.item:nth-child(1) { transform: rotate(calc(12deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-1; }
+.item:nth-child(2) { transform: rotate(calc(24deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-2; }
+.item:nth-child(3) { transform: rotate(calc(36deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-3; }
+.item:nth-child(4) { transform: rotate(calc(48deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-4; }
+.item:nth-child(5) { transform: rotate(calc(60deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-5; }
+.item:nth-child(6) { transform: rotate(calc(72deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-6; }
+.item:nth-child(7) { transform: rotate(calc(84deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-7; }
+.item:nth-child(8) { transform: rotate(calc(96deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-8; }
+.item:nth-child(9) { transform: rotate(calc(108deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-9; }
+.item:nth-child(10) { transform: rotate(calc(120deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-10; }
+.item:nth-child(11) { transform: rotate(calc(132deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-11; }
+.item:nth-child(12) { transform: rotate(calc(144deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-12; }
+.item:nth-child(13) { transform: rotate(calc(156deg - 60deg)) translateX(var(--invis-radius)); animation-name: item-13; }
+
+/* Item animations (12.5% per snap, 8 divisions) */
+@keyframes item-5 {
+  0% { opacity: 1; }
+  12.5% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-6 {
+  0% { opacity: var(--item-opacity-default); }
+  0% { opacity: var(--item-opacity-default); }
+  12.5% { opacity: 1; }
+  25% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-7 {
+  0% { opacity: var(--item-opacity-default); }
+  12.5% { opacity: var(--item-opacity-default); }
+  25% { opacity: 1; }
+  37.5% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-8 {
+  0% { opacity: var(--item-opacity-default); }
+  25% { opacity: var(--item-opacity-default); }
+  37.5% { opacity: 1; }
+  50% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-9 {
+  0% { opacity: var(--item-opacity-default); }
+  37.5% { opacity: var(--item-opacity-default); }
+  50% { opacity: 1; }
+  62.5% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-10 {
+  0% { opacity: var(--item-opacity-default); }
+  50% { opacity: var(--item-opacity-default); }
+  62.5% { opacity: 1; }
+  75% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-11 {
+  0% { opacity: var(--item-opacity-default); }
+  62.5% { opacity: var(--item-opacity-default); }
+  75% { opacity: 1; }
+  87.5% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-12 {
+  0% { opacity: var(--item-opacity-default); }
+  75% { opacity: var(--item-opacity-default); }
+  87.5% { opacity: 1; }
+  100% { opacity: var(--item-opacity-default); }
+}
+
+@keyframes item-13 {
+  0% { opacity: var(--item-opacity-default); }
+  87.5% { opacity: var(--item-opacity-default); }
+  100% { opacity: 1; }
+}
+
+/* Rotational animation */
+@keyframes scrolly {
+  0% { transform: translateY(0); }
+  100% { transform: rotate(-96deg); }
+}
+
+/* Vertical offset animation */
+@keyframes vertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(calc(var(--snap-height) * var(--snap-count))); }
+}
+
+/* Dot animation: pulse at midpoints between snaps */
+@keyframes dotAnimation {
+  0% { opacity: 1; transform: scale(1); }
+  6.25% { opacity: 0; transform: scale(0.2); }
+
+  12.5% { opacity: 1; transform: scale(1); }
+  18.75% { opacity: 0; transform: scale(0.2); }
+
+  25% { opacity: 1; transform: scale(1); }
+  31.25% { opacity: 0; transform: scale(0.2); }
+
+  37.5% { opacity: 1; transform: scale(1); }
+  43.75% { opacity: 0; transform: scale(0.2); }
+
+  50% { opacity: 1; transform: scale(1); }
+  56.25% { opacity: 0; transform: scale(0.2); }
+
+  62.5% { opacity: 1; transform: scale(1); }
+  68.75% { opacity: 0; transform: scale(0.2); }
+
+  75% { opacity: 1; transform: scale(1); }
+  81.25% { opacity: 0; transform: scale(0.2); }
+
+  87.5% { opacity: 1; transform: scale(1); }
+  93.75% { opacity: 0; transform: scale(0.2); }
+}
+
+@font-face {
+  font-family: 'LibreCaslonCondensed';
+  src: url('https://assets.codepen.io/215059/LibreCaslonCondensed-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.explainer {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background-color: #fff;
+  width: 300px;
+  padding: 24px;
+  padding-right: 40px;
+  display: none;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.explainer input,
+.explainer div {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+}
+
+.explainer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+.explainer div::before { content: '×'; }
+.explainer:has(input:checked) div::before { content: 'i'; }
+.explainer:has(input:checked) p { display: none; }
+.explainer:has(input:checked) { background-color: transparent; }
+
+.explainer a { color: inherit; font-family: inherit; }
+.explainer p { font-size: 12px; line-height: 18px; }
+.explainer p ~ p { margin-top: 1em; }
+
+@media (min-width: 320px) {
+  .explainer { display: block; }
+}
+

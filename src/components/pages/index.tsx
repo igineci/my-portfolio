@@ -6,6 +6,7 @@ import Projects from "../../app/home/projects";
 import Footer from "../Footer";
 import InteractiveContact from "../ui/contact-form";
 import UiLabCta from "../ui/ui-lab-cta";
+// Removed experimental always-on viewport components
 
 export default function HomePage() {
   return (

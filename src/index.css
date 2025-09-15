@@ -41,14 +41,10 @@ html {
   scroll-snap-type: none; /* Disable snap to allow free smooth scrolling */
 }
 
-/* Enhanced smooth scrolling for all elements */
-* {
-  scroll-behavior: smooth;
-}
+/* Remove universal smooth scroll to avoid conflicts with JS-driven scroll */
 
-/* Body smooth scrolling with custom momentum and slowed behavior */
+/* Body scrolling tweaks */
 body {
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
   overscroll-behavior: contain; /* Prevent bounce effect */
   /* Additional properties for smoother, slower scrolling */

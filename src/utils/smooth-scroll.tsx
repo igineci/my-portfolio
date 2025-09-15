@@ -20,6 +20,11 @@ export function useSmoothScroll(options?: { ease?: number; multiplier?: number }
     let ease = options?.ease ?? 0.08; // lower = slower
     let multiplier = options?.multiplier ?? 1.0; // wheel delta scale
 
+    // Ensure CSS doesn't force smooth behavior while JS drives scrolling
+    const root = document.documentElement;
+    const prevScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+
     let current = window.scrollY || window.pageYOffset;
     let target = current;
     let rafId = 0;
@@ -90,7 +95,8 @@ export function useSmoothScroll(options?: { ease?: number; multiplier?: number }
       } else {
         current += delta;
       }
-      window.scrollTo(0, current);
+      // Explicitly request immediate scroll to avoid CSS smooth interfering
+      window.scrollTo({ top: current, behavior: "auto" });
 
       if (current !== target) {
         rafId = requestAnimationFrame(step);
@@ -120,6 +126,8 @@ export function useSmoothScroll(options?: { ease?: number; multiplier?: number }
     window.addEventListener("scroll", onNativeScroll, { passive: true });
 
     return () => {
+      // Restore previous CSS scroll-behavior
+      root.style.scrollBehavior = prevScrollBehavior;
       window.removeEventListener("wheel", onWheel as EventListener);
       window.removeEventListener("keydown", onKeyDown as EventListener);
       window.removeEventListener("resize", onResize);
@@ -133,4 +141,3 @@ export default function SmoothScrollMount() {
   useSmoothScroll({ ease: 0.06, multiplier: 1 }); // slower and smoother
   return null;
 }
-
