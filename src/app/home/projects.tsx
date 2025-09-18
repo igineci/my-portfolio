@@ -6,16 +6,28 @@ import { useTranslation } from "react-i18next";
 import { VscLinkExternal } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 
+type Project = {
+  title: string;
+  subtitleKey: string;
+  descriptionKey: string;
+  year: string;
+  image: string;
+  link?: string;
+  linkType?: "internal" | "external";
+};
+
 export default function Projects() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const projects = [
+  const projects: Project[] = [
     {
       title: "UI LAB",
       subtitleKey: "project1Subtitle",
       descriptionKey: "project1Desc",
       year: "2025",
       image: "images/fp3.jpg",
+      link: "/explorations",
+      linkType: "internal",
     },
     {
       title: "REPORTIFY",
@@ -23,13 +35,17 @@ export default function Projects() {
       descriptionKey: "project2Desc",
       year: "2024",
       image: "images/fp2.jpg",
+      link: "https://github.com/igineci/reportify",
+      linkType: "external",
     },
     {
-      titleKey: "CER",
+      title: "CER",
       subtitleKey: "project3Subtitle",
       descriptionKey: "project3Desc",
       year: "2023",
       image: "images/fp1.jpg",
+      link: "https://github.com/igineci/cer",
+      linkType: "external",
     },
   ];
 
@@ -59,16 +75,16 @@ export default function Projects() {
   // Handles click on the external link icon based on current project
   // Opens the target link in a new tab instead of redirecting
   const handleExternalLinkClick = () => {
-    if (currentProject.title === "UI LAB") {
-      // Open /explorations in a new tab
-      navigate("/explorations");
-    } else if (currentProject.title === "REPORTIFY") {
-      // Open REPORTIFY GitHub in a new tab
-      window.open("https://github.com/igineci/reportify", "_blank");
-    } else if (currentProject.title === "CER") {
-      // Open CER GitHub in a new tab
-      window.open("https://github.com/igineci/cer", "_blank");
+    if (!currentProject.link) {
+      return;
     }
+
+    if (currentProject.linkType === "external") {
+      window.open(currentProject.link, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    navigate(currentProject.link);
   };
 
   return (

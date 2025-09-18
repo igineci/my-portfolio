@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import type React from "react";
+import type { MouseEvent } from "react";
 
 import { GrLinkedin } from "react-icons/gr";
-import { FaInstagramSquare } from "react-icons/fa";
+import { IoMailSharp } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa6";
 import { Button } from "./button";
 import { Input } from "./input";
@@ -16,18 +17,33 @@ import { useTranslation } from "react-i18next";
 interface InteractiveContactProps {
   name?: string;
   linkedinUrl?: string;
-  instagramUrl?: string;
+  mailUrl?: string;
   githubUrl?: string;
   profileImage?: string;
 }
 
 export default function InteractiveContact({
   linkedinUrl = "https://www.linkedin.com/in/andjeladjekic1111/",
-  instagramUrl = "https://www.instagram.com/iginecci/",
+  mailUrl = "mailto:djekicandjela@outlook.com",
   githubUrl = "https://github.com/igineci",
   profileImage = "images/social.jpeg",
 }: InteractiveContactProps) {
   const { t } = useTranslation();
+  const handleMailClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!mailUrl) {
+      event.preventDefault();
+      return;
+    }
+
+    if (mailUrl.startsWith("mailto:")) {
+      event.preventDefault();
+      window.location.href = mailUrl;
+      return;
+    }
+
+    event.preventDefault();
+    window.open(mailUrl, "_blank", "noopener,noreferrer");
+  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -144,13 +160,12 @@ export default function InteractiveContact({
               </a>
 
               <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={mailUrl || "#"}
+                onClick={handleMailClick}
                 className="group relative overflow-hidden bg-[#f2f0ea] p-4  flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
               >
-                <FaInstagramSquare className="w-8 h-8 text-foreground group-hover:text-white transition-colors duration-300 z-10 relative" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                <IoMailSharp className="w-8 h-8 text-foreground group-hover:text-white transition-colors duration-300 z-10 relative" />
+                <div className="absolute inset-0 bg-[#e63946] transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               </a>
 
               <a

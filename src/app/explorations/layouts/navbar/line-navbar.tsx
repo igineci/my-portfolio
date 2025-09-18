@@ -8,9 +8,9 @@ export default function LineNavBar() {
           className={styles.links}
           style={{ "--items": 3 } as React.CSSProperties}
         >
-          <a href="#">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
+          <div className={styles.item}>1</div>
+          <div className={styles.item}>2</div>
+          <div className={styles.item}>3</div>
           <span className={styles.line}></span>
         </nav>
       </header>

@@ -8,19 +8,19 @@ export default function ThreeDTiles() {
     <div className={styles.container}>
       <ul className={styles.socialList}>
         <li className={styles.socialItem}>
-          <a href="#" className={styles.socialLink}>
+          <div className={styles.socialLink} aria-hidden="true">
             <GiFlexibleStar className={styles.icon} aria-hidden="true" />
-          </a>
+          </div>
         </li>
         <li className={styles.socialItem}>
-          <a href="#" className={styles.socialLink}>
+          <div className={styles.socialLink} aria-hidden="true">
             <GiStarSwirl className={styles.icon} aria-hidden="true" />
-          </a>
+          </div>
         </li>
         <li className={styles.socialItem}>
-          <a href="#" className={styles.socialLink}>
+          <div className={styles.socialLink} aria-hidden="true">
             <GiStarShuriken className={styles.icon} aria-hidden="true" />
-          </a>
+          </div>
         </li>
       </ul>
     </div>

@@ -1,4 +1,5 @@
 "use client";
+import type { MouseEvent } from "react";
 import { GrLinkedin } from "react-icons/gr";
 import { FaInstagramSquare } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
@@ -23,6 +24,23 @@ export default function Socials({
   profileImage = "images/social.jpeg",
 }: SocialsProps) {
   const { t } = useTranslation();
+  const handleMailClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!mailUrl) {
+      event.preventDefault();
+      return;
+    }
+
+    if (mailUrl.startsWith("mailto:")) {
+      // Trigger default mail client reliably across browsers
+      event.preventDefault();
+      window.location.href = mailUrl;
+      return;
+    }
+
+    // Fallback for non-mail links
+    event.preventDefault();
+    window.open(mailUrl, "_blank", "noopener,noreferrer");
+  };
   return (
     <section className="w-full py-7 px-18">
       <div className="">
@@ -68,7 +86,8 @@ export default function Socials({
 
               <div className="grid grid-cols-4 gap-8">
                 <a
-                  href={mailUrl}
+                  href={mailUrl || "#"}
+                  onClick={handleMailClick}
                   className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
                 >
                   <IoMailSharp className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
