@@ -34,7 +34,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 text-[70px] text-center text-[#f2f0ea] tracking-wide py-50 top-10"
+            className="relative z-10 text-4xl md:text-[60px] text-center text-[#f2f0ea] tracking-wide py-50 top-10"
           >
             {t("title", "Let's create")}
           </motion.h1>

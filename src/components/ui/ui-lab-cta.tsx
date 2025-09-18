@@ -7,7 +7,7 @@ export default function UiLabCta() {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full px-18 my-16">
+    <section className="w-full px-4 sm:px-8 lg:px-18 my-12 sm:my-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,16 +24,15 @@ export default function UiLabCta() {
           animate={{ x: ["-100%", "100%"] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         />
-
-        <div className="relative z-10 flex items-center justify-between px-8 md:px-12 py-10 md:py-14">
-          <p className="text-xl md:text-2xl lg:text-3xl text-[#131313] tracking-wide">
+        <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 md:px-12 py-8 md:py-14">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#131313] tracking-wide leading-relaxed">
             Curious about how I experiment with UI?{' '}
             <span className="underline underline-offset-4 decoration-[#131313]/50">
               Check out my UI LAB
             </span>{' '}
             <motion.span
               aria-hidden
-              className="inline-block align-middle text-2xl md:text-3xl lg:text-4xl text-[#131313]"
+              className="inline-block align-middle text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#131313]"
               whileHover={{ x: 6 }}
             >
               →
