@@ -216,6 +216,10 @@ body {
   transform: translateX(-50%) scaleY(1);
 }
 
+.nav-hover-circle.nav-active::after {
+  transform: translateX(-50%) scaleY(1);
+}
+
 /* Light variant for dark backgrounds (e.g., black dome) */
 .nav-hover-circle-light {
   position: relative;

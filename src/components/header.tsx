@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 type LngRet = { [lng: string]: { nativeName: string } };
@@ -23,6 +23,15 @@ export default function Header() {
   const [lngs, setLngs] = useState<LngRet>({ en: { nativeName: "English" } });
 
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+
+  const isActivePath = (path: string) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+
+    return location.pathname.startsWith(path);
+  };
 
   useEffect(() => {
     i18n.services.backendConnector.backend
@@ -76,35 +85,45 @@ export default function Header() {
                     {/* Home link with router navigation */}
                     <button
                       onClick={() => navigate("/")}
-                      className="text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0"
+                      className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
+                        isActivePath("/") ? "nav-active" : ""
+                      }`}
                     >
                       {t("home", "Home")}
                     </button>
                     {/* Work link with router navigation */}
                     <button
                       onClick={() => navigate("/work")}
-                      className="text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0"
+                      className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
+                        isActivePath("/work") ? "nav-active" : ""
+                      }`}
                     >
                       {t("work", "Work")}
                     </button>
                     {/* Explorations link with router navigation */}
                     <button
                       onClick={() => navigate("/explorations")}
-                      className="text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0"
+                      className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
+                        isActivePath("/explorations") ? "nav-active" : ""
+                      }`}
                     >
                       {t("explorations", "Explorations")}
                     </button>
                     {/* About link with router navigation */}
                     <button
                       onClick={() => navigate("/about")}
-                      className="text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0"
+                      className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
+                        isActivePath("/about") ? "nav-active" : ""
+                      }`}
                     >
                       {t("about", "About")}
                     </button>
                     {/* Contact link with router navigation */}
                     <button
                       onClick={() => navigate("/contact")}
-                      className="text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0"
+                      className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
+                        isActivePath("/contact") ? "nav-active" : ""
+                      }`}
                     >
                       {t("contact", "Contact")}
                     </button>
