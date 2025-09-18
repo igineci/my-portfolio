@@ -107,17 +107,17 @@ export default function AboutPage() {
         }`}
       >
         {/* Large Title Section with Background - Height 400px */}
-        <div className="relative w-full h-[400px] flex items-center justify-center mb-17">
-          <h1 className="text-center uppercase z-20 text-[80px] text-[#333333] leading-none">
+        <div className="relative w-full h-[260px] sm:h-[340px] lg:h-[400px] flex items-center justify-center mb-12 sm:mb-16 lg:mb-17 px-4">
+          <h1 className="text-center uppercase z-20 text-4xl sm:text-6xl lg:text-[80px] text-[#333333] leading-none tracking-[0.3em]">
             {t("myStoryTitle", "My story")}
           </h1>
         </div>
 
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Timeline stage - Positioned to overlap title section */}
-          <div className="relative mx-auto w-full max-w-3xl -mt-[220px]">
+          <div className="relative mx-auto w-full max-w-3xl -mt-[160px] sm:-mt-[200px] lg:-mt-[220px]">
             {/* Arch container - Only upper rounded part appears under title letters */}
-            <div className="relative mx-auto w-[450px] h-[550px] overflow-hidden rounded-t-full">
+            <div className="relative mx-auto w-full max-w-[420px] sm:max-w-[450px] h-[360px] sm:h-[480px] lg:h-[550px] overflow-hidden rounded-t-full">
               {/* Image in arch with sliding animation */}
               <div className="relative w-full h-full">
                 <img
@@ -172,8 +172,8 @@ export default function AboutPage() {
             </div>
 
             {/* Giant Year positioned to straddle the image bottom edge - OUTSIDE container to avoid clipping */}
-            <div className="pointer-events-none absolute left-1/2 top-[550px] -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="relative text-center font-normal text-[180px]">
+            <div className="pointer-events-none absolute left-1/2 top-[360px] sm:top-[520px] lg:top-[550px] -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="relative text-center font-normal text-[clamp(7.5rem,25vw,11.25rem)]">
                 {/* Invisible base text to set dimensions */}
                 <div className="invisible text-[#131313]">{current.year}</div>
 
@@ -203,37 +203,37 @@ export default function AboutPage() {
             <button
               aria-label="Previous year"
               onClick={goToPrevious}
-              className="group absolute -left-3 sm:-left-8 top-[40%] -translate-y-1/2 z-30 rounded-full p-2 text-[#333333] hover:text-[#131313] transition-colors"
+              className="group absolute left-2 sm:-left-8 top-1/2 -translate-y-1/2 z-30 rounded-full p-2 text-[#333333] hover:text-[#131313] transition-colors"
             >
-              <SlArrowLeft className="h-7 w-7 sm:h-8 sm:w-8 hover:scale-120 transition-transform" />
+              <SlArrowLeft className="h-6 w-6 sm:h-8 sm:w-8 hover:scale-120 transition-transform" />
               <span className="sr-only">{t("prev", "Previous")}</span>
             </button>
             <button
               aria-label="Next year"
               onClick={goToNext}
-              className="group absolute -right-3 sm:-right-8 top-[40%] -translate-y-1/2 z-30 rounded-full p-2 text-[#333333] hover:text-[#131313] transition-colors"
+              className="group absolute right-2 sm:-right-8 top-1/2 -translate-y-1/2 z-30 rounded-full p-2 text-[#333333] hover:text-[#131313] transition-colors"
             >
-              <SlArrowRight className="h-7 w-7 sm:h-8 sm:w-8 hover:scale-120 transition-transform" />
+              <SlArrowRight className="h-6 w-6 sm:h-8 sm:w-8 hover:scale-120 transition-transform" />
               <span className="sr-only">{t("next", "Next")}</span>
             </button>
           </div>
 
           {/* Description - Under title section */}
-          <div className=" mx-auto mt-[min(18vw,120px)] sm:mt-28 px-2 sm:px-4 mb-20">
-            <p className="text-[#333333] text-[40px] leading-relaxed text-center">
+          <div className="mx-auto mt-[min(28vw,120px)] sm:mt-28 px-2 sm:px-4 mb-12 sm:mb-20 max-w-3xl">
+            <p className="text-[#333333] text-2xl sm:text-[32px] leading-relaxed text-center">
               {/* Translate the timeline description using the string key */}
               {t(current.descriptionKey as "home")}
             </p>
           </div>
         </div>
       </section>
-      <div className="border-b border-[#131313] mx-18"> </div>
+      <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18"> </div>
       <ProjectGallery />
-      <div className="border-b border-[#131313] mx-18 mt-10"> </div>
+      <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18 mt-10"> </div>
       <CvComponent />
-      <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
+      <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18 mt-7 mb-16 sm:mb-24"> </div>
       <Socials />
-      <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
+      <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18 mt-7 mb-16 sm:mb-24"> </div>
       <Footer />
     </div>
   );

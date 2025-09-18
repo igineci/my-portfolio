@@ -1,5 +1,5 @@
 .wrap {
-  margin: 110px 160px 60px 160px;
+  margin: clamp(48px, 10vw, 110px) clamp(16px, 12vw, 160px) clamp(32px, 8vw, 60px);
 }
 
 .row {
@@ -15,7 +15,7 @@
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 400;
   color: #131313;
   letter-spacing: 0.2em;
@@ -30,8 +30,69 @@
   gap: 16px;
 }
 
+.ctaWrap {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .caption {
   color: #333333;
   font-size: 1rem;
   line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    margin: clamp(40px, 12vw, 96px) clamp(20px, 10vw, 120px) clamp(28px, 8vw, 50px);
+  }
+
+  .captionRow {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .hr {
+    width: 60%;
+  }
+
+  .title {
+    letter-spacing: 0.16em;
+  }
+
+  .captionRow {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .ctaWrap {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .wrap {
+    margin: 32px 16px 40px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+  }
+
+  .caption {
+    font-size: 0.95rem;
+  }
+
+  .hr {
+    width: 100%;
+  }
 }

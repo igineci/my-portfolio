@@ -21,7 +21,9 @@ export default function ComingSoonCard() {
             "Quietly building. If you want early access or to collaborate, reach out."
           )}
         </p>
-        <CallToAction />
+        <div className={styles.ctaWrap}>
+          <CallToAction />
+        </div>
       </div>
     </section>
   );

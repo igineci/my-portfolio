@@ -42,41 +42,41 @@ export default function Socials({
     window.open(mailUrl, "_blank", "noopener,noreferrer");
   };
   return (
-    <section className="w-full py-7 px-18">
+    <section className="w-full py-10 px-4 sm:px-12 lg:px-18">
       <div className="">
-        <h2 className="text-[70px] pb-6 font-light ">
+        <h2 className="text-3xl sm:text-5xl lg:text-[70px] pb-6 font-light uppercase tracking-[0.2em] text-[#131313]">
           {t("socialsTitle", "Let's connect")}
         </h2>
 
         <div className="border-1 border-[#131313]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[360px]">
             {/* Left Column - Image and LinkedIn */}
             <div className="flex flex-col items-center justify-center p-8 lg:p-12 space-y-6">
               <div className="relative">
                 <img
                   src={profileImage || "/placeholder.svg"}
                   alt={name}
-                  className="w-48 h-48 lg:w-56 lg:h-56 object-cover "
+                  className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 object-cover "
                 />
               </div>
 
               <div className="text-center space-y-3">
-                <h3 className="text-2xl lg:text-3xl text-[#131313] tracking-tight">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl text-[#131313] tracking-tight">
                   {name}
                 </h3>
-                <p className="text-lg text-[#131313] font-medium">
+                <p className="text-base sm:text-lg text-[#131313] font-medium">
                   {t("juniorSoftwareEngineer", "Junior Software Engineer")}
                 </p>
               </div>
             </div>
 
             {/* Right Column - Text and Social Buttons */}
-            <div className="flex flex-col justify-center p-8 lg:p-12 space-y-8 bg-[#dddbd4] border-l border-[#131313]">
+            <div className="flex flex-col justify-center p-8 lg:p-12 space-y-8 bg-[#dddbd4] border-t border-[#131313] lg:border-t-0 lg:border-l">
               <div className="space-y-4">
-                <h3 className="text-2xl lg:text-3xl text-[#131313] uppercase tracking-wider">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl text-[#131313] uppercase tracking-wider text-center lg:text-left">
                   {t("socialsSubtitle", "Let's build meaningful connections")}
                 </h3>
-                <p className="text-[#131313] text-lg leading-relaxed">
+                <p className="text-[#131313] text-base sm:text-lg leading-relaxed text-center lg:text-left">
                   {t(
                     "socialsDesc",
                     "Follow me on social media for insights and collaboration opportunities."
@@ -84,13 +84,13 @@ export default function Socials({
                 </p>
               </div>
 
-              <div className="grid grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
                 <a
                   href={mailUrl || "#"}
                   onClick={handleMailClick}
-                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
+                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
                 >
-                  <IoMailSharp className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
+                  <IoMailSharp className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
                   <div className="absolute inset-0 bg-[#e63946] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </a>
 
@@ -98,25 +98,25 @@ export default function Socials({
                   href={linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
+                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
                 >
-                  <GrLinkedin className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
+                  <GrLinkedin className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
                   <div className="absolute inset-0 bg-[#0077b5] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </a>
 
                 <a
                   href={instagramUrl}
-                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
+                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
                 >
-                  <FaInstagramSquare className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
+                  <FaInstagramSquare className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </a>
 
                 <a
                   href={githubUrl}
-                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-4 flex items-center justify-center space-x-3 transition-all duration-300 hover:scale-105"
+                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
                 >
-                  <FaGithub className="w-8 h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
+                  <FaGithub className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
                   <div className="absolute inset-0 bg-[#08872B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </a>
               </div>
