@@ -122,7 +122,7 @@ export default function Header() {
 
           {/* Mobile Layout */}
           <div className="md:hidden">
-            <div className="flex items-center justify-between mb-2 pb-6 border-b border-[#131313]">
+            <div className="flex items-center justify-between mb-2 pb-6 border-b border-[#131313] px-2">
               {/* Hamburger Menu - Left */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -138,7 +138,7 @@ export default function Header() {
               </button>
 
               {/* Site Name - Center */}
-              <h1 className="text-3xl font-thin tracking-wider text-[#131313] ">
+              <h1 className="text-2xl tracking-[0.12em] font-thin text-[#131313] whitespace-nowrap">
                 Andjela Djekic
               </h1>
 
@@ -152,15 +152,15 @@ export default function Header() {
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
         <div className="fixed top-[84px] left-0 right-0 bg-[#f2f0ea] border-b border-[#131313] z-40 md:hidden">
-          <nav className="px-6 py-4 ">
-            <div className="flex flex-col space-y-4">
+          <nav className="px-6 py-4">
+            <div className="flex flex-col space-y-3">
               {/* Home link for mobile */}
               <button
                 onClick={() => {
                   navigate("/");
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-[#131313] text-xl text-center py-4 border-b border-[#131313] uppercase bg-transparent border-none w-full"
+                className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
               >
                 {t("home", "Home")}
               </button>
@@ -171,7 +171,7 @@ export default function Header() {
                   navigate("/work");
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-[#131313] text-xl text-center py-4 border-b border-[#131313] uppercase bg-transparent border-none w-full"
+                className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
               >
                 {t("work", "Work")}
               </button>
@@ -182,7 +182,7 @@ export default function Header() {
                   navigate("/explorations");
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-[#131313] text-xl text-center py-4 border-b border-[#131313] uppercase bg-transparent border-none w-full"
+                className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
               >
                 {t("explorations", "Explorations")}
               </button>
@@ -192,7 +192,7 @@ export default function Header() {
                   navigate("/about");
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-[#131313] text-xl text-center py-4 border-b border-[#131313] uppercase bg-transparent border-none w-full"
+                className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
               >
                 {t("about", "About")}
               </button>
@@ -202,7 +202,7 @@ export default function Header() {
                   navigate("/contact");
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-[#131313] text-xl text-center py-4 border-b border-[#131313] uppercase bg-transparent border-none w-full"
+                className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
               >
                 {t("contact", "Contact")}
               </button>
@@ -221,7 +221,7 @@ export default function Header() {
                   setCount(count + 1);
                   setIsMobileMenuOpen(false);
                 }}
-                className="text-[#131313] text-lg py-2 uppercase"
+                className="text-[#131313] text-base py-3 uppercase bg-transparent border-none"
               >
                 {languageKeys[i18n.resolvedLanguage || "en"] || "EN"}
               </button>
