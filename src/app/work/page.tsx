@@ -55,18 +55,18 @@ export default function WorkPage() {
           </div>
 
           {/* Work page content */}
-          <div className="px-10">
-            <p className="text-[#131313] px-7 text-3xl mb-4 text-left">
+          <div className="px-4 sm:px-10">
+            <p className="text-[#131313] px-3 sm:px-7 text-2xl sm:text-3xl mb-4 text-left">
               {t("workTitle", "Selected Projects & Portfolio")}
             </p>
-            <p className="text-[#131313] px-7 text-lg mb-12 text-left w-[750px]">
+            <p className="text-[#131313] px-3 sm:px-7 text-base sm:text-lg mb-10 sm:mb-12 text-left max-w-3xl">
               {t(
                 "workDesc",
                 "Explore a curated collection of my frontend and development work. Each project represents a unique challenge and creative solution, showcasing attention to detail and innovative thinking."
               )}
             </p>
             {/* Interactive Project sections with expandable drawers */}
-            <div className="mt-16 px-7">
+            <div className="mt-16 px-3 sm:px-7">
               {/* Featured Projects Section */}
               <div className="border-t border-[#131313] border-b mb-0">
                 {/* Section Header - Clickable */}
