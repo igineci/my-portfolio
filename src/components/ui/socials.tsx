@@ -44,7 +44,7 @@ export default function Socials({
   return (
     <section className="w-full py-10 px-4 sm:px-12 lg:px-18">
       <div className="">
-        <h2 className="text-3xl sm:text-5xl lg:text-[70px] pb-6 font-light uppercase tracking-[0.2em] text-[#131313]">
+        <h2 className="text-3xl sm:text-5xl lg:text-[70px] pb-6 font-light uppercase tracking-[0.2em] text-[#131313] text-center sm:text-left">
           {t("socialsTitle", "Let's connect")}
         </h2>
 
