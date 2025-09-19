@@ -96,17 +96,17 @@ export default function WorkPage() {
                   <div className="px-6 mb-10 animate-slideDown">
                     <div className="space-y-6">
                       {/* Two-row layout: SVG left, paragraph right */}
-                      <div className="flex flex-col gap-8 my-8 px-4">
+                      <div className="flex flex-col gap-8 my-8 px-2 sm:px-4">
                         {/* Row 1: fp1.svg and first paragraph */}
-                        <div className="flex items-center gap-8">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 text-center sm:text-left">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0 mx-auto sm:mx-0">
                             <img
                               src="images/fp/fp1.svg"
                               alt="Performance"
                               className="w-full h-full object-contain hover:scale-110 brightness-110 transition-transform duration-300"
                             />
                           </div>
-                          <p className="text-[#131313] text-xl leading-relaxed max-w-3xl">
+                          <p className="text-[#131313] text-base sm:text-xl leading-relaxed max-w-3xl">
                             {t(
                               "fpText1",
                               "Since early 2025, I've been working as a leading frontend developer in a product team, where I'm responsible for implementing responsive UI, building reusable components, and collaborating closely with design and backend teams. A curated selection of my most impactful architectural and design projects, showcasing innovative solutions and creative excellence."
@@ -114,15 +114,15 @@ export default function WorkPage() {
                           </p>
                         </div>
                         {/* Row 2: fp2.svg and second paragraph */}
-                        <div className="flex items-center gap-8">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 text-center sm:text-left">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0 mx-auto sm:mx-0">
                             <img
                               src="images/fp/fp2.svg"
                               alt="AI Integration"
                               className="w-full h-full object-contain hover:scale-110 brightness-110 transition-transform duration-300"
                             />
                           </div>
-                          <p className="text-[#131313] text-xl leading-relaxed max-w-3xl">
+                          <p className="text-[#131313] text-base sm:text-xl leading-relaxed max-w-3xl">
                             {t(
                               "fpText2",
                               "The product is currently under development and not yet publicly disclosed, but it involves integrating technology with AI-driven analysis."
