@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../lib/utils";
 
 const badgeStyles =
-  "inline-flex items-center justify-center rounded-full border px-2 py-1 text-md font-medium w-fit whitespace-nowrap shrink-0 bg-[#dddbd4] text-[#131313]";
+  "inline-flex items-center justify-center rounded-full border px-2 py-1 text-sm sm:text-md font-medium w-fit whitespace-nowrap shrink-0 bg-[#dddbd4] text-[#131313]";
 
 function Badge({
   className,
@@ -29,8 +29,15 @@ interface BadgeGroupProps {
 export function BadgeGroup({ items, className = "" }: BadgeGroupProps) {
   return (
     <div className={cn("relative overflow-hidden", className)}>
-      {/* Scrolling container */}
-      <div className="flex animate-scroll-left gap-2 whitespace-nowrap">
+      {/* Static layout on mobile for readability */}
+      <div className="flex flex-wrap justify-center gap-2 sm:hidden">
+        {items.map((item, index) => (
+          <Badge key={`mobile-${index}`}>{item}</Badge>
+        ))}
+      </div>
+
+      {/* Animated marquee from tablet upwards */}
+      <div className="hidden sm:flex animate-scroll-left gap-2 whitespace-nowrap">
         {/* First set of badges */}
         {items.map((item, index) => (
           <Badge key={`first-${index}`}>{item}</Badge>

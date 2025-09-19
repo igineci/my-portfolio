@@ -130,8 +130,8 @@ export default function WorkPage() {
                           </p>
                         </div>
                       </div>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
-                        <div className="border border-[#dddbd4] p-6 rounded-lg">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-20 mt-4">
+                        <div className="border border-[#dddbd4] p-5 sm:p-6 rounded-lg bg-[#f7f5f0]">
                           <h2 className="text-[#131313] font-semibold text-center mb-5">
                             {t("techStack", "Tech Stack")}
                           </h2>
@@ -144,9 +144,10 @@ export default function WorkPage() {
                               "Vite",
                               "Framer Motion",
                             ]}
+                            className="max-w-full"
                           />
                         </div>
-                        <div className="border border-[#dddbd4] p-6 rounded-lg">
+                        <div className="border border-[#dddbd4] p-5 sm:p-6 rounded-lg bg-[#f7f5f0]">
                           <h4 className="text-[#131313] font-semibold text-center mb-5">
                             {t("responsibilities", "Responsibilities")}
                           </h4>
@@ -162,6 +163,7 @@ export default function WorkPage() {
                               t("architecture", "Architecture"),
                               t("modularity", "Modularity"),
                             ]}
+                            className="max-w-full"
                           />
                         </div>
                       </div>
@@ -196,26 +198,26 @@ export default function WorkPage() {
 
                 {/* Expandable Content Drawer */}
                 {expandedSection === "reportify" && (
-                  <div className="px-6 mb-20 animate-slideDown">
+                  <div className="px-4 sm:px-6 mb-16 sm:mb-20 animate-slideDown">
                     <div className="space-y-6">
-                      <p className="text-[#131313] text-xl leading-relaxed max-w-4xl">
+                      <p className="text-[#131313] text-base sm:text-lg lg:text-xl leading-relaxed max-w-4xl text-center sm:text-left mx-auto">
                         {t(
                           "reportifyDesc",
                           "Reportify is an automation tool that generates and delivers business reports directly from a relational database. It transforms raw customer, product, sales, and stock data into structured JSON reports and sends them to external services for further use."
                         )}
                       </p>
                       {/* Symmetric 2-Text-2 layout for SVGs and text */}
-                      <div className="flex items-center justify-center gap-8 my-12 px-4">
+                      <div className="flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-8 my-10 px-2 sm:px-4">
                         {/* Left column: 2 SVGs stacked vertically */}
-                        <div className="flex flex-col gap-8">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                        <div className="flex flex-row xl:flex-col gap-6 xl:gap-8 justify-center">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/reportify/1.svg"
                               alt="Database Management"
                               className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/reportify/2.svg"
                               alt="Automation"
@@ -224,17 +226,19 @@ export default function WorkPage() {
                           </div>
                         </div>
                         {/* Center column: text */}
-                        <ReportifyCard />
+                        <div className="w-full xl:max-w-2xl">
+                          <ReportifyCard />
+                        </div>
                         {/* Right column: 2 SVGs stacked vertically */}
-                        <div className="flex flex-col gap-8">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                        <div className="flex flex-row xl:flex-col gap-6 xl:gap-8 justify-center">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/reportify/4.svg"
                               alt="API Integration"
                               className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/reportify/5.svg"
                               alt="JSON Processing"
@@ -274,20 +278,20 @@ export default function WorkPage() {
 
                 {/* Expandable Content Drawer */}
                 {expandedSection === "design" && (
-                  <div className="border-b border-[#131313] px-6 py-8 animate-slideDown">
+                  <div className="border-b border-[#131313] px-4 sm:px-6 py-8 animate-slideDown">
                     <div className="space-y-6">
                       {/* CER section with hover-reveal GitHub/button card */}
-                      <div className="relative group flex items-center justify-center gap-8 my-12 px-4">
+                      <div className="relative group flex flex-col xl:flex-row items-center justify-center gap-8 my-10 px-2 sm:px-4">
                         {/* Left column: 2 images stacked vertically */}
-                        <div className="flex flex-col gap-8">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                        <div className="flex flex-row xl:flex-col gap-6 xl:gap-8 justify-center">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/cer/1.svg"
                               alt="Customer Research"
                               className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/cer/2.svg"
                               alt="Data Visualization"
@@ -296,8 +300,8 @@ export default function WorkPage() {
                           </div>
                         </div>
                         {/* Center column: text, with hover overlay */}
-                        <div className="relative flex flex-col items-center justify-center max-w-xl text-center mx-8">
-                          <p className="text-[#131313] text-xl leading-relaxed bg-[#f2f0ea]/80 rounded-xl px-6 py-4 shadow-lg">
+                        <div className="relative flex flex-col items-center justify-center w-full max-w-xl text-center mx-auto px-4 sm:px-8">
+                          <p className="text-[#131313] text-base sm:text-lg leading-relaxed bg-[#f2f0ea]/80 rounded-xl px-5 py-4 shadow-lg">
                             {t(
                               "cerDesc",
                               "CER (Customer Experience Research) is a comprehensive platform designed to analyze and improve customer interactions across multiple touchpoints. This project focused on creating intuitive data visualization and user-friendly interfaces for complex analytics."
@@ -328,15 +332,15 @@ export default function WorkPage() {
                           </div>
                         </div>
                         {/* Right column: 2 images stacked vertically */}
-                        <div className="flex flex-col gap-8">
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                        <div className="flex flex-row xl:flex-col gap-6 xl:gap-8 justify-center">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/cer/4.svg"
                               alt="Touchpoint Analysis"
                               className="w-full h-full object-contain hover:scale-110 transition-transform duration-300 filter brightness-110"
                             />
                           </div>
-                          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex-shrink-0">
                             <img
                               src="images/cer/5.svg"
                               alt="Platform Integration"

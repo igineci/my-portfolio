@@ -315,14 +315,13 @@ body {
   }
   to {
     opacity: 1;
-    max-height: 500px;
+    max-height: 1600px;
     transform: translateY(0);
   }
 }
 
 .animate-slideDown {
   animation: slideDown 0.4s ease-out forwards;
-  overflow: hidden;
 }
 
 /* Spinning star icon animation */

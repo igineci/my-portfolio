@@ -22,7 +22,7 @@ export default function ReportifyCard() {
   };
 
   return (
-    <div className="">
+    <div className="w-full">
       <div
         className="relative group cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
@@ -31,34 +31,34 @@ export default function ReportifyCard() {
         {/* Main Container */}
         <div
           className={`
-          flex flex-col items-center justify-center max-w-xl text-center mx-8
+          flex flex-col items-center justify-center w-full max-w-xl text-center mx-auto px-4 sm:px-8
           transition-all duration-500 ease-in-out transform
           ${isHovered ? "scale-105 blur-sm" : "scale-100 blur-0"}
         `}
         >
-          <div className="text-[#131313] border border-[#131313] p-7 text-xl leading-relaxed shadow-lg">
-            <ul className="mt-6 space-y-4 text-lg text-[#131313]">
-              <li className="flex items-center justify-center">
+          <div className="text-[#131313] border border-[#131313] p-6 sm:p-7 text-base sm:text-xl leading-relaxed shadow-lg bg-[#f7f5f0]">
+            <ul className="mt-4 sm:mt-6 space-y-4 text-base sm:text-lg text-[#131313]">
+              <li className="flex flex-wrap items-center justify-center gap-2 text-center">
                 <BiLogoPostgresql className="inline-block mr-2 h-7 w-7" />
                 {t("rep1", "Connects directly to the PostgreSQL database")}
                 <FaDatabase className="inline-block ml-2 h-5 w-5 mb-1" />
               </li>
-              <li className="flex items-center justify-center">
+              <li className="flex flex-wrap items-center justify-center gap-2 text-center">
                 <BsClipboard2DataFill className="inline-block mr-2 h-6 w-6 mb-1" />
                 {t("rep2", "Processes raw business data")}
                 <FaBusinessTime className="inline-block ml-2 h-7 w-7" />
               </li>
-              <li className="flex items-center justify-center">
+              <li className="flex flex-wrap items-center justify-center gap-2 text-center">
                 <GiAutomaticSas className="inline-block mr-2 h-7 w-7 mb-1" />
                 {t("rep3", "Automatically generates sales reports")}
                 <RiAiGenerateText className="inline-block ml-2 h-7 w-7 mb-1" />
               </li>
-              <li className="flex items-center justify-center">
+              <li className="flex flex-wrap items-center justify-center gap-2 text-center">
                 <BsFillCalendar2HeartFill className="inline-block mr-2 h-6 w-6 mb-1" />
                 {t("rep4", "Schedules delivery right on time")}
                 <MdScheduleSend className="inline-block ml-2 h-7 w-7 mb-1" />
               </li>
-              <li className="flex items-center justify-center">
+              <li className="flex flex-wrap items-center justify-center gap-2 text-center">
                 <MdInsights className="inline-block mr-2 h-7 w-7" />
                 {t("rep5", "Sends insights via API to external services")}
                 <GrServices className="inline-block ml-2 h-7 w-7 mb-1" />
@@ -79,7 +79,7 @@ export default function ReportifyCard() {
           }
         `}
         >
-          <div className="bg-[#f2f0ea] backdrop-blur-sm py-10 px-30 shadow-2xl">
+          <div className="bg-[#f2f0ea] backdrop-blur-sm py-8 px-8 sm:px-14 shadow-2xl">
             <div className="text-center space-y-4">
               <FiGithub className="h-12 w-12 mx-auto text-foreground" />
               <h3 className="text-xl font-semibold text-foreground">
