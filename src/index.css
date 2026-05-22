@@ -33,21 +33,45 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Global Smooth Scrolling Configuration */
+/* Global scroll configuration
+ *
+ * The site uses Lenis (see src/utils/smooth-scroll.tsx) to drive a slow,
+ * elegant page scroll via JavaScript. CSS-level `scroll-behavior: smooth`
+ * fights Lenis (programmatic scrolls double-animate), so the html element
+ * stays on `auto`. When Lenis is active it adds `.lenis` to <html>; the
+ * overrides below mirror Lenis' recommended CSS to keep behaviour clean.
+ *
+ * Reduced-motion users skip Lenis entirely (see SmoothScrollMount), and
+ * the OS-level reduced motion preference already disables native CSS smooth.
+ */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 0;
-  /* Additional smooth scrolling properties for enhanced experience */
-  scroll-snap-type: none; /* Disable snap to allow free smooth scrolling */
+  scroll-snap-type: none;
 }
 
-/* Remove universal smooth scroll to avoid conflicts with JS-driven scroll */
+/* Lenis recommended overrides — kept inert when Lenis isn't mounted */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
 
 /* Body scrolling tweaks */
 body {
   -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
   overscroll-behavior: contain; /* Prevent bounce effect */
-  /* Additional properties for smoother, slower scrolling */
   scroll-padding: 0;
 }
 
@@ -62,6 +86,23 @@ body {
 ::-webkit-scrollbar {
   width: 0px; /* Hide scrollbar for cleaner look while maintaining functionality */
   background: transparent;
+}
+
+/* Projects gallery: thin editorial scrollbar inside the bordered container */
+.projects-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(19, 19, 19, 0.25) transparent;
+}
+.projects-scroll::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+.projects-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(19, 19, 19, 0.25);
+  border-radius: 0;
+}
+.projects-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(19, 19, 19, 0.45);
 }
 
 /* Ensure smooth scrolling works on main content areas */
@@ -306,7 +347,13 @@ body {
   }
 }
 
-/* Expandable section slide-down animation */
+/* Expandable section slide-down animation
+ *
+ * Generous max-height ceiling so the project specimen spread (year
+ * watermark + headline + image + manifesto + drop-cap prose + ribbons
+ * + dome CTA) is never clipped on smaller laptops. The framer-motion
+ * stagger inside ProjectSpecimen drives the per-block reveal; this
+ * keyframe just opens the panel itself. */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -315,13 +362,34 @@ body {
   }
   to {
     opacity: 1;
-    max-height: 1600px;
+    max-height: 4000px;
     transform: translateY(0);
   }
 }
 
 .animate-slideDown {
-  animation: slideDown 0.4s ease-out forwards;
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+/* Editorial drop cap for ProjectSpecimen long-form prose.
+ * Targets ::first-letter so wrapping the text in a paragraph is enough —
+ * the parent class makes the rule local to the specimen and keeps body
+ * copy elsewhere on the site untouched. */
+.project-specimen-prose::first-letter {
+  float: left;
+  font-family: 'Absans', 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  margin: 0.15rem 0.65rem 0 0;
+  color: #131313;
+}
+
+@media (min-width: 640px) {
+  .project-specimen-prose::first-letter {
+    font-size: 5.5rem;
+    margin-right: 0.85rem;
+  }
 }
 
 /* Spinning star icon animation */

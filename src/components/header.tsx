@@ -1,27 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-type LngRet = { [lng: string]: { nativeName: string } };
-
-// Language display mapping
-const languageKeys: { [key: string]: string } = {
+const languageKeys: Record<string, string> = {
   en: "EN",
   sr: "SR",
-  de: "DE",
-  es: "ES",
-  ru: "RU",
-  // Add more languages as needed
 };
+const supportedLanguages = ["en", "sr"] as const;
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
-  const [lngs, setLngs] = useState<LngRet>({ en: { nativeName: "English" } });
-
   const { t, i18n } = useTranslation();
   const location = useLocation();
 
@@ -33,11 +24,23 @@ export default function Header() {
     return location.pathname.startsWith(path);
   };
 
-  useEffect(() => {
-    i18n.services.backendConnector.backend
-      .getLanguages()
-      .then((ret: LngRet) => setLngs(ret));
-  }, [i18n]);
+  const getCurrentLanguage = () => {
+    const normalized = (i18n.resolvedLanguage || "en").split("-")[0];
+    return supportedLanguages.includes(normalized as (typeof supportedLanguages)[number])
+      ? normalized
+      : "en";
+  };
+
+  const cycleLanguage = () => {
+    const currentLanguage = getCurrentLanguage();
+    const currentIndex = supportedLanguages.indexOf(
+      currentLanguage as (typeof supportedLanguages)[number]
+    );
+    const nextLanguage =
+      supportedLanguages[(currentIndex + 1) % supportedLanguages.length];
+
+    i18n.changeLanguage(nextLanguage);
+  };
 
   return (
     <>
@@ -64,20 +67,10 @@ export default function Header() {
                   {/* Language Switcher - Left - Single cycling button */}
                   <button
                     type="button"
-                    onClick={() => {
-                      const availableLanguages = Object.keys(lngs);
-                      const currentIndex = availableLanguages.indexOf(
-                        i18n.resolvedLanguage || "en"
-                      );
-                      const nextIndex =
-                        (currentIndex + 1) % availableLanguages.length;
-                      const nextLanguage = availableLanguages[nextIndex];
-                      i18n.changeLanguage(nextLanguage);
-                      setCount(count + 1);
-                    }}
+                    onClick={cycleLanguage}
                     className="text-[#131313] text-sm px-3 mb-1 cursor-pointer bg-transparent border-none p-0 transition-colors duration-200"
                   >
-                    {languageKeys[i18n.resolvedLanguage || "en"] || "EN"}
+                    {languageKeys[getCurrentLanguage()] || "EN"}
                   </button>
 
                   {/* Navigation Links - Center */}
@@ -229,20 +222,12 @@ export default function Header() {
               {/* Language Switcher in Mobile Menu */}
               <button
                 onClick={() => {
-                  const availableLanguages = Object.keys(lngs);
-                  const currentIndex = availableLanguages.indexOf(
-                    i18n.resolvedLanguage || "en"
-                  );
-                  const nextIndex =
-                    (currentIndex + 1) % availableLanguages.length;
-                  const nextLanguage = availableLanguages[nextIndex];
-                  i18n.changeLanguage(nextLanguage);
-                  setCount(count + 1);
+                  cycleLanguage();
                   setIsMobileMenuOpen(false);
                 }}
                 className="text-[#131313] text-base py-3 uppercase bg-transparent border-none"
               >
-                {languageKeys[i18n.resolvedLanguage || "en"] || "EN"}
+                {languageKeys[getCurrentLanguage()] || "EN"}
               </button>
             </div>
           </nav>

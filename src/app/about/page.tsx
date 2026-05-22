@@ -2,11 +2,16 @@
 import { useState, useMemo, useEffect } from "react";
 import Header from "../../components/header";
 import Footer from "../../components/Footer";
-import ProjectGallery from "../../components/project-gallery";
+import { ProjectsGallery } from "../../components/projects-gallery";
+import { getProjectById, type Project } from "../../data/projects";
 import CvComponent from "../../components/ui/cv-component";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import Socials from "../../components/ui/socials";
 import { useTranslation } from "react-i18next";
+
+const aboutProjects: Project[] = (["reportify", "cer"] as const)
+  .map((id) => getProjectById(id))
+  .filter((project): project is Project => Boolean(project));
 type TimelineItem = {
   year: number;
   image: string;
@@ -228,7 +233,7 @@ export default function AboutPage() {
         </div>
       </section>
       <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18"> </div>
-      <ProjectGallery />
+      <ProjectsGallery projects={aboutProjects} />
       <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18 mt-10"> </div>
       <CvComponent />
       <div className="border-b border-[#131313] mx-4 sm:mx-12 lg:mx-18 mt-7 mb-16 sm:mb-24"> </div>

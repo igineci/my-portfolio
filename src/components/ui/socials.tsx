@@ -1,7 +1,6 @@
 "use client";
 import type { MouseEvent } from "react";
 import { GrLinkedin } from "react-icons/gr";
-import { FaInstagramSquare } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
@@ -10,7 +9,6 @@ interface SocialsProps {
   name?: string;
   linkedinUrl?: string;
   mailUrl?: string;
-  instagramUrl?: string;
   githubUrl?: string;
   profileImage?: string;
 }
@@ -18,9 +16,8 @@ interface SocialsProps {
 export default function Socials({
   name = "Andjela Djekic",
   linkedinUrl = "https://www.linkedin.com/in/andjeladjekic1111/",
-  instagramUrl = "https://www.instagram.com/iginecci/",
   githubUrl = "https://github.com/igineci",
-  mailUrl = "mailto:djekicandjela@outlook.com",
+  mailUrl = "mailto:andjeladjek@gmail.com",
   profileImage = "images/social.jpeg",
 }: SocialsProps) {
   const { t } = useTranslation();
@@ -65,7 +62,7 @@ export default function Socials({
                   {name}
                 </h3>
                 <p className="text-base sm:text-lg text-[#131313] font-medium">
-                  {t("juniorSoftwareEngineer", "Junior Software Engineer")}
+                  {t("mediorFrontnedEngineer", "Medior Frontned Engineer")}
                 </p>
               </div>
             </div>
@@ -84,7 +81,7 @@ export default function Socials({
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+              <div className="grid grid-cols-3 gap-6 sm:gap-8">
                 <a
                   href={mailUrl || "#"}
                   onClick={handleMailClick}
@@ -102,14 +99,6 @@ export default function Socials({
                 >
                   <GrLinkedin className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
                   <div className="absolute inset-0 bg-[#0077b5] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                </a>
-
-                <a
-                  href={instagramUrl}
-                  className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
-                >
-                  <FaInstagramSquare className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </a>
 
                 <a

@@ -45,7 +45,6 @@ export default function CallToAction() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          // Outlook-safe Reply-To pattern
           from_name: formData.name,
           reply_to: formData.email,
         },

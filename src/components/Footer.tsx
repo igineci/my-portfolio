@@ -21,7 +21,7 @@ export default function Footer() {
                   Andjela Djekic
                 </h3>
                 <p className="text-[#131313] text-sm opacity-70">
-                  {t("dev", "Frontend Developer & Designer")}
+                  {t("dev", "Medior Frontend Engineer")}
                 </p>
               </div>
 

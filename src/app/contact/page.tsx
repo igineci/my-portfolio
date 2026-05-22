@@ -3,18 +3,11 @@ import Header from "../../components/header";
 import Footer from "../../components/Footer";
 import { useTranslation } from "react-i18next";
 import Socials from "../../components/ui/socials";
+import { ContactDownloadRow } from "../../components/contact/contact-download-row";
+
 export default function ContactPage() {
   const { t } = useTranslation();
-  // Handler to download CV and underline text
-  const handleCvDownload = () => {
-    // Create a temporary link to trigger download
-    const link = document.createElement("a");
-    link.href = "/cv.pdf";
-    link.download = "cv.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+
   return (
     <div
       className="min-h-screen text-[#131313] overflow-hidden relative flex flex-col"
@@ -45,7 +38,7 @@ export default function ContactPage() {
           <p className="text-[#131313] px-4 sm:px-7 text-base sm:text-lg mb-12 text-center mx-auto max-w-[700px]">
             {t(
               "contactDesc",
-              "Whether you’re working on a project as an architect, designer, contractor, or simply on your own, share your project details with me and I’ll carefully review them to provide you with a clear and fair solution offer."
+              "Whether you’re working on a project as an architect, designer, contractor, or simply on your own, share your project details with me and I’ll carefully review them to provide you with a clear and fair solution offer.",
             )}
           </p>
           {/* Contact Information Rows */}
@@ -70,7 +63,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Location  Row */}
+            {/* Location Row */}
             <div className="border-b border-[#131313] py-10 mb-0">
               <div className="flex flex-col gap-4 text-center sm:text-left sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-[#929291] text-sm sm:text-base font-light">
@@ -82,17 +75,21 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="border-b border-[#131313] py-10 mb-0">
-              <div className="flex flex-col gap-4 text-center sm:text-left sm:flex-row sm:items-center sm:justify-between">
-                <span className="text-[#929291] text-sm sm:text-base font-light">CV</span>
-                <span
-                  className="text-[#131313] text-2xl sm:text-3xl font-light cursor-pointer transition-all duration-200"
-                  onClick={handleCvDownload}
-                >
-                  {t("cv", "CV")}
-                </span>
-              </div>
-            </div>
+            <ContactDownloadRow
+              label={t("cv", "CV")}
+              value={t("cv", "CV")}
+              href="/cv.pdf"
+              downloadFilename="Andjela_Djekic_CV.pdf"
+              downloadHint={t("downloadHint", "Click to download · pdf")}
+            />
+
+            <ContactDownloadRow
+              label={t("engineeringStatementLabel", "Engineering Statement")}
+              value={t("engineeringStatementValue", "Statement")}
+              href="/Engineering_Statement_Andjela_Djekic.pdf"
+              downloadFilename="Engineering_Statement_Andjela_Djekic.pdf"
+              downloadHint={t("downloadHint", "Click to download · pdf")}
+            />
           </div>
         </div>
       </div>

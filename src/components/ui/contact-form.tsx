@@ -24,7 +24,7 @@ interface InteractiveContactProps {
 
 export default function InteractiveContact({
   linkedinUrl = "https://www.linkedin.com/in/andjeladjekic1111/",
-  mailUrl = "mailto:djekicandjela@outlook.com",
+  mailUrl = "mailto:andjeladjek@gmail.com",
   githubUrl = "https://github.com/igineci",
   profileImage = "images/social.jpeg",
 }: InteractiveContactProps) {
@@ -82,7 +82,6 @@ export default function InteractiveContact({
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          // Outlook-safe Reply-To pattern
           from_name: formData.name,
           reply_to: formData.email,
         },
@@ -144,7 +143,7 @@ export default function InteractiveContact({
                 Andjela Djekic
               </h3>
               <p className="text-xl text-[#131313]/50 font-medium">
-                {t("juniorSoftwareEngineer", "Junior Software Engineer")}
+                {t("mediorFrontnedEngineer", "Medior Frontned Engineer")}
               </p>
             </div>
 
