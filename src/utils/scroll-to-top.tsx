@@ -1,21 +1,23 @@
-// ScrollToTop.tsx
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { resolveWorkNavTarget } from "../app/work/work-nav";
 import { getLenis } from "./smooth-scroll";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    // When Lenis is active, ask it to jump immediately so its internal target
-    // matches the new top position; otherwise fall back to the native scrollTo.
+    if (location.pathname === "/work" && resolveWorkNavTarget(location)) {
+      return;
+    }
+
     const lenis = getLenis();
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
       return;
     }
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [pathname]);
+  }, [location.pathname, location.state, location.hash, location.key]);
 
   return null;
 }

@@ -9,33 +9,29 @@ import { useTranslation } from "react-i18next";
 import { getProjectsForSurface, projectKey } from "../../data/projects";
 import { ProjectSpecimen } from "./project-specimen";
 import { NowSpecimen } from "./now-specimen";
-import { readWorkNavState, WORK_SECTION_FEATURED } from "./work-nav";
+import {
+  resolveWorkNavTarget,
+  WORK_SECTION_FEATURED,
+  workSectionDomId,
+} from "./work-nav";
+import { scheduleWorkSectionScroll } from "./scroll-to-work-section";
 
 const projects = getProjectsForSurface("work");
 
-function workSectionDomId(section: string) {
-  return `work-section-${section}`;
-}
-
 export default function WorkPage() {
   const location = useLocation();
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState<string | null>(() => {
+    return resolveWorkNavTarget(location)?.section ?? null;
+  });
   const { t } = useTranslation();
 
   useEffect(() => {
-    const nav = readWorkNavState(location.state);
+    const nav = resolveWorkNavTarget(location);
     if (!nav) return;
 
     setExpandedSection(nav.section);
-
-    const frame = requestAnimationFrame(() => {
-      document
-        .getElementById(workSectionDomId(nav.section))
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    return () => cancelAnimationFrame(frame);
-  }, [location.state, location.key]);
+    return scheduleWorkSectionScroll(nav.section);
+  }, [location.state, location.hash, location.key]);
 
   const toggleSection = (sectionName: string) => {
     setExpandedSection(expandedSection === sectionName ? null : sectionName);
@@ -50,16 +46,11 @@ export default function WorkPage() {
       className="min-h-screen text-[#131313] overflow-hidden relative flex flex-col"
       style={{ backgroundColor: "#f2f0ea" }}
     >
-      {/* Content container with same structure as other pages */}
       <div className="relative z-10 flex-grow">
-        {/* Header component - consistent across all pages */}
         <Header />
 
-        {/* Main content area with proper spacing for fixed header */}
         <div className="pt-50 px-2 page-content-fade">
-          {/* Work page title section with custom background */}
           <div className="relative flex justify-center items-center mb-8 h-[300px]">
-            {/* Custom background element with vignette effect */}
             <div className="absolute inset-0 flex justify-center items-center">
               <div className="relative w-[300px] h-[300px] brightness-110">
                 <img
@@ -70,7 +61,6 @@ export default function WorkPage() {
               </div>
             </div>
 
-            {/* WORK text overlay */}
             <h1 className="relative z-10 text-[80px] text-center md:text-[100px] uppercase font-light text-[#333333] leading-tight tracking-wider">
               {t("work", "Work")}
             </h1>
@@ -83,7 +73,7 @@ export default function WorkPage() {
             <p className="text-[#131313] px-3 sm:px-7 text-base sm:text-lg mb-10 sm:mb-12 text-left max-w-3xl">
               {t(
                 "workDesc",
-                "Explore a curated collection of my frontend and development work. Each project represents a unique challenge and creative solution, showcasing attention to detail and innovative thinking."
+                "Explore a curated collection of my frontend and development work. Each project represents a unique challenge and creative solution, showcasing attention to detail and innovative thinking.",
               )}
             </p>
 
