@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 @import "./styles/fonts.css";
 
+/* Matches page canvas — helps Safari/Chrome tint tabs and overscroll areas */
+html {
+  background-color: #f2f0ea;
+  color-scheme: light;
+}
 
 /* Badge scroll animation */
 @keyframes scroll-left {

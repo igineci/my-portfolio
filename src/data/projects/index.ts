@@ -5,8 +5,6 @@ import { uiLab } from "./ui-lab";
 import { reportify } from "./reportify";
 import { cer } from "./cer";
 import { unicam } from "./unicam";
-import { nittbit } from "./nittbit";
-
 /**
  * Single source of truth for all projects across the site.
  * Add new projects by:
@@ -22,7 +20,6 @@ import { nittbit } from "./nittbit";
 export const PROJECTS = [
   gnos,
   juratech,
-  nittbit,
   unicam,
   uiLab,
   reportify,
