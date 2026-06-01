@@ -1,0 +1,124 @@
+{
+  "header": {
+    "summary": "Specijalizovana za React i skalabilnu frontend arhitekturu. Prepoznata po brzom savladavanju novih tehnologija i jasnoj komunikaciji. Iskustvo u razvoju intuitivnih web aplikacija.",
+    "downloadPdf": "Preuzmi PDF",
+    "links": [
+      {
+        "label": "Portfolio sajt",
+        "href": "/",
+        "external": false
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/igineci",
+        "external": true
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/andjeladjekic1111/",
+        "external": true
+      }
+    ]
+  },
+  "about": {
+    "title": "O meni",
+    "body": "Fluentna u govoru i pisanju engleskog (C1), sa iskustvom u medjunarodnoj komunikaciji tokom softverskih integracionih projekata."
+  },
+  "workExperience": {
+    "title": "Radno iskustvo",
+    "openProject": "Pogledaj projekat na Work stranici",
+    "items": [
+      {
+        "id": "juratech",
+        "company": "Juratech",
+        "dateRange": "2025 - 2026",
+        "role": "Frontend inzenjer",
+        "bullets": [
+          "Migracija legacy desktop ERP-a u Angular 20 SPA u ASP.NET Core-u, podeljeno u dva lazy-loaded modula za Office i Workshop",
+          "Product configurator sa strategy + factory patternima kroz 18 tipova proizvoda i 700+ materijala",
+          "Hibridni state model i SVG blueprint visualization engine"
+        ],
+        "workSection": "juratech",
+        "relatedSkills": ["angular", "typescript", "componentArchitecture", "restApis"]
+      },
+      {
+        "id": "gnos",
+        "company": "Gnos Records",
+        "dateRange": "2025 - danas",
+        "role": "Web dev",
+        "bullets": [
+          "Zvanicni sajt labela od koncepta do produkcije — Vite, React, React Router",
+          "Zod-validiran MDX content pipeline",
+          "Custom Markdown preprocessor"
+        ],
+        "workSection": "gnos",
+        "relatedSkills": ["react", "typescript", "css3", "vite"]
+      },
+      {
+        "id": "nittbit",
+        "company": "Nittbit",
+        "dateRange": "2025 - danas",
+        "role": "Frontend inzenjer",
+        "bullets": [
+          "Dashboard builder sa Zustand-om, eksplicitnim widget state masinama i TTL caching-om",
+          "Custom SSE streaming klijent preko fetch readable streams — Axios zaobilazen",
+          "Razvoj javnog product showcase sajta"
+        ],
+        "workSection": "featured",
+        "relatedSkills": ["react", "typescript", "restApis"]
+      },
+      {
+        "id": "melany",
+        "company": "Melany",
+        "dateRange": "2023-2024",
+        "role": "Software inzenjer",
+        "bullets": [
+          "ERP nadogradnje, spoljne integracije i kompleksna poslovna logika u PostgreSQL-u"
+        ],
+        "relatedSkills": ["typescript", "restApis", "componentArchitecture"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Vještine",
+    "items": [
+      { "slug": "typescript", "label": "TypeScript" },
+      { "slug": "react", "label": "React" },
+      { "slug": "angular", "label": "Angular" },
+      { "slug": "html5", "label": "HTML5" },
+      { "slug": "css3", "label": "CSS3" },
+      { "slug": "jest", "label": "Jest" },
+      { "slug": "restApis", "label": "REST APIs" },
+      { "slug": "componentArchitecture", "label": "Component Architecture" },
+      { "slug": "vite", "label": "Vite" },
+      { "slug": "npm", "label": "NPM" },
+      { "slug": "git", "label": "Git" }
+    ]
+  },
+  "education": {
+    "title": "Obrazovanje",
+    "items": [
+      {
+        "id": "etf",
+        "period": "[2023 - ]",
+        "degree": "Elektronika i telekomunikacije:",
+        "institution": "VISER, Beograd"
+      },
+      {
+        "id": "efbl",
+        "period": "[2021 - 2023]",
+        "degree": "Poslovna informatika:",
+        "institution": "Ekonomski fakultet, Banja Luka"
+      }
+    ]
+  },
+  "footer": {
+    "handle": "@IGINECI ( Andjela Djekic )",
+    "handleHref": "https://github.com/igineci",
+    "phone": "(+381) 69-1505-303",
+    "phoneTel": "+381691505303",
+    "phoneLabel": "Telefon",
+    "address": "Beograd, Srbija",
+    "addressLabel": "Adresa"
+  }
+}

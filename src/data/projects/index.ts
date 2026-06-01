@@ -4,6 +4,8 @@ import { juratech } from "./juratech";
 import { uiLab } from "./ui-lab";
 import { reportify } from "./reportify";
 import { cer } from "./cer";
+import { unicam } from "./unicam";
+import { nittbit } from "./nittbit";
 
 /**
  * Single source of truth for all projects across the site.
@@ -11,10 +13,17 @@ import { cer } from "./cer";
  *   1. Creating src/data/projects/<id>.ts exporting an `as const satisfies Project` object.
  *   2. Adding projects.<id>.{title,subtitle,shortDesc,longDesc} to both locales.
  *   3. Appending the import here.
+ *
+ * Surfaces:
+ *   - `["work"]`        → /work accordion + home gallery (default for case studies)
+ *   - `["home", "work"]` → same as above (explicit; still valid)
+ *   - `["home"]`        → home gallery only (e.g. UI Lab)
  */
 export const PROJECTS = [
   gnos,
   juratech,
+  nittbit,
+  unicam,
   uiLab,
   reportify,
   cer,
@@ -36,6 +45,20 @@ export function getProjectsForSurface(surface: ProjectSurface): Project[] {
   return PROJECTS.filter((project) =>
     (project.surfaces as readonly ProjectSurface[]).includes(surface),
   ).sort(byYearDesc);
+}
+
+/**
+ * Projects for the home-page gallery carousel.
+ *
+ * Convention: every project on /work is included automatically — you only
+ * need `surfaces: ["work"]` when adding a case study. Home-only extras
+ * (e.g. UI Lab) opt in with `surfaces: ["home"]` without work.
+ */
+export function getProjectsForGallery(): Project[] {
+  return PROJECTS.filter((project) => {
+    const surfaces = project.surfaces as readonly ProjectSurface[];
+    return surfaces.includes("work") || surfaces.includes("home");
+  }).sort(byYearDesc);
 }
 
 export function getProjectById(id: string): Project | undefined {

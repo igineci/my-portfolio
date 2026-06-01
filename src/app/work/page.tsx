@@ -2,18 +2,40 @@
 
 import Header from "../../components/header";
 import Footer from "../../components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { GiStarShuriken } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
 import { getProjectsForSurface, projectKey } from "../../data/projects";
 import { ProjectSpecimen } from "./project-specimen";
 import { NowSpecimen } from "./now-specimen";
+import { readWorkNavState, WORK_SECTION_FEATURED } from "./work-nav";
 
 const projects = getProjectsForSurface("work");
 
+function workSectionDomId(section: string) {
+  return `work-section-${section}`;
+}
+
 export default function WorkPage() {
+  const location = useLocation();
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const nav = readWorkNavState(location.state);
+    if (!nav) return;
+
+    setExpandedSection(nav.section);
+
+    const frame = requestAnimationFrame(() => {
+      document
+        .getElementById(workSectionDomId(nav.section))
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [location.state, location.key]);
 
   const toggleSection = (sectionName: string) => {
     setExpandedSection(expandedSection === sectionName ? null : sectionName);
@@ -66,11 +88,14 @@ export default function WorkPage() {
             </p>
 
             <div className="mt-16 px-3 sm:px-7">
-              <div className="border-t border-[#131313] mb-0">
+              <div
+                id={workSectionDomId(WORK_SECTION_FEATURED)}
+                className="border-t border-[#131313] mb-0 scroll-mt-28"
+              >
                 <button
-                  onClick={() => toggleSection("featured")}
+                  onClick={() => toggleSection(WORK_SECTION_FEATURED)}
                   className={`section-header w-full flex justify-between items-center py-10 bg-transparent cursor-pointer ${
-                    expandedSection === "featured"
+                    expandedSection === WORK_SECTION_FEATURED
                       ? "section-expanded"
                       : "border-b border-[#131313]"
                   }`}
@@ -78,7 +103,9 @@ export default function WorkPage() {
                   <div className="flex items-center space-x-3">
                     <GiStarShuriken
                       className={`star-icon text-[#131313] text-[40px] ${
-                        expandedSection === "featured" ? "expanded" : ""
+                        expandedSection === WORK_SECTION_FEATURED
+                          ? "expanded"
+                          : ""
                       }`}
                     />
                     <span className="text-[#131313] text-2xl font-light">
@@ -86,11 +113,11 @@ export default function WorkPage() {
                     </span>
                   </div>
                   <span className="text-[#131313] text-[40px] font-light transition-transform duration-300">
-                    {expandedSection === "featured" ? "−" : "+"}
+                    {expandedSection === WORK_SECTION_FEATURED ? "−" : "+"}
                   </span>
                 </button>
 
-                {expandedSection === "featured" && (
+                {expandedSection === WORK_SECTION_FEATURED && (
                   <div className="px-4 sm:px-8 border-b border-[#131313] animate-slideDown">
                     <NowSpecimen />
                   </div>
@@ -98,7 +125,11 @@ export default function WorkPage() {
               </div>
 
               {projects.map((project) => (
-                <div key={project.id} className="mb-0">
+                <div
+                  key={project.id}
+                  id={workSectionDomId(project.id)}
+                  className="mb-0 scroll-mt-28"
+                >
                   <button
                     onClick={() => toggleSection(project.id)}
                     className={`section-header w-full flex justify-between items-center py-10 bg-transparent cursor-pointer ${

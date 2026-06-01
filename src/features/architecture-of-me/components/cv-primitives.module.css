@@ -1,0 +1,78 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cv-pill-pad-y) var(--cv-pill-pad-x);
+  border: var(--cv-pill-border);
+  border-radius: var(--cv-pill-radius);
+  font-family: var(--cv-font-sans);
+  font-size: var(--cv-pill-font);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cv-ink);
+  background: transparent;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+
+.pill:hover,
+.pill:focus-visible {
+  background: var(--cv-ink);
+  color: var(--cv-paper);
+}
+
+.pill:focus-visible {
+  outline: 2px solid var(--cv-ink);
+  outline-offset: 2px;
+}
+
+.sectionTitle {
+  font-size: var(--cv-section-title);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.skillTag {
+  display: inline-flex;
+  padding: var(--cv-pill-pad-y) var(--cv-pill-pad-x);
+  border: var(--cv-pill-border);
+  border-radius: var(--cv-pill-radius);
+  font-size: var(--cv-pill-font);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--cv-ink);
+  cursor: default;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.skillTagInteractive {
+  cursor: pointer;
+}
+
+.skillTagHighlighted,
+.skillTagInteractive:hover,
+.skillTagInteractive:focus-visible {
+  background: var(--cv-ink);
+  color: var(--cv-paper);
+}
+
+.skillTag:focus-visible {
+  outline: 2px solid var(--cv-ink);
+  outline-offset: 2px;
+}
+
+.aboutBody {
+  font-size: var(--cv-body-font);
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  margin: 0;
+}

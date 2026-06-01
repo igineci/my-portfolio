@@ -3,12 +3,12 @@
 import Header from "../header";
 import HeroSection from "../../app/home/Hero";
 import { ProjectsGallery } from "../projects-gallery";
-import { getProjectsForSurface } from "../../data/projects";
+import { getProjectsForGallery } from "../../data/projects";
 import Footer from "../Footer";
 import InteractiveContact from "../ui/contact-form";
 import UiLabCta from "../ui/ui-lab-cta";
 
-const homeProjects = getProjectsForSurface("home");
+const homeProjects = getProjectsForGallery();
 
 export default function HomePage() {
   return (

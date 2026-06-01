@@ -39,6 +39,20 @@
         "testing": "Preciznost, kalkulacije, obračuni, rad sa velikom količinom podataka"
       }
     },
+    "unicam": {
+      "title": "Unicam",
+      "subtitle": "Product sajt · IP kamere i AI video analitika",
+      "shortDesc": "Dizajnirala i razvila javni marketing sajt za Unicam — AI platformu koja objedinjuje IP kamere, mobilne uređaje i video streamove u pretraživu, cloud-backed inteligenciju.",
+      "purposeUsage": "Aktivan na unicam.app kao glavni ulaz u Unicam ekosistem: Platform (AI ingest streamova i LLM video analiza), HUB (cross-platform ONVIF upravljanje kamerama) i native mobilne aplikacije. Sajt je namenjen vlasnicima malih biznisa, developerima i enterprise timovima — objašnjava cloud snimke, detekciju pokreta, enkriptovan remote pristup, webhook-ove, developer API i usage-based pricing — i vodi posetioce ka App Store, Google Play i prodajnom kontaktu.",
+      "longDesc": "Unicam je platforma na kojoj se kamere susreću sa inteligencijom: pretvara live footage sa IP kamera, starih telefona i RTSP/WebRTC/HLS streamova u AI-powered uvide, alerte i automatizaciju. Moj posao bio je javni sajt koji tu celu priču prenosi bez preplavljivanja posetioca žargonom. Arhitektura stranice prati podelu proizvoda — Unicam Platform za LLM video understanding, custom promptove i business intelligence; Unicam HUB za centralizovano ONVIF upravljanje na macOS, Windows i Linux; i mobilne aplikacije koje pretvaraju uređaje u live security kamere. Svaka sekcija prevodi složene mogućnosti (object detection, behavioral analysis, cloud recordings, pay-as-you-go AI processing, developer webhook-ovi) u skenabilne product blokove, testimonial social proof i FAQ sadržaj koji i dalje čitljivo zvuči netehničkim kupcima. Izgrađeno u Reactu i TypeScriptu, component-driven UI na shadcn i Tailwind, potpuno responzivno sa store CTA-ovima i strukturisano za SEO oko AI surveillance, ONVIF monitoringa i cloud recording-a.",
+      "aiUsage": "AI je ubrzao pretvaranje sirovih product specifikacija u jasniju marketing strukturu: draft sekcija za Platform vs HUB vs Mobile, iteracije FAQ i feature copy-ja oko protokola poput ONVIF, RTSP i LLM analysis tier-ova, i istraživanje layout varijanti za duge tehničke liste. Svaki output je ručno pregledan na tačnost, ton i conversion flow — AI je ubrzao editorial petlju bez zamene product i brand odluka.",
+      "highlights": {
+        "ecosystem": "Marketing sajt za Platform, HUB i Mobile — jedna koherentna product priča",
+        "ai": "Komunicira AI surveillance, LLM video analizu i smart alerte",
+        "crossPlatform": "App Store, Google Play i multi-surface product sekcije",
+        "seo": "Strukturisano za discoverability IP camera monitoringa i cloud recording-a"
+      }
+    },
     "ai-dashboards": {
       "title": "AI DASHBOARDS",
       "subtitle": "SEO automatizacija i publishing pipeline",

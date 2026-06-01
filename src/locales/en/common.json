@@ -38,6 +38,20 @@
         "testing": "Unit tested frontend modules"
       }
     },
+    "unicam": {
+      "title": "Unicam",
+      "subtitle": "Product Website · IP Camera & AI Video Analytics",
+      "shortDesc": "Designed and developed the public marketing website for Unicam — an AI-powered platform that unifies IP cameras, mobile devices, and video streams into searchable, cloud-backed intelligence.",
+      "purposeUsage": "Live at unicam.app as the primary entry point for Unicam's product ecosystem: Platform (AI stream ingestion & LLM video analysis), HUB (cross-platform ONVIF camera management), and native mobile apps. The site targets SMB owners, developers, and enterprise teams — explaining cloud recordings, motion detection, encrypted remote access, webhooks, developer API, and usage-based pricing — and routes visitors to App Store, Google Play, and sales contact.",
+      "longDesc": "Unicam is where cameras meet intelligence: a platform that turns real-time footage from IP cameras, old phones, and RTSP/WebRTC/HLS streams into AI-powered insights, alerts, and automation. My work was the public website that has to carry that entire story without drowning the visitor in jargon. The page architecture mirrors the product split — Unicam Platform for LLM-powered video understanding, custom prompts, and business intelligence; Unicam HUB for centralized ONVIF management on macOS, Windows, and Linux; and mobile apps that repurpose devices as live security cameras. Each section translates dense capabilities (object detection, behavioral analysis, cloud recordings, pay-as-you-go AI processing, developer webhooks) into scannable product blocks, testimonial social proof, and FAQ content that still reads clearly for non-technical buyers. Built with React and TypeScript, a component-driven UI on shadcn and Tailwind, fully responsive with store CTAs, and structured for SEO around AI surveillance, ONVIF monitoring, and cloud recording.",
+      "aiUsage": "AI accelerated turning raw product specs into clearer marketing structure: drafting section hierarchies for Platform vs HUB vs Mobile, iterating on FAQ and feature copy around protocols like ONVIF, RTSP, and LLM analysis tiers, and exploring layout variants for long technical lists. Every output was manually reviewed for accuracy, tone, and conversion flow — AI sped up the editorial loop without replacing product or brand decisions.",
+      "highlights": {
+        "ecosystem": "Marketing site for Platform, HUB & Mobile — one coherent product story",
+        "ai": "Communicates AI surveillance, LLM video analysis & smart alerts",
+        "crossPlatform": "App Store, Google Play & multi-surface product sections",
+        "seo": "Structured for IP camera monitoring & cloud recording discoverability"
+      }
+    },
     "ai-dashboards": {
       "title": "AI DASHBOARDS",
       "subtitle": "SEO automation and publishing pipelines",

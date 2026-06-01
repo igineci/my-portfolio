@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,500&family=Playfair+Display:wght@700&display=swap");
+
+.cvRoot {
+  --cv-paper: #f2f0ea;
+  --cv-ink: #131313;
+  --cv-ink-muted: #333333;
+  --cv-pill-radius: 9999px;
+  --cv-pill-border: 1px solid var(--cv-ink);
+  --cv-section-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --cv-body-gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  --cv-font-sans: "DM Sans", system-ui, sans-serif;
+  --cv-font-display: "Playfair Display", Georgia, serif;
+  --cv-font-display-italic: "Cormorant Garamond", Georgia, serif;
+  --cv-font-company: "Cormorant Garamond", Georgia, serif;
+  --cv-max-width: 72rem;
+  --cv-pill-pad-x: clamp(0.65rem, 1.2vw, 1rem);
+  --cv-pill-pad-y: 0.35rem;
+  --cv-pill-font: clamp(0.55rem, 0.85vw, 0.7rem);
+  --cv-summary-font: clamp(0.55rem, 0.9vw, 0.72rem);
+  --cv-section-title: clamp(0.85rem, 1.4vw, 1.05rem);
+  --cv-body-font: clamp(0.58rem, 0.95vw, 0.72rem);
+  --cv-company-font: clamp(0.95rem, 1.6vw, 1.25rem);
+  --cv-footer-font: clamp(0.55rem, 0.9vw, 0.7rem);
+  --cv-portrait-ratio: 352 / 646;
+}

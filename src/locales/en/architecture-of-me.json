@@ -1,0 +1,124 @@
+{
+  "header": {
+    "summary": "Specialized in React and scalable frontend architecture. Recognized for mastering new technologies and clear communication. Experienced in developing intuitive web applications.",
+    "downloadPdf": "Download PDF",
+    "links": [
+      {
+        "label": "Portfolio site",
+        "href": "/",
+        "external": false
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/igineci",
+        "external": true
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/andjeladjekic1111/",
+        "external": true
+      }
+    ]
+  },
+  "about": {
+    "title": "About me",
+    "body": "Proficient in both spoken and written English (C1), with a background in international communication during software integration projects."
+  },
+  "workExperience": {
+    "title": "Work experience",
+    "openProject": "View project on Work page",
+    "items": [
+      {
+        "id": "juratech",
+        "company": "Juratech",
+        "dateRange": "2025 - 2026",
+        "role": "Frontend Engineer",
+        "bullets": [
+          "Migrated legacy desktop ERP to Angular 20 SPA in ASP.NET Core, split into two lazy-loaded modules for Office and Workshop",
+          "Built product configurator with strategy + factory patterns across 18 product types and 700+ materials",
+          "Implemented hybrid state model and SVG blueprint visualization engine"
+        ],
+        "workSection": "juratech",
+        "relatedSkills": ["angular", "typescript", "componentArchitecture", "restApis"]
+      },
+      {
+        "id": "gnos",
+        "company": "Gnos Records",
+        "dateRange": "2025 - Present",
+        "role": "Web Dev",
+        "bullets": [
+          "Built official label website from concept to deployment using Vite, React, React Router",
+          "Built a Zod-validated MDX content pipeline",
+          "Wrote custom Markdown preprocessor"
+        ],
+        "workSection": "gnos",
+        "relatedSkills": ["react", "typescript", "css3", "vite"]
+      },
+      {
+        "id": "nittbit",
+        "company": "Nittbit",
+        "dateRange": "2025 - Present",
+        "role": "Frontend Engineer",
+        "bullets": [
+          "Dashboard builder with Zustand, explicit widget state machines, TTL caching",
+          "Custom SSE streaming client over fetch readable streams, Axios bypassed",
+          "Developed the public product showcase website"
+        ],
+        "workSection": "featured",
+        "relatedSkills": ["react", "typescript", "restApis"]
+      },
+      {
+        "id": "melany",
+        "company": "Melany",
+        "dateRange": "2023-2024",
+        "role": "Software Engineer",
+        "bullets": [
+          "ERP upgrades, external integrations and complex business logic in PostgreSQL"
+        ],
+        "relatedSkills": ["typescript", "restApis", "componentArchitecture"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      { "slug": "typescript", "label": "TypeScript" },
+      { "slug": "react", "label": "React" },
+      { "slug": "angular", "label": "Angular" },
+      { "slug": "html5", "label": "HTML5" },
+      { "slug": "css3", "label": "CSS3" },
+      { "slug": "jest", "label": "Jest" },
+      { "slug": "restApis", "label": "REST APIs" },
+      { "slug": "componentArchitecture", "label": "Component Architecture" },
+      { "slug": "vite", "label": "Vite" },
+      { "slug": "npm", "label": "NPM" },
+      { "slug": "git", "label": "Git" }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "id": "etf",
+        "period": "[2023 - ]",
+        "degree": "Electronics and Telecommunications:",
+        "institution": "The School of Electrical and Computer Engineering, Belgrade"
+      },
+      {
+        "id": "efbl",
+        "period": "[2021 - 2023]",
+        "degree": "Business Informatics:",
+        "institution": "Faculty of Economics, Banja Luka"
+      }
+    ]
+  },
+  "footer": {
+    "handle": "@IGINECI ( Andjela Djekic )",
+    "handleHref": "https://github.com/igineci",
+    "phone": "(+381) 69-1505-303",
+    "phoneTel": "+381691505303",
+    "phoneLabel": "Phone",
+    "address": "Belgrade, Serbia",
+    "addressLabel": "Address"
+  }
+}
