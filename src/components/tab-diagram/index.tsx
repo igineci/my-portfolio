@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { type TabDiagramProps, type TabType } from "./types";
 
 const tabs: { key: TabType }[] = [
-  { key: "layouts" },
   { key: "components" },
+  { key: "casestudies" },
   { key: "experiments" },
 ];
 
@@ -14,73 +14,55 @@ export default function TabDiagram({
   const { t } = useTranslation();
 
   return (
-    <div className="w-full max-w-6xl mx-auto mt-10 px-4 sm:px-8 md:px-16">
-      {/* Desktop Diagram */}
-      <div className="relative hidden md:block">
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-10 bg-[#131313] top-37" />
+    <div className="mx-auto mt-8 w-full max-w-6xl px-4 sm:mt-12 sm:px-8 md:px-16">
+      <div
+        className="relative mx-auto w-full max-w-[17rem] overflow-hidden sm:max-w-xs md:max-w-2xl"
+        aria-label="UI Lab sections"
+      >
+        <div className="flex justify-center" aria-hidden>
+          <div className="h-6 w-px bg-[#131313] sm:h-8 md:h-10" />
+        </div>
 
-        {/* Horizontal line container */}
-        <div className="flex justify-between border-t border-[#131313] mt-8 relative">
+        <div className="relative flex justify-between border-t border-[#131313]">
           {tabs.map(({ key }) => (
-            <div key={key} className="w-1/3 relative flex justify-center">
-              {/* Vertical line down from horizontal */}
-              <div className="absolute top-0 h-9 w-px bg-[#131313]" />
+            <div key={key} className="relative flex w-1/3 justify-center">
+              <div
+                className="absolute top-0 h-5 w-px bg-[#131313] sm:h-7 md:h-9"
+                aria-hidden
+              />
             </div>
           ))}
         </div>
 
-        {/* Circles + Buttons */}
-        <div className="grid grid-cols-3 pt-10">
+        <div className="grid grid-cols-3 pt-6 sm:pt-8 md:pt-10">
           {tabs.map(({ key }) => (
             <div
               key={key}
-              className="flex flex-col items-center text-center group"
+              className="group flex flex-col items-center px-0.5 text-center sm:px-1"
             >
-              {/* Circle */}
               <div
-                className={`w-2 h-2 rounded-full mb-3 transition-colors duration-300 group-hover:bg-[#131313] ${
-                  activeTab === key ? "bg-[#131313]" : "bg-[#131313]/40"
+                className={`mb-2 h-1.5 w-1.5 rounded-full transition-colors duration-300 sm:mb-3 sm:h-2 sm:w-2 ${
+                  activeTab === key
+                    ? "bg-[#131313]"
+                    : "bg-[#131313]/40 group-hover:bg-[#131313]/70"
                 }`}
+                aria-hidden
               />
 
-              {/* Button */}
               <button
+                type="button"
                 onClick={() => onTabChange(key)}
-                className={`text-[18px] text-[#131313] font-light tracking-wider uppercase bg-transparent border-none group-hover:text-[#131313] cursor-pointer ${
-                  activeTab === key ? "text-[#131313]" : "text-[#131313]/40"
-                }`}
+                className={`cursor-pointer border-none bg-transparent font-light uppercase tracking-[0.12em] transition-colors duration-300 sm:tracking-wider ${
+                  activeTab === key
+                    ? "text-[#131313]"
+                    : "text-[#131313]/40 group-hover:text-[#131313]/70"
+                } text-[10px] leading-tight sm:text-xs md:text-[18px] md:tracking-wider`}
               >
                 {t(key as string, key.charAt(0).toUpperCase() + key.slice(1))}
               </button>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Mobile Tab List */}
-      <div className="md:hidden w-full mt-8 space-y-3">
-        {tabs.map(({ key }) => (
-          <button
-            key={key}
-            onClick={() => onTabChange(key)}
-            className={`flex items-center justify-between gap-4 border border-[#131313] px-4 py-3 text-sm tracking-[0.25em] uppercase transition-colors duration-300 ${
-              activeTab === key
-                ? "bg-[#131313] text-[#f2f0ea]"
-                : "bg-[#f2f0ea] text-[#131313]"
-            }`}
-          >
-            <span className="font-light">
-              {t(key as string, key.charAt(0).toUpperCase() + key.slice(1))}
-            </span>
-            <span
-              className={`w-2 h-2 rounded-full border ${
-                activeTab === key
-                  ? "bg-[#f2f0ea] border-[#f2f0ea]"
-                  : "bg-transparent border-[#131313]"
-              }`}
-            />
-          </button>
-        ))}
       </div>
     </div>
   );

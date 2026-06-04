@@ -1,0 +1,239 @@
+.frame {
+  --box: 7rem;
+  position: relative;
+  width: var(--box);
+  height: var(--box);
+  margin: 0 auto;
+}
+
+.frameModal {
+  --box: 11rem;
+}
+
+.hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin: -0.225rem 0 0 -0.225rem;
+  border-radius: 50%;
+  background: #131313;
+  z-index: 1;
+}
+
+.spoke {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--box) * 0.46);
+  height: 2px;
+  margin-top: -1px;
+  background: rgba(19, 19, 19, 0.35);
+  transform-origin: 0 50%;
+  transform: rotate(var(--r));
+}
+
+.spokeAccent {
+  height: 3px;
+  margin-top: -1.5px;
+  background: #131313;
+}
+
+.frameModal .hub {
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: -0.3rem 0 0 -0.3rem;
+}
+
+.frameModal .spoke {
+  height: 2.5px;
+  margin-top: -1.25px;
+}
+
+.frameModal .spokeAccent {
+  height: 4px;
+  margin-top: -2px;
+}
+
+/* 2 — transform-origin: 3×3 grid (outline + rotated fill + pivot dot) */
+.originGrid {
+  --box: 7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1px;
+  width: var(--box);
+  height: var(--box);
+  margin: 0 auto;
+}
+
+.originGridModal {
+  --box: 11rem;
+  gap: 2px;
+}
+
+.originGridCell {
+  min-width: 0;
+  min-height: 0;
+}
+
+.originDemo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.originSquareBox {
+  position: absolute;
+  inset: 18%;
+}
+
+.originGhost,
+.originRotated {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+}
+
+.originGhost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #131313;
+  z-index: 0;
+}
+
+.originRotated {
+  background: rgba(19, 19, 19, 0.28);
+  transform: rotate(45deg);
+  transform-origin: var(--origin);
+  z-index: 1;
+}
+
+.originDot {
+  position: absolute;
+  left: var(--dot-x);
+  top: var(--dot-y);
+  width: 0.22rem;
+  height: 0.22rem;
+  background: #131313;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 2;
+}
+
+.originLabel {
+  font-family: ui-monospace, monospace;
+  font-size: 0.28rem;
+  line-height: 1.05;
+  text-align: center;
+  color: #131313;
+  padding: 0 1px;
+  pointer-events: none;
+}
+
+.originGridModal .originLabel {
+  font-size: 0.42rem;
+}
+
+.originGridModal .originDot {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+
+/* 3 — rotate3d: flat ghost vs tilted plate */
+.tiltFrame {
+  --box: 7rem;
+  display: grid;
+  place-items: center;
+  width: var(--box);
+  height: var(--box);
+  margin: 0 auto;
+}
+
+.tiltStage {
+  position: relative;
+  width: 72%;
+  height: 72%;
+  perspective: calc(var(--box) * 1.1);
+  transform-style: preserve-3d;
+}
+
+.tiltGhost,
+.tiltPlate {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #131313;
+}
+
+.tiltGhost {
+  opacity: 0.22;
+}
+
+.tiltPlate {
+  background: rgba(19, 19, 19, 0.88);
+  transform: rotate3d(1, 0.35, 0, 52deg);
+  box-shadow: 0.35rem 0.5rem 0 rgba(19, 19, 19, 0.12);
+}
+
+.frameModal.tiltFrame .tiltPlate {
+  transform: rotate3d(1, 0.4, 0, 56deg);
+}
+
+/* 4 — @keyframes rotate: radar sweep */
+.sweepFrame {
+  --box: 7rem;
+  position: relative;
+  width: var(--box);
+  height: var(--box);
+  margin: 0 auto;
+}
+
+.sweepRing {
+  position: absolute;
+  inset: 8%;
+  border: 1px dashed rgba(19, 19, 19, 0.28);
+  border-radius: 50%;
+}
+
+.sweepHub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: -0.2rem 0 0 -0.2rem;
+  border-radius: 50%;
+  background: #131313;
+  z-index: 1;
+}
+
+.sweepBeam {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 46%;
+  height: 2px;
+  margin-top: -1px;
+  background: #131313;
+  transform-origin: 0 50%;
+  animation: sweepSpin 5s linear infinite;
+}
+
+@keyframes sweepSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.frameModal.sweepFrame .sweepBeam {
+  height: 2.5px;
+  margin-top: -1.25px;
+  animation-duration: 6s;
+}
+
+.frameModal .sweepHub {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin: -0.275rem 0 0 -0.275rem;
+}

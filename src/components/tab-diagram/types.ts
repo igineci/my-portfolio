@@ -1,4 +1,4 @@
-export type TabType = "layouts" | "components" | "experiments";
+export type TabType = "components" | "casestudies" | "experiments";
 
 export interface TabDiagramProps {
   activeTab: TabType;

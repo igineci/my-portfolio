@@ -1,24 +1,23 @@
 // Explorations Page Component
 import Header from "../../components/header";
 import Footer from "../../components/Footer";
-import LayoutsContent from "./layouts/content";
 import { useState } from "react";
 import ExperimentsContent from "./experiments/content";
 import ComponentsContent from "./components/content";
 import TabDiagram from "../../components/tab-diagram";
 import { useTranslation } from "react-i18next";
-import ComingSoonCard from "./coming-soon";
+import CaseStudiesContent from "./case-studies/content";
  
 
 export default function ExplorationsPage() {
   const [activeTab, setActiveTab] = useState<
-    "layouts" | "components" | "experiments"
-  >("components");
+    "components" | "casestudies" | "experiments"
+  >("casestudies");
   const { t } = useTranslation();
 
   return (
     <div
-      className="min-h-screen text-[#131313] overflow-hidden relative flex flex-col"
+      className="min-h-screen text-[#131313] overflow-x-hidden relative flex flex-col"
       style={{ backgroundColor: "#f2f0ea" }}
     >
       <div className="relative z-10 flex-grow">
@@ -42,18 +41,23 @@ export default function ExplorationsPage() {
             <TabDiagram activeTab={activeTab} onTabChange={setActiveTab} />
 
             {/* Tab Content Section */}
-            <div className="mt-16 px-4 max-w-6xl mx-auto">
-              {activeTab === "layouts" && <LayoutsContent />}
-
+            <div
+              className={
+                activeTab === "casestudies"
+                  ? "mt-16 w-full"
+                  : "mt-16 px-4 max-w-6xl mx-auto"
+              }
+            >
               {activeTab === "components" && <ComponentsContent />}
+
+              {activeTab === "casestudies" && <CaseStudiesContent />}
 
               {activeTab === "experiments" && <ExperimentsContent />}
             </div>
           </div>
         </div>
 
-        <ComingSoonCard />
-        <div className="border-b border-[#131313] mx-18 mt-7 mb-8"> </div>
+        <div className="border-b border-[#131313] mx-16 mt-7 mb-8"> </div>
       </div>
       {/* Footer */}
       <Footer />

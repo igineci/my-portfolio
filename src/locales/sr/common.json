@@ -220,8 +220,72 @@
   "rep4": "Zakazuje isporuku na vreme",
   "rep5": "Salje uvide putem API-ja ka eksternim servisima",
   "layouts": "Rasporedi",
+  "casestudies": "Studije slucaja",
   "components": "Komponente",
   "experiments": "Eksperimenti",
+  "studyOverlap": "STUDIJA PREKLAPANJA",
+  "studyShapes": "STUDIJA CSS OBLIKA",
+  "studyRotation": "STUDIJA ROTACIJE",
+  "caseStudyModalPros": "Prednosti",
+  "caseStudyModalCons": "Mane",
+  "caseStudyModalPick": "Kad bih ovo izabrala",
+  "caseStudyModalFun": "Samo zabava",
+  "shapes1Quote": "Time isn't precious at all, because it is an illusion. What you perceive as precious is not time but the one point that is out of time: the Now. That is precious indeed. The more you are focused on time—past and future—the more you miss the Now, the most precious thing there is.",
+  "shapes1Author": "Eckhart Tolle",
+  "shapes1Book": "The Power of Now: A Guide to Spiritual Enlightenment",
+  "shapes1Modal": {
+    "pick": "Samo sam se zabavljala — bilo je zabavno da napravim."
+  },
+  "shapes2Quote": "If you knew your potential to feel good, you would ask no one to be different so that you can feel good. You would free yourself of all of that cumbersome impossibility of needing to control the world, or control your mate, or control your child. You are the only one who creates your reality. For no one else can think for you, no one else can do it. It is only you, every bit of it you.",
+  "shapes2Author": "Esther Hicks",
+  "shapes2Book": "Ask and It Is Given",
+  "shapes2Modal": {
+    "pick": "Samo sam se zabavljala — bilo je zabavno da napravim."
+  },
+  "shapes3Quote": "Most people don't live aware lives. They live mechanical lives, mechanical thoughts—generally somebody else's—mechanical emotions, mechanical actions, mechanical reactions. As you begin to understand this, you stop making demands on yourself, you stop having expectations of yourself, you stop pushing yourself, and you begin to understand yourself.",
+  "shapes3Author": "Anthony de Mello",
+  "shapes3Book": "Stop Fixing Yourself: Wake Up, All Is Well",
+  "shapes3Modal": {
+    "pick": "Samo sam se zabavljala — bilo je zabavno da napravim."
+  },
+  "shapes4Quote": "A river of material flows through us. When we share our works and our ideas, they are replenished. If we block the flow by holding them all inside, the river cannot run and new ideas are slow to appear.\n\nIn the abundant mindset, the river never runs dry. Ideas are always coming through. And an artist is free to release them with the faith that more will arrive.\n\nIf we live in a mindset of scarcity, we hoard great ideas.",
+  "shapes4Author": "Rick Rubin",
+  "shapes4Book": "The Creative Act: A Way of Being",
+  "shapes4Modal": {
+    "pick": "Samo sam se zabavljala — bilo je zabavno da napravim."
+  },
+  "rotation1Modal": {
+    "pick": "Dvanaest žižaka, jedno svojstvo — rotate() je cela poenta."
+  },
+  "rotation2Modal": {
+    "pick": "Devet tačaka, jedna rotacija — okvir ostaje, ispuna pokazuje gdje 45° završi."
+  },
+  "rotation3Modal": {
+    "pick": "Okvir ostaje ravan; ploča se naginje oko dijagonalne ose u prostoru."
+  },
+  "rotation4Modal": {
+    "pick": "rotate() u petlji — prsten miruje, jedna linija otkucava vrijeme."
+  },
+  "overlap1Modal": {
+    "pro1": "Jedna petlja, jedan broj da promeniš — i odjednom imaš 3, 6, ili 12 latica umjesto 6. CSS ne zna koliko krugova ima, niti treba da zna.",
+    "con1": "rotate i translate su u braku i redosled je bitan. Ako zamijeniš redosled, krug leti na pogrešnu stranu i ne znaš zašto dok ne sedneš i nacrtaš na papiru.",
+    "pick": "Svaki put kad broj elemenata nije fiksan — ikone raspoređene u krug, animirani loading ring, bilo šta gdje klijent može reći \"dodaj još jedan\"."
+  },
+  "overlap2Modal": {
+    "pro1": "Otvoriš DevTools i odmah vidiš šta je gdje. Nema matrice, nema trigonometrije — samo top: 40px, left: 60px i to je to.",
+    "con1": "Svaki novi krug znači nove koordinate koje moraš ručno da izračunaš ili izmjeriš. Za 6 krugova — okej. Za 24 — ne, hvala.",
+    "pick": "Kada dizajner da Figma fajl sa tačnim pozicijama i taj layout više nikad neće da se mijenja. Marketing hero sekcije, poster elementi, dekorativni detalji."
+  },
+  "overlap3Modal": {
+    "pro1": "Svi elementi sjede u istoj grid ćeliji i preklapaju se prirodno, bez da ijedan \"zna\" za drugog. Čisto i čitljivo u kodu.",
+    "con1": "Grid ti da stack, ali ne da raspored — za pozicioniranje i dalje trebaš transform. Kombinacija dva sistema može zbuniti ako ne znaš šta koji dio radi.",
+    "pick": "Badge na avataru, više ikona u istom slotu, notifikacioni indikatori — situacije gdje slažeš elemente jedan preko drugog ali ne radiš radijalni raspored."
+  },
+  "overlap4Modal": {
+    "pro1": "Ugao i rastojanje su razdvojeni u dva odvojena elementa — roditelj određuje smjer, dijete određuje koliko daleko. Logika je čista i lako se skalira na 24, 48, koliko god krugova treba.",
+    "con1": "Za svaki krug imaš dva DOM elementa umjesto jednog. Nije problem za performanse, ali HTML izgleda duplo duži nego što bi trebalo.",
+    "pick": "Gusti prstenovi, mandale, sat sa tačkama na obodu — svaki pattern gdje imaš mnogo elemenata na jednakoj udaljenosti od centra."
+  },
   "CV": "Biografija",
   "cvDesc": "Kompletan profil koji ukljucuje iskustvo, obrazovanje i tehnicke kompetencije.",
   "cvFormat": "PDF format",
@@ -252,12 +316,21 @@
   "glitchButtonsDesc": "3D dugmad sa glitch efektima i color-dodge blend modovima",
   "toggle": "Animirani prekidac",
   "toggleDesc": "Interaktivni 3D prekidac",
+  "progress3d": "3D Progress",
+  "progress3dDesc": "Izometrijska traka — automatsko punjenje u petlji, cist CSS",
+  "progress3dHint": "Cist CSS — izaberite boju",
+  "progress3dCaption": "Probajte drugu boju :)",
+  "progress3dAria": "Animirani 3D CSS progress bar",
+  "progress3dColorNav": "Boja trake",
+  "progress3dColorRed": "Crvena",
+  "progress3dColorCyan": "Cijan",
+  "progress3dColorLime": "Limeta",
   "strip": "Traka",
   "stripDesc": "Cista CSS loading traka",
   "letterTitle": "Misteriozno pismo",
   "letterDesc": "Glatko pismo sa glatkim linijama",
   "newtonsCradle": "Njutnova klackalica",
-  "newtonsCradleDesc": "Eksperiment ^ 2",
+  "newtonsCradleDesc": "CSS klatno sa naizmeničnom fizikom njihanja",
   "mailTitle": "Velika posta",
   "mailDesc": "Predjite misem da vidite sta je unutra",
   "magicLine": "Magicna linija",

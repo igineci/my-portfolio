@@ -20,7 +20,7 @@ export default function HomePage() {
           <ProjectsGallery projects={homeProjects} />
           <UiLabCta />
           <InteractiveContact />
-          <div className="border-b border-[#131313] mx-18 mt-7 mb-24"> </div>
+          <div className="border-b border-[#131313] mx-16 mt-7 mb-24"> </div>
         </div>
       </div>
 

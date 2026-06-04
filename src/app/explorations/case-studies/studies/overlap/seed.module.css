@@ -1,0 +1,139 @@
+/* Seed-of-life math: circle radius R, centers placed R from origin, all meet at center */
+.frame {
+  --size: 3rem;
+  --r: calc(var(--size) / 2);
+  --orbit: var(--r);
+  --box: calc(2 * (var(--orbit) + var(--r)));
+  position: relative;
+  width: var(--box);
+  height: var(--box);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/* Modal: same math, larger scale so the demo fills the dialog */
+.frameModal {
+  --size: 5.5rem;
+  --r: calc(var(--size) / 2);
+  --orbit: var(--r);
+  --box: calc(2 * (var(--orbit) + var(--r)));
+  width: var(--box);
+  height: var(--box);
+}
+
+.frameModal.frameRing {
+  --size: 6.75rem;
+  --r: calc(var(--size) / 2);
+  --orbit: 3.35rem;
+  --box: calc(2 * (var(--orbit) + var(--r)));
+  width: var(--box);
+  height: var(--box);
+}
+
+.frameModal .ring {
+  --size: 6.75rem;
+  --r: calc(var(--size) / 2);
+  --orbit: 3.35rem;
+}
+
+.circle {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 1px solid rgba(19, 19, 19, 0.35);
+}
+
+/* 1 — transform: rotate() + translate() */
+.orbit {
+  position: absolute;
+  inset: 0;
+}
+
+.orbit .circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: calc(var(--r) * -1) 0 0 calc(var(--r) * -1);
+  transform: rotate(var(--d)) translate(var(--orbit));
+}
+
+/* 2 — position: absolute (6-circle seed, no transform on circles) */
+.hex {
+  position: absolute;
+  inset: 0;
+}
+
+.hex .circle {
+  position: absolute;
+}
+
+/* centers on a ring of radius --orbit around frame center (2r, 2r) */
+.hex .circle:nth-child(1) {
+  left: var(--r);
+  top: 0;
+}
+.hex .circle:nth-child(2) {
+  left: calc(var(--r) + var(--orbit) * 0.866);
+  top: calc(var(--r) - var(--orbit) * 0.5);
+}
+.hex .circle:nth-child(3) {
+  left: calc(var(--r) + var(--orbit) * 0.866);
+  top: calc(var(--r) + var(--orbit) * 0.5);
+}
+.hex .circle:nth-child(4) {
+  left: var(--r);
+  top: calc(2 * var(--orbit));
+}
+.hex .circle:nth-child(5) {
+  left: calc(var(--r) - var(--orbit) * 0.866);
+  top: calc(var(--r) + var(--orbit) * 0.5);
+}
+.hex .circle:nth-child(6) {
+  left: calc(var(--r) - var(--orbit) * 0.866);
+  top: calc(var(--r) - var(--orbit) * 0.5);
+}
+
+/* 3 — grid: same cell */
+.stack {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.stack .circle {
+  grid-area: 1 / 1;
+  place-self: center;
+  transform: rotate(var(--d)) translate(var(--orbit));
+}
+
+/* 4 — rotating arms: dense torus ring (24 circles) */
+.frameRing {
+  --size: 3.5rem;
+  --r: calc(var(--size) / 2);
+  --orbit: 1.85rem;
+  --box: calc(2 * (var(--orbit) + var(--r)));
+  width: var(--box);
+  height: var(--box);
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+}
+
+.ring .arm {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--d));
+}
+
+.ring .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--r) * -1) 0 0 calc(var(--r) * -1);
+  transform: translateY(calc(var(--orbit) * -1));
+}

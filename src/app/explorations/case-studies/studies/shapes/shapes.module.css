@@ -1,0 +1,170 @@
+.article {
+  display: flow-root;
+  width: 100%;
+  height: auto;
+  padding: 0.25rem;
+  overflow: visible;
+}
+
+.articleModal {
+  padding: 0.5rem 0.75rem;
+  max-width: 36rem;
+}
+
+.articleUrl.articleModal {
+  max-width: 100%;
+  width: 100%;
+  padding: 0.75rem 1rem 0.25rem;
+}
+
+.articleUrl > p {
+  white-space: pre-line;
+  font-size: 0.53rem;
+  line-height: 1.5;
+}
+
+/* Narrower text column beside portrait — .floatUrl block unchanged */
+.articleUrl > img {
+  width: 9.25rem;
+  shape-image-threshold: 0.45;
+  shape-margin: 0.1rem;
+}
+
+.articleUrl.articleModal > p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* Full-width modal layout; height tracks silhouette (not .articleModal .floatUrl 17rem) */
+.articleUrl.articleModal > img {
+  width: 11.5rem;
+  height: 12.5rem;
+  margin: 0 0.35rem 0 0;
+  shape-image-threshold: 0.48;
+  shape-margin: 0.2rem;
+}
+
+.articleUrl.articleModal .cite {
+  margin-top: 1rem;
+}
+
+.float {
+  display: block;
+  float: left;
+  width: 5.75rem;
+  height: 5.75rem;
+  object-fit: contain;
+  margin: 0 0.15rem 0 0;
+  shape-outside: url(/images/explorations/circle.png);
+  shape-image-threshold: 0.45;
+  shape-margin: 0.05rem;
+}
+
+.articleModal .float {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 0.2rem 0 0;
+  shape-margin: 0.1rem;
+}
+
+.floatEgg {
+  display: block;
+  float: left;
+  width: 4.25rem;
+  height: 6.25rem;
+  object-fit: contain;
+  margin: 0 0.15rem 0 0;
+  shape-outside: ellipse(50% 50% at 50% 50%);
+  shape-margin: 0.05rem;
+}
+
+.articleModal .floatEgg {
+  width: 7rem;
+  height: 10.5rem;
+  margin: 0 0.2rem 0 0;
+  shape-margin: 0.1rem;
+}
+
+/* Envelope polygon — triangular flap + rectangular body */
+.floatPoly {
+  display: block;
+  float: left;
+  width: 2.75rem;
+  height: 5.5rem;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: #131313;
+  margin: 0 0.15rem 0 0;
+  shape-outside: polygon(
+    0% 32%,
+    50% 6%,
+    100% 32%,
+    100% 100%,
+    0% 100%
+  );
+  shape-margin: 0.05rem;
+}
+
+.articleModal .floatPoly {
+  width: 7.5rem;
+  height: 8.75rem;
+  font-size: 8.75rem;
+  margin: 0 0.2rem 0 0;
+  shape-margin: 0.1rem;
+}
+
+.floatUrl {
+  display: block;
+  float: left;
+  width: 7.25rem;
+  height: 10.5rem;
+  object-fit: cover;
+  object-position: top center;
+  margin: 0 0.2rem 0 0;
+  shape-outside: url(/images/explorations/test.png);
+  shape-image-threshold: 0.5;
+  shape-margin: 0.05rem;
+}
+
+.articleModal .floatUrl {
+  width: 10rem;
+  height: 17rem;
+  margin: 0 0.3rem 0 0;
+  shape-margin: 0.3rem;
+}
+
+.article p {
+  margin: 0;
+  text-align: justify;
+  line-height: 1.35;
+  font-size: 0.5rem;
+  color: #131313;
+}
+
+.articleModal p {
+  font-size: 1.15rem;
+}
+
+.cite {
+  clear: both;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(19, 19, 19, 0.15);
+  text-align: right;
+}
+
+.citeAuthor {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #131313;
+}
+
+.citeBook {
+  margin: 0.25rem 0 0;
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: rgba(19, 19, 19, 0.65);
+}

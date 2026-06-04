@@ -219,8 +219,72 @@
   "rep4": "Schedules delivery right on time",
   "rep5": "Sends insights via API to external services",
   "layouts": "Layouts",
+  "casestudies": "Case studies",
   "components": "Components",
   "experiments": "Experiments",
+  "studyOverlap": "STUDY OF OVERLAP",
+  "studyShapes": "STUDY OF CSS SHAPES",
+  "studyRotation": "STUDY OF ROTATION",
+  "caseStudyModalPros": "Pros",
+  "caseStudyModalCons": "Cons",
+  "caseStudyModalPick": "When I'd pick this",
+  "caseStudyModalFun": "Just for fun",
+  "shapes1Quote": "Time isn't precious at all, because it is an illusion. What you perceive as precious is not time but the one point that is out of time: the Now. That is precious indeed. The more you are focused on time—past and future—the more you miss the Now, the most precious thing there is.",
+  "shapes1Author": "Eckhart Tolle",
+  "shapes1Book": "The Power of Now: A Guide to Spiritual Enlightenment",
+  "shapes1Modal": {
+    "pick": "I was just playing around — it was fun to build."
+  },
+  "shapes2Quote": "If you knew your potential to feel good, you would ask no one to be different so that you can feel good. You would free yourself of all of that cumbersome impossibility of needing to control the world, or control your mate, or control your child. You are the only one who creates your reality. For no one else can think for you, no one else can do it. It is only you, every bit of it you.",
+  "shapes2Author": "Esther Hicks",
+  "shapes2Book": "Ask and It Is Given",
+  "shapes2Modal": {
+    "pick": "I was just playing around — it was fun to build."
+  },
+  "shapes3Quote": "Most people don't live aware lives. They live mechanical lives, mechanical thoughts—generally somebody else's—mechanical emotions, mechanical actions, mechanical reactions. As you begin to understand this, you stop making demands on yourself, you stop having expectations of yourself, you stop pushing yourself, and you begin to understand yourself.",
+  "shapes3Author": "Anthony de Mello",
+  "shapes3Book": "Stop Fixing Yourself: Wake Up, All Is Well",
+  "shapes3Modal": {
+    "pick": "I was just playing around — it was fun to build."
+  },
+  "shapes4Quote": "A river of material flows through us. When we share our works and our ideas, they are replenished. If we block the flow by holding them all inside, the river cannot run and new ideas are slow to appear.\n\nIn the abundant mindset, the river never runs dry. Ideas are always coming through. And an artist is free to release them with the faith that more will arrive.\n\nIf we live in a mindset of scarcity, we hoard great ideas.",
+  "shapes4Author": "Rick Rubin",
+  "shapes4Book": "The Creative Act: A Way of Being",
+  "shapes4Modal": {
+    "pick": "I was just playing around — it was fun to build."
+  },
+  "rotation1Modal": {
+    "pick": "Twelve spokes, one property — rotate() is the whole trick here."
+  },
+  "rotation2Modal": {
+    "pick": "Nine pivots, one rotation — the outline stays, the fill shows where 45° lands."
+  },
+  "rotation3Modal": {
+    "pick": "The wireframe stays flat; the plate leans on a diagonal axis in space."
+  },
+  "rotation4Modal": {
+    "pick": "rotate() in a loop — static ring, one beam doing the timekeeping."
+  },
+  "overlap1Modal": {
+    "pro1": "One loop, one number to change — suddenly you have 3, 6, or 12 petals instead of 6. CSS does not care how many circles exist, and it does not need to.",
+    "con1": "rotate and translate are married — order matters. Swap the order and the circle flies the wrong way until you sit down and sketch it on paper.",
+    "pick": "Whenever the element count is not fixed — icons in a ring, animated loading rings, anything where the client can say \"add one more.\""
+  },
+  "overlap2Modal": {
+    "pro1": "Open DevTools and you immediately see what is where. No matrix, no trig — just top: 40px, left: 60px, done.",
+    "con1": "Every new circle means new coordinates you calculate or measure by hand. For 6 circles — fine. For 24 — no thanks.",
+    "pick": "When the designer hands you a Figma file with exact positions and that layout will never change. Marketing heroes, poster elements, decorative details."
+  },
+  "overlap3Modal": {
+    "pro1": "Every element sits in the same grid cell and overlaps naturally, without any element \"knowing\" about the others. Clean and readable in code.",
+    "con1": "Grid gives you the stack, not the layout — you still need transform to position. Two systems together can confuse you if you are not clear which part does what.",
+    "pick": "Badge on an avatar, multiple icons in one slot, notification indicators — when you layer elements without a radial layout."
+  },
+  "overlap4Modal": {
+    "pro1": "Angle and distance live on two separate elements — the parent sets direction, the child sets how far. Logic stays clear and scales to 24, 48, as many circles as you need.",
+    "con1": "Two DOM nodes per circle instead of one. Not a performance issue, but the HTML is twice as long as it needs to be.",
+    "pick": "Dense rings, mandalas, a clock with dots on the rim — any pattern with many elements at the same distance from the center."
+  },
   "CV": "Curriculum vitae",
   "cvDesc": "Complete profile including experience, education, and technical competencies.",
   "cvFormat": "PDF Format",
@@ -251,12 +315,21 @@
   "glitchButtonsDesc": "3D buttons with glitch effects and color-dodge blend modes",
   "toggle": "Animated Toggle",
   "toggleDesc": "Interactive 3D toggle switch",
+  "progress3d": "3D Progress",
+  "progress3dDesc": "Isometric liquid bar — auto-loading loop, pure CSS",
+  "progress3dHint": "Pure CSS — pick a color",
+  "progress3dCaption": "Try another color :)",
+  "progress3dAria": "Animated 3D CSS progress bar",
+  "progress3dColorNav": "Bar color",
+  "progress3dColorRed": "Red",
+  "progress3dColorCyan": "Cyan",
+  "progress3dColorLime": "Lime",
   "strip": "Strip",
   "stripDesc": "A pure CSS loading strip",
   "letterTitle": "Mysterious letter",
   "letterDesc": "Smooth letter with smooth lines",
   "newtonsCradle": "Newton's cradle",
-  "newtonsCradleDesc": "Experiment ^ 2",
+  "newtonsCradleDesc": "CSS pendulum with alternating swing physics",
   "mailTitle": "Big mail",
   "mailDesc": "Hover to see whats inside",
   "magicLine": "Magic line",

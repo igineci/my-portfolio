@@ -94,7 +94,7 @@ export default function ContactPage() {
         </div>
       </div>
       <Socials />
-      <div className="border-b border-[#131313] mx-18 mt-7"></div>
+      <div className="border-b border-[#131313] mx-16 mt-7"></div>
       {/* Footer */}
       <Footer />
     </div>

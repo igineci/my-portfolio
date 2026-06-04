@@ -3,7 +3,6 @@ import GalleryCard from "../../../components/ui/gallery-card";
 import NewtonCradle from "./newton-cradle/cradle";
 import MailButton from "./mail/mail";
 import LetterI from "./letter/letter";
-import Tube from "./tube/tube";
 import GalleryGrid from "../../../components/ui/gallery-grid";
 
 export default function ExperimentsContent() {
@@ -11,27 +10,21 @@ export default function ExperimentsContent() {
 
   const items = [
     {
-      title: t("strip", "Strip"),
-      description: t("stripDesc", "A pure CSS loading strip"),
-      
-      node: <Tube />,
-    },
-    {
       title: t("letterTitle", "Mysterious letter"),
       description: t("letterDesc", "Smooth letter with smooth lines"),
-      
       node: <LetterI />,
     },
     {
       title: t("newtonsCradle", "Newton's cradle"),
-      description: t("newtonsCradleDesc", "Experiment ^ 2"),
-      
+      description: t(
+        "newtonsCradleDesc",
+        "CSS pendulum with alternating swing physics"
+      ),
       node: <NewtonCradle />,
     },
     {
       title: t("mailTitle", "Big mail"),
       description: t("mailDesc", "Hover to see whats inside"),
-      
       node: <MailButton />,
     },
   ];

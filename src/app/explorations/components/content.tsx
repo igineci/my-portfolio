@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import GlitchButtons from "./3d/3d-button-glitch";
 import ThreeDTiles from "./3d/3d-tiles";
 import GalleryCard from "../../../components/ui/gallery-card";
@@ -9,7 +10,13 @@ import GalleryGrid from "../../../components/ui/gallery-grid";
 export default function ComponentsContent() {
   const { t } = useTranslation();
 
-  const items = [
+  const items: {
+    title: string;
+    description: string;
+    node: ReactNode;
+    previewMode?: "center" | "bottom" | "fill" | "scroll";
+    previewOverflowVisible?: boolean;
+  }[] = [
     {
       title: t("3dTiles", "3D Tiles"),
       description: t(
@@ -39,7 +46,7 @@ export default function ComponentsContent() {
       description: t("toggleDesc", "Interactive 3D toggle switch"),
       
       node: <Toggle />,
-    },
+    }
   ];
 
   return (
@@ -50,6 +57,8 @@ export default function ComponentsContent() {
             key={`${it.title}-${idx}`}
             title={it.title}
             description={it.description}
+            previewMode={it.previewMode}
+            previewOverflowVisible={it.previewOverflowVisible}
           >
             {it.node}
           </GalleryCard>
