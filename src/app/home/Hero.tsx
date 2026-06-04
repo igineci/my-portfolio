@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { trackHeroExplorationsCtaClicked } from "@/lib/analytics";
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * HERO IMAGE HEIGHT — single knob
@@ -230,7 +231,10 @@ export default function HeroSection() {
             }`}
           >
             <button
-              onClick={() => navigate("/explorations")}
+              onClick={() => {
+                trackHeroExplorationsCtaClicked();
+                navigate("/explorations");
+              }}
               className="nav-hover-circle-light mb-5 sm:mb-7 md:mb-9 uppercase tracking-[0.08em] text-[#f2f0ea] text-[14px] sm:text-[18px] md:text-[22px] lg:text-[24px] py-4 sm:py-5 px-6 sm:px-8 cursor-pointer bg-transparent border-0"
               aria-label="Go to explorations"
             >

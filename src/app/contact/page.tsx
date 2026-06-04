@@ -81,6 +81,7 @@ export default function ContactPage() {
               href="/cv.pdf"
               downloadFilename="Andjela_Djekic_CV.pdf"
               downloadHint={t("downloadHint", "Click to download · pdf")}
+              downloadKind="cv"
             />
 
             <ContactDownloadRow
@@ -89,6 +90,7 @@ export default function ContactPage() {
               href="/Engineering_Statement_Andjela_Djekic.pdf"
               downloadFilename="Engineering_Statement_Andjela_Djekic.pdf"
               downloadHint={t("downloadHint", "Click to download · pdf")}
+              downloadKind="engineering_statement"
             />
           </div>
         </div>

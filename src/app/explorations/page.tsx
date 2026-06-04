@@ -7,13 +7,20 @@ import ComponentsContent from "./components/content";
 import TabDiagram from "../../components/tab-diagram";
 import { useTranslation } from "react-i18next";
 import CaseStudiesContent from "./case-studies/content";
+import {
+  trackExplorationsTabChanged,
+  type ExplorationsTab,
+} from "@/lib/analytics";
  
 
 export default function ExplorationsPage() {
-  const [activeTab, setActiveTab] = useState<
-    "components" | "casestudies" | "experiments"
-  >("casestudies");
+  const [activeTab, setActiveTab] = useState<ExplorationsTab>("casestudies");
   const { t } = useTranslation();
+
+  const handleTabChange = (tab: ExplorationsTab) => {
+    setActiveTab(tab);
+    trackExplorationsTabChanged(tab);
+  };
 
   return (
     <div
@@ -38,7 +45,7 @@ export default function ExplorationsPage() {
               {t("uiLab", "UI LAB")}
             </h1>
 
-            <TabDiagram activeTab={activeTab} onTabChange={setActiveTab} />
+            <TabDiagram activeTab={activeTab} onTabChange={handleTabChange} />
 
             {/* Tab Content Section */}
             <div

@@ -13,6 +13,12 @@ import emailjs from "@emailjs/browser";
 
 import { AiOutlineSend } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
+import {
+  trackContactFormFailed,
+  trackContactFormSubmitted,
+  trackMailtoClicked,
+  trackSocialLinkClicked,
+} from "@/lib/analytics";
 
 interface InteractiveContactProps {
   name?: string;
@@ -37,6 +43,7 @@ export default function InteractiveContact({
 
     if (mailUrl.startsWith("mailto:")) {
       event.preventDefault();
+      trackMailtoClicked("home_contact");
       window.location.href = mailUrl;
       return;
     }
@@ -92,6 +99,8 @@ export default function InteractiveContact({
         console.log("EmailJS send result:", res.status, res.text);
       }
 
+      trackContactFormSubmitted("home");
+
       setIsSuccess(true);
       setIsMailSuccess(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
@@ -100,6 +109,7 @@ export default function InteractiveContact({
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Email send failed:", error);
+      trackContactFormFailed("home");
       setIsMailError(true);
       setTimeout(() => setIsMailError(false), 5000);
     } finally {
@@ -152,6 +162,9 @@ export default function InteractiveContact({
                 href={linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackSocialLinkClicked("home_contact", "linkedin")
+                }
                 className="group relative overflow-hidden bg-[#f2f0ea] p-4 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
               >
                 <GrLinkedin className="w-8 h-8 text-foreground group-hover:text-white transition-colors duration-300 z-10 relative" />
@@ -171,6 +184,7 @@ export default function InteractiveContact({
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackSocialLinkClicked("home_contact", "github")}
                 className="group relative overflow-hidden bg-[#f2f0ea] p-4  flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
               >
                 <FaGithub className="w-8 h-8 text-foreground group-hover:text-white transition-colors duration-300 z-10 relative" />

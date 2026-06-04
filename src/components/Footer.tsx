@@ -1,10 +1,20 @@
 // Footer Component
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import {
+  trackMailtoClicked,
+  trackNavClicked,
+  type NavDestination,
+} from "@/lib/analytics";
 
 export default function Footer() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const goTo = (destination: NavDestination, path: string) => {
+    trackNavClicked(destination, "footer");
+    navigate(path);
+  };
 
   return (
     <footer className="w-full bg-[#f2f0ea] mt-auto">
@@ -28,25 +38,25 @@ export default function Footer() {
               {/* Center - Navigation Links */}
               <nav className="flex flex-wrap justify-center space-x-6">
                 <button
-                  onClick={() => navigate("/")}
+                  onClick={() => goTo("home", "/")}
                   className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 bg-transparent border-none p-0 hover:cursor-pointer"
                 >
                   {t("home", "Home")}
                 </button>
                 <button
-                  onClick={() => navigate("/work")}
+                  onClick={() => goTo("work", "/work")}
                   className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 bg-transparent border-none p-0 hover:cursor-pointer"
                 >
                   {t("work", "Work")}
                 </button>
                 <button
-                  onClick={() => navigate("/explorations")}
+                  onClick={() => goTo("explorations", "/explorations")}
                   className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 bg-transparent border-none p-0 hover:cursor-pointer"
                 >
                   {t("explorations", "Explorations")}
                 </button>
                 <button
-                  onClick={() => navigate("/about")}
+                  onClick={() => goTo("about", "/about")}
                   className="text-[#131313] text-sm nav-hover-circle transition-opacity duration-200 hover:cursor-pointer"
                 >
                   {t("about", "About")}
@@ -57,6 +67,7 @@ export default function Footer() {
               <div className="text-center lg:text-right">
                 <a
                   href="mailto:andjeladjek@gmail.com"
+                  onClick={() => trackMailtoClicked("footer")}
                   className="text-[#131313] text-sm hover:opacity-70 transition-opacity duration-200 block"
                 >
                   andjeladjek@gmail.com

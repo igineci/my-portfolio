@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { trackUiLabCtaClicked } from "@/lib/analytics";
 
 export default function UiLabCta() {
   const navigate = useNavigate();
@@ -13,7 +14,10 @@ export default function UiLabCta() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="group relative w-full border border-[#131313] bg-[#dddbd4] overflow-hidden cursor-pointer"
-        onClick={() => navigate("/explorations")}
+        onClick={() => {
+          trackUiLabCtaClicked();
+          navigate("/explorations");
+        }}
         role="link"
         aria-label="Check out my UI LAB"
       >

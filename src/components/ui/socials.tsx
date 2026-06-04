@@ -4,6 +4,10 @@ import { GrLinkedin } from "react-icons/gr";
 import { IoMailSharp } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import {
+  trackMailtoClicked,
+  trackSocialLinkClicked,
+} from "@/lib/analytics";
 
 interface SocialsProps {
   name?: string;
@@ -30,6 +34,7 @@ export default function Socials({
     if (mailUrl.startsWith("mailto:")) {
       // Trigger default mail client reliably across browsers
       event.preventDefault();
+      trackMailtoClicked("contact_socials");
       window.location.href = mailUrl;
       return;
     }
@@ -95,6 +100,9 @@ export default function Socials({
                   href={linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackSocialLinkClicked("contact_socials", "linkedin")
+                  }
                   className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
                 >
                   <GrLinkedin className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />
@@ -103,6 +111,11 @@ export default function Socials({
 
                 <a
                   href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    trackSocialLinkClicked("contact_socials", "github")
+                  }
                   className="group relative overflow-hidden bg-[#f2f0ea] border-1 border-[#131313] p-3 sm:p-4 flex items-center justify-center transition-all duration-300 hover:scale-105"
                 >
                   <FaGithub className="w-7 h-7 sm:w-8 sm:h-8 text-[#131313] group-hover:text-[#f2f0ea] transition-colors duration-300 z-10 relative" />

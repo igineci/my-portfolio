@@ -11,6 +11,10 @@ import {
   projectHighlightKey,
   type Project,
 } from "../../data/projects";
+import {
+  trackProjectLinkClicked,
+  trackProjectSelected,
+} from "@/lib/analytics";
 
 export interface ProjectsGalleryProps {
   /** Projects to render. Selection (e.g. by surface) is the caller's concern. */
@@ -73,10 +77,14 @@ export default function ProjectsGallery({ projects, heading }: ProjectsGalleryPr
       if (total === 0) return;
       const normalized = ((nextIndex % total) + total) % total;
       if (normalized === safeIndex) return;
+      const nextProject = projects[normalized];
+      if (nextProject) {
+        trackProjectSelected(nextProject.id);
+      }
       triggerRotationCue();
       setCurrentIndex(normalized);
     },
-    [total, safeIndex, triggerRotationCue],
+    [total, safeIndex, triggerRotationCue, projects],
   );
 
   const handleProjectSelect = useCallback((index: number) => goTo(index), [goTo]);
@@ -85,6 +93,9 @@ export default function ProjectsGallery({ projects, heading }: ProjectsGalleryPr
     if (!currentProject) return;
     const { href, type } = currentProject.link;
     if (!href) return;
+
+    trackProjectLinkClicked(currentProject.id, type, "home_gallery");
+
     if (type === "external") {
       window.open(href, "_blank", "noopener,noreferrer");
       return;

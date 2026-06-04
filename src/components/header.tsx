@@ -3,6 +3,11 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {
+  trackLanguageChanged,
+  trackNavClicked,
+  type NavDestination,
+} from "@/lib/analytics";
 
 const languageKeys: Record<string, string> = {
   en: "EN",
@@ -34,12 +39,22 @@ export default function Header() {
   const cycleLanguage = () => {
     const currentLanguage = getCurrentLanguage();
     const currentIndex = supportedLanguages.indexOf(
-      currentLanguage as (typeof supportedLanguages)[number]
+      currentLanguage as (typeof supportedLanguages)[number],
     );
     const nextLanguage =
       supportedLanguages[(currentIndex + 1) % supportedLanguages.length];
 
+    trackLanguageChanged(currentLanguage, nextLanguage);
     i18n.changeLanguage(nextLanguage);
+  };
+
+  const goTo = (
+    destination: NavDestination,
+    path: string,
+    source: "header" | "mobile_menu",
+  ) => {
+    trackNavClicked(destination, source);
+    navigate(path);
   };
 
   return (
@@ -77,7 +92,7 @@ export default function Header() {
                   <nav className="flex items-center space-x-12">
                     {/* Home link with router navigation */}
                     <button
-                      onClick={() => navigate("/")}
+                      onClick={() => goTo("home", "/", "header")}
                       className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
                         isActivePath("/") ? "nav-active" : ""
                       }`}
@@ -86,7 +101,7 @@ export default function Header() {
                     </button>
                     {/* Work link with router navigation */}
                     <button
-                      onClick={() => navigate("/work")}
+                      onClick={() => goTo("work", "/work", "header")}
                       className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
                         isActivePath("/work") ? "nav-active" : ""
                       }`}
@@ -95,7 +110,7 @@ export default function Header() {
                     </button>
                     {/* Explorations link with router navigation */}
                     <button
-                      onClick={() => navigate("/explorations")}
+                      onClick={() => goTo("explorations", "/explorations", "header")}
                       className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
                         isActivePath("/explorations") ? "nav-active" : ""
                       }`}
@@ -104,7 +119,7 @@ export default function Header() {
                     </button>
                     {/* About link with router navigation */}
                     <button
-                      onClick={() => navigate("/about")}
+                      onClick={() => goTo("about", "/about", "header")}
                       className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
                         isActivePath("/about") ? "nav-active" : ""
                       }`}
@@ -113,7 +128,7 @@ export default function Header() {
                     </button>
                     {/* Contact link with router navigation */}
                     <button
-                      onClick={() => navigate("/contact")}
+                      onClick={() => goTo("contact", "/contact", "header")}
                       className={`text-[#131313] text-md nav-hover-circle cursor-pointer bg-transparent border-none p-0 ${
                         isActivePath("/contact") ? "nav-active" : ""
                       }`}
@@ -169,7 +184,7 @@ export default function Header() {
               {/* Home link for mobile */}
               <button
                 onClick={() => {
-                  navigate("/");
+                  goTo("home", "/", "mobile_menu");
                   setIsMobileMenuOpen(false);
                 }}
                 className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
@@ -180,7 +195,7 @@ export default function Header() {
               {/* Work link for mobile */}
               <button
                 onClick={() => {
-                  navigate("/work");
+                  goTo("work", "/work", "mobile_menu");
                   setIsMobileMenuOpen(false);
                 }}
                 className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
@@ -191,7 +206,7 @@ export default function Header() {
               {/* Explorations link for mobile */}
               <button
                 onClick={() => {
-                  navigate("/explorations");
+                  goTo("explorations", "/explorations", "mobile_menu");
                   setIsMobileMenuOpen(false);
                 }}
                 className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
@@ -201,7 +216,7 @@ export default function Header() {
 
               <button
                 onClick={() => {
-                  navigate("/about");
+                  goTo("about", "/about", "mobile_menu");
                   setIsMobileMenuOpen(false);
                 }}
                 className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"
@@ -211,7 +226,7 @@ export default function Header() {
 
               <button
                 onClick={() => {
-                  navigate("/contact");
+                  goTo("contact", "/contact", "mobile_menu");
                   setIsMobileMenuOpen(false);
                 }}
                 className="text-[#131313] text-lg text-center py-4 uppercase bg-transparent border-none w-full"

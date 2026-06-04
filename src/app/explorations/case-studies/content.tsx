@@ -6,6 +6,7 @@ import CaseStudyPlaceholder from "../../../components/case-studies/placeholder";
 import CaseStudySection from "../../../components/case-studies/section";
 import type { ActiveStudy } from "../../../components/case-studies/types";
 import { caseStudySections } from "./data";
+import { trackCaseStudyOpened } from "@/lib/analytics";
 import SeedAbsolute from "./studies/overlap/seed-absolute";
 import SeedArms from "./studies/overlap/seed-arms";
 import SeedGrid from "./studies/overlap/seed-grid";
@@ -108,7 +109,8 @@ export default function CaseStudiesContent() {
                 size={item.size}
                 title={item.title}
                 previewLayout={section.id === "shapes" ? "block" : "center"}
-                onOpen={() =>
+                onOpen={() => {
+                  trackCaseStudyOpened(item.id);
                   setActive({
                     caption: item.caption,
                     title: item.title,
@@ -116,8 +118,8 @@ export default function CaseStudiesContent() {
                     modal: item.modal,
                     demoLayout:
                       section.id === "shapes" ? "editorial" : "center",
-                  })
-                }
+                  });
+                }}
               >
                 {renderStudyContent(section.id, item.id, "thumb")}
               </CaseStudy>

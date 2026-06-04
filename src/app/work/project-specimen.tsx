@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { BadgeGroup } from "../../components/ui/badge";
 import { projectHighlightKey, projectKey } from "../../data/projects";
 import type { Project, ProjectLink, ProjectStatus } from "../../data/projects";
+import { trackProjectLinkClicked } from "@/lib/analytics";
 
 /**
  * Returns the human-friendly destination label for a project link:
@@ -42,7 +43,7 @@ function formatLinkDisplay(link: ProjectLink): string | undefined {
  */
 interface ProjectSpecimenProps {
   project: Project;
-  onOpen: (link: string) => void;
+  onOpen: (project: Project) => void;
 }
 
 const EASE: Easing = [0.22, 1, 0.36, 1];
@@ -143,6 +144,13 @@ export function ProjectSpecimen({
             href={project.link.href}
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
+            onClick={() =>
+              trackProjectLinkClicked(
+                project.id,
+                project.link.type,
+                "work_specimen",
+              )
+            }
             className="group inline-flex items-center gap-2 text-[12px] sm:text-sm tracking-[0.04em] font-light text-[#131313]"
           >
             <span aria-hidden className="text-[#131313]">↗</span>
@@ -322,7 +330,7 @@ export function ProjectSpecimen({
         <DomeCta
           label={t(ctaKey, "Explore Project")}
           subLabel={linkDisplay}
-          onClick={() => onOpen(project.link.href)}
+          onClick={() => onOpen(project)}
         />
       </motion.div>
     </div>

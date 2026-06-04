@@ -1,5 +1,12 @@
 "use client";
 
+import {
+  trackCvDownload,
+  trackEngineeringStatementDownload,
+} from "@/lib/analytics";
+
+export type ContactDownloadKind = "cv" | "engineering_statement";
+
 /**
  * ContactDownloadRow — a contact-page row for PDF downloads (CV,
  * Engineering Statement, …). Matches the TEL / EMAIL row rhythm on
@@ -22,9 +29,20 @@ interface ContactDownloadRowProps {
   downloadFilename: string;
   /** Tiny tracked hint revealed on hover (i18n string). */
   downloadHint: string;
+  downloadKind: ContactDownloadKind;
 }
 
-function triggerDownload(href: string, downloadFilename: string) {
+function triggerDownload(
+  href: string,
+  downloadFilename: string,
+  downloadKind: ContactDownloadKind,
+) {
+  if (downloadKind === "cv") {
+    trackCvDownload("contact");
+  } else {
+    trackEngineeringStatementDownload();
+  }
+
   const link = document.createElement("a");
   link.href = href;
   link.download = downloadFilename;
@@ -39,6 +57,7 @@ export function ContactDownloadRow({
   href,
   downloadFilename,
   downloadHint,
+  downloadKind,
 }: ContactDownloadRowProps) {
   return (
     <div className="border-b border-[#131313] py-10 mb-0">
@@ -50,7 +69,9 @@ export function ContactDownloadRow({
         <div className="flex flex-col items-center sm:items-end">
           <button
             type="button"
-            onClick={() => triggerDownload(href, downloadFilename)}
+            onClick={() =>
+              triggerDownload(href, downloadFilename, downloadKind)
+            }
             aria-label={`${downloadHint} — ${value}`}
             className="group relative inline-flex flex-col items-center sm:items-end bg-transparent border-0 cursor-pointer p-4 -m-4 focus:outline-none focus-visible:outline-1 focus-visible:outline-[#131313]/40"
           >

@@ -3,10 +3,18 @@
 import Header from "../../components/header";
 import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GiStarShuriken } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
-import { getProjectsForSurface, projectKey } from "../../data/projects";
+import {
+  getProjectsForSurface,
+  projectKey,
+  type Project,
+} from "../../data/projects";
+import {
+  trackProjectLinkClicked,
+  trackWorkSectionToggled,
+} from "@/lib/analytics";
 import { ProjectSpecimen } from "./project-specimen";
 import { NowSpecimen } from "./now-specimen";
 import {
@@ -20,6 +28,7 @@ const projects = getProjectsForSurface("work");
 
 export default function WorkPage() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [expandedSection, setExpandedSection] = useState<string | null>(() => {
     return resolveWorkNavTarget(location)?.section ?? null;
   });
@@ -34,11 +43,26 @@ export default function WorkPage() {
   }, [location.state, location.hash, location.key]);
 
   const toggleSection = (sectionName: string) => {
-    setExpandedSection(expandedSection === sectionName ? null : sectionName);
+    const isOpen = expandedSection === sectionName;
+    trackWorkSectionToggled(sectionName, isOpen ? "close" : "open");
+    setExpandedSection(isOpen ? null : sectionName);
   };
 
-  const handleProjectClick = (link: string) => {
-    window.open(link, "_blank", "noopener,noreferrer");
+  const handleProjectClick = (project: Project) => {
+    const { href, type } = project.link;
+    if (!href) return;
+
+    trackProjectLinkClicked(project.id, type, "work_specimen");
+
+    if (type === "external") {
+      window.open(href, "_blank", "noopener,noreferrer");
+      return;
+    }
+    if (type === "mailto") {
+      window.location.href = href;
+      return;
+    }
+    navigate(href);
   };
 
   return (

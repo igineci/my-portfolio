@@ -6,9 +6,16 @@ export type CvPillProps = {
   href: string;
   external?: boolean;
   className?: string;
+  onNavigate?: () => void;
 };
 
-export function CvPill({ label, href, external, className }: CvPillProps) {
+export function CvPill({
+  label,
+  href,
+  external,
+  className,
+  onNavigate,
+}: CvPillProps) {
   const classes = [styles.pill, className].filter(Boolean).join(" ");
 
   if (external) {
@@ -18,6 +25,7 @@ export function CvPill({ label, href, external, className }: CvPillProps) {
         className={classes}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={onNavigate}
       >
         {label}
       </a>
@@ -25,7 +33,7 @@ export function CvPill({ label, href, external, className }: CvPillProps) {
   }
 
   return (
-    <Link to={href} className={classes}>
+    <Link to={href} className={classes} onClick={onNavigate}>
       {label}
     </Link>
   );

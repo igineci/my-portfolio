@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import type { CvWorkExperienceItem as CvWorkExperienceItemData } from "../i18n-types";
 import { useCvInteraction } from "../interaction/CvInteractionContext";
 import { useExperienceNavigation } from "../interaction/useExperienceNavigation";
+import { trackAboutToWorkNavigated } from "@/lib/analytics";
 import docStyles from "../document/cv-document.module.css";
 
 export type CvWorkExperienceItemProps = {
@@ -70,7 +71,10 @@ export function CvWorkExperienceItem({ item }: CvWorkExperienceItemProps) {
         onMouseLeave={() => setFocusedExperienceId(null)}
         onFocus={() => setFocusedExperienceId(item.id)}
         onBlur={() => setFocusedExperienceId(null)}
-        onClick={() => navigateToWorkSection(workSection!)}
+        onClick={() => {
+          trackAboutToWorkNavigated(workSection!);
+          navigateToWorkSection(workSection!);
+        }}
         aria-label={`${item.company} — ${t("workExperience.openProject")}`}
       >
         {content}
